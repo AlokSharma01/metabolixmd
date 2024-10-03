@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import Stepper from './Stepper';
 import PrescriptionQuestion from './froms/PrescriptionQuestion';
 import PrescriptionUpload from './froms/UploadPriscription';
-import StepOne from "./steps/StepOne";
-import StepTwo from "./steps/StepTwo";
-import StepThree from "./steps/SteoThree";
-import StepFour from "./steps/StepFour";
+
 import GoalSelectionForm from './froms/GoalSelectionForm';
 import UserInfoForm from './froms/UserInfoForm';
 import WeightCalculation from './froms/WeightCalculation';
@@ -46,22 +43,22 @@ const MultiStepForm = () => {
     nextStep();
   };
 
-  const renderFormStep = () => {
-    switch (currentStep) {
-      case 1:
-        return <PrescriptionQuestion handleNext={handleNextFromQuestion} />;
-      case 2:
-        return <PrescriptionUpload handleNext={handleNextFromUpload} />;
-      case 3:
-        return <StepThree />;
-      case 4:
-        return <StepFour />;
-      case 5:
-        return <StepFive />;
-      default:
-        return <PrescriptionQuestion handleNext={handleNextFromQuestion} />;
-    }
-  };
+  // const renderFormStep = () => {
+  //   switch (currentStep) {
+  //     case 1:
+  //       return <PrescriptionQuestion handleNext={handleNextFromQuestion} />;
+  //     case 2:
+  //       return <PrescriptionUpload handleNext={handleNextFromUpload} />;
+  //     case 3:
+  //       return <StepThree />;
+  //     case 4:
+  //       return <StepFour />;
+  //     case 5:
+  //       return <StepFive />;
+  //     default:
+  //       return <PrescriptionQuestion handleNext={handleNextFromQuestion} />;
+  //   }
+  // };
 
   return (
     <div className="">
