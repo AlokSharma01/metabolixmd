@@ -107,7 +107,7 @@ const WeightLossMedication = () => {
                         pounds?
                     </h2>
                     <p className='mt-10 max-w-48 text-lg'>
-                        We've got you covered!
+                        We&apos;ve got you covered!
 
                         Lose weight
 
@@ -233,7 +233,7 @@ const WeightLossMedication = () => {
                         <h2 className='font-bold text-6xl'>Our Products</h2>
                         <p className='leading-10 '>FOR EVERYBODY</p>
                         <p className='mt-10 font-medium'>
-                            Mathica Beauty uses ethically sourced, fair trade, natural materials that are expertly crafted to match users' needs.
+                            Mathica Beauty uses ethically sourced, fair trade, natural materials that are expertly crafted to match user&apos;s needs.
                         </p>
                     </div>
                     <div className='flex items-center gap-10 justify-around flex-1'>
@@ -270,9 +270,6 @@ const WeightLossMedication = () => {
 
                 </div>
             </section>
-
-
-
             <section className='px-5 mt-10'>
 
                 <h2 className='font-semibold text-primary text-5xl'>

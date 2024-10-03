@@ -17,7 +17,7 @@ const SearchAndSelectAllergies = () => {
                 <input className='p-3 bg-white border outline-none mt-5 rounded-xl w-full'  type="search" placeholder='Search allergy name'/>
 
                 <div className='p-3 font-medium text-center border cursor-pointer rounded-full mt-5'>
-                    I don't have any allergies
+                    I don&apos;t have any allergies
                 </div>
             </div>
         </div>

@@ -13,7 +13,7 @@ const DiabeticRetinopathy = () => {
                 <h2 className="text-2xl font-semibold mb-6">
                    Do you currently have or have you ever been diagnosed with  diabetic retinopathy ?
                 </h2>
-                <p className='text-zinc-500 font-semibold'>We want to make sure there's a provider overseeing your overall care</p>
+                <p className='text-zinc-500 font-semibold'>We want to make sure there&apos;s a provider overseeing your overall care</p>
 
                 <div onClick={handleTab} id="yes" className={`bg-white cursor-pointer border rounded-xl p-3 text-lg font-semibold mt-3 ${activeTab==="yes"?"border-primary border-2":""}`}>
                     Yes
