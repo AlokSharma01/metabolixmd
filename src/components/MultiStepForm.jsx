@@ -15,91 +15,44 @@ import DiabeticRetinopathy from './froms/DiabeticRetinopathy';
 import AnyDisease2Form from './froms/AnyDiesease2Form';
 import SearchAndSelectAllergies from './froms/SearchAndSelectAllergies';
 import GLP1 from './froms/GLP1';
+import AnyMedicationForm from './froms/AnyMedicationForm';
+import EthnicityForm from './froms/EthinicityForm';
+import LabTestForm from './froms/LabTestForm';
+import BeforeWrapUp from './froms/BeforeWrapUp';
+import UploadPriscription from './froms/UploadPriscription';
 
 const MultiStepForm = () => {
-  const [currentStep, setCurrentStep] = useState(1);
-  const totalSteps = 5; // Total number of forms/steps in the multi-step process
-  const [hasPrescription, setHasPrescription] = useState(false);
+  const [activeForm, setActiveForm] = useState("prescriptionQuestion")
 
-  const nextStep = () => {
-    if (currentStep < totalSteps) {
-      setCurrentStep(currentStep + 1);
-    }
-  };
+  const [formData, setformData] = useState({})
 
-  const prevStep = () => {
-    if (currentStep > 1) {
-      setCurrentStep(currentStep - 1);
-    }
-  };
 
-  const handleNextFromQuestion = (answer) => {
-    setHasPrescription(answer);
-    nextStep(); // Move to the next step
-  };
 
-  const handleNextFromUpload = () => {
-    alert('Prescription uploaded! Moving to the next step.');
-    nextStep();
-  };
-
-  // const renderFormStep = () => {
-  //   switch (currentStep) {
-  //     case 1:
-  //       return <PrescriptionQuestion handleNext={handleNextFromQuestion} />;
-  //     case 2:
-  //       return <PrescriptionUpload handleNext={handleNextFromUpload} />;
-  //     case 3:
-  //       return <StepThree />;
-  //     case 4:
-  //       return <StepFour />;
-  //     case 5:
-  //       return <StepFive />;
-  //     default:
-  //       return <PrescriptionQuestion handleNext={handleNextFromQuestion} />;
-  //   }
-  // };
 
   return (
     <div className="">
       <div className="">
-        {/* Stepper at the top */}
-        <Stepper currentStep={currentStep} totalSteps={totalSteps} />
-        
-        {/* Form content */}
-        {/* <div className="mb-6">{renderFormStep()}</div> */}
-        <GoalSelectionForm/>
-        <UserInfoForm/>
-        <WeightCalculation/>
-        <BasicsUserInfo/>
-        <PrimaryCareConfirmation/>
-        <HeartDiseaseForm/>
-        <AnyDiseaseForm/>
-        <Type2Diabetes/>
-        <DiabeticRetinopathy/>
-        <AnyDisease2Form/>
-        <SearchAndSelectAllergies/>
-        <GLP1/>
-        
-        {/* Navigation buttons */}
-        {/* <div className="flex justify-between">
-          {currentStep > 1 && (
-            <button
-              className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
-              onClick={prevStep}
-            >
-              Back
-            </button>
-          )}
-          {currentStep < totalSteps && (
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              onClick={nextStep}
-            >
-              Next
-            </button>
-          )}
-        </div> */}
+
+        <PrescriptionQuestion />
+        <UploadPriscription/>
+        <GoalSelectionForm />
+        <UserInfoForm />
+        <WeightCalculation />
+        <BasicsUserInfo />
+        <PrimaryCareConfirmation />
+        <HeartDiseaseForm />
+        <AnyDiseaseForm />
+        <Type2Diabetes />
+        <DiabeticRetinopathy />
+        <AnyDisease2Form />
+        <SearchAndSelectAllergies />
+        <GLP1 />
+        <AnyMedicationForm />
+        <EthnicityForm />
+        <BeforeWrapUp />
+        <LabTestForm />
+
+
       </div>
     </div>
   );

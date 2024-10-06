@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 const NavBar = () => {
@@ -13,9 +14,9 @@ const NavBar = () => {
                 <li className='cursor-pointer hover:text-primary hover:font-bold'>Contact</li>
             </ul>
 
-            <div className='text-lg px-8 p-2 rounded-full font-semibold border w-fit cursor-pointer hover:border-orange-400 hover:text-orange-400' >
+            <Link href="/login" className='text-lg px-8 p-2 rounded-full font-semibold border w-fit cursor-pointer hover:border-orange-400 hover:text-orange-400' >
                 Login
-            </div>
+            </Link>
         </div>
     </div>
   )

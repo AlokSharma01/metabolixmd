@@ -1,34 +1,31 @@
-import React from 'react';
+import React,{useState} from 'react';
 
-const PrescriptionQuestion = ({ handleNext }) => {
+
+const PrescriptionQuestion = () => {
+  const [activeTab, setActiveTab] = useState("")
+
+  const handleTab = (e) => {
+    setActiveTab(e.currentTarget.id)
+  }
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md text-center">
-      <div className="flex justify-between items-center">
-        <div className="flex-grow h-1 bg-green-500"></div>
-        <div className="ml-2">
-          <i className="text-green-500 text-xl">&#10084;</i>
-        </div>
-      </div>
+    <div className="max-w-fit mx-auto">
+      <div className="w-[500px]">
+        <h2 className="text-2xl font-semibold mb-6">
+          Do you have a prescription?
+        </h2>
 
-      <h1 className="text-green-600 font-semibold text-2xl mt-4">
-        MetabolixMD
-      </h1>
-      <p className="text-gray-700 mt-2 text-lg">
-        Do you have a prescription?
-      </p>
-
-      <div className="mt-6 space-y-4">
-        <button
-          className="w-full py-2 border rounded-lg border-gray-300 hover:bg-gray-100 text-gray-700"
-          onClick={() => handleNext(true)}
-        >
+        <div onClick={handleTab} id="yes" className={`bg-white cursor-pointer border rounded-xl p-3 text-lg font-semibold mt-3 ${activeTab === "yes" ? "border-primary border-2" : ""}`}>
           Yes
-        </button>
-        <button
-          className="w-full py-2 border rounded-lg border-gray-300 hover:bg-gray-100 text-gray-700"
-          onClick={() => handleNext(false)}
-        >
+        </div>
+        <div onClick={handleTab} id="no" className={`bg-white cursor-pointer border rounded-xl p-3 text-lg font-semibold mt-3 ${activeTab === "no" ? "border-primary border-2" : ""}`}>
           No
+        </div>
+
+        <button
+          type="button"
+          className={`mt-6 p-3 text-white w-full py-3text-white font-semibold rounded-full bg-primary hover:bg-primary`}
+        >
+          Continue
         </button>
       </div>
     </div>
