@@ -86,8 +86,6 @@ export default function useFirebaseAuth() {
             const res = await signOut(auth);
             removeToken();
             removeUser();
-            localStorage.removeItem("theme");
-            removeSupportRoomId();
             return { status: true };
         }
         catch (e) {
