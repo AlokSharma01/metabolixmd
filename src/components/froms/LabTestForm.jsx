@@ -1,4 +1,4 @@
-const LabTestForm = () => {
+ const LabTestForm = () => {
     const handleProceed = () => {
       // Handle the "I want to proceed" action
     };
@@ -14,16 +14,16 @@ const LabTestForm = () => {
             Your provider needs you to complete a lab test
           </h2>
           <p className="mb-4">
-            A metabolic lab test will check for underlying health conditions to see if you're a good candidate for GLP-1 treatment.
+            A metabolic lab test will check for underlying health conditions to see if you are a good candidate for GLP-1 treatment.
           </p>
-          <h3 className="font-semibold">What's covered in the metabolic lab test?</h3>
+          <h3 className="font-semibold">What is covered in the metabolic lab test?</h3>
           <ul className="list-disc ml-5 mb-4">
             <li>A lipid profile and A1c, thyroid, and kidney function testing</li>
             <li>Detection for conditions such as high cholesterol, prediabetes, hypothyroidism</li>
           </ul>
-          <h3 className="font-semibold">How do I complete the lab test?</h3>
-          <p className="mb-4">
-            Testing at Quest is included in the Body Program in most states, or you can get an at-home collection kit for $75. In some states, you'll get an at-home kit at no extra cost.
+          <h3 className="font-swiemibold">How do I complete the lab test?</h3>
+          <p className="mb-4"> 
+            Testing at Quest is included in the Body Program in most states, or you can get an at-home collection kit for $75. In some states, you will get an at-home kit at no extra cost.
           </p>
           <h3 className="font-semibold">What happens afterward?</h3>
           <p className="mb-4">

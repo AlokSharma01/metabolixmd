@@ -1,5 +1,6 @@
 import { postMethod } from "@/services/API/ApiMethod";
 import useFirebaseAuth from "@/services/Auth/useFirebaseAuth";
+import Link from "next/link";
 import { useState } from "react";
 import { toast } from "react-toastify";
 // Import your hook
@@ -100,9 +101,9 @@ const SignupForm = () => {
         </form>
         <p className="text-center text-gray-500 mt-6">
           Already have an account?{" "}
-          <a href="/login" className="text-primary hover:underline">
+          <Link href="/login" className="text-primary hover:underline">
             Log in
-          </a>
+          </Link>
         </p>
       </div>
     </div>

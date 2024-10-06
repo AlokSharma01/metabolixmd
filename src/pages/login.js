@@ -1,4 +1,5 @@
 import useFirebaseAuth from "@/services/Auth/useFirebaseAuth";
+import Link from "next/link";
 import { useState } from "react";
  // Import your hook
 
@@ -71,9 +72,9 @@ const LoginForm = () => {
         </form>
         <p className="text-center text-gray-500 mt-6">
           Don’t have an account?{" "}
-          <a href="/signup" className="text-primary hover:underline">
+          <Link href="/signup" className="text-primary hover:underline">
             Sign up
-          </a>
+          </Link>
         </p>
       </div>
     </div>
