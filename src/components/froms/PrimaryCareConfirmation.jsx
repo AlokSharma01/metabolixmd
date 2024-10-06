@@ -23,7 +23,7 @@ const PrimaryCareConfirmation = ({ onNext }) => {
           Have you seen your primary care provider in the past 12 months?
         </h2>
         <p className='text-zinc-500 font-semibold'>
-          We want to make sure there's a provider overseeing your overall care.
+          We want to make sure there&apos;s a provider overseeing your overall care.
         </p>
 
         {/* Yes Option */}

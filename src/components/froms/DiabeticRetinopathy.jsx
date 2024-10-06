@@ -31,7 +31,7 @@ const DiabeticRetinopathy = ({ onNext }) => {
                     No
                 </div>
                 <div onClick={handleTab} id="noBut" className={`bg-white cursor-pointer border rounded-xl p-3 text-lg font-semibold mt-3 ${activeTab==="noBut"?"border-primary border-2":""}`}>
-                    No, I don't know
+                    No, I don&apos;t know
                 </div>
                 <button
                     type="button"
