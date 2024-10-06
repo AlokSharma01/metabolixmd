@@ -1,7 +1,8 @@
 import { useState } from "react";
 
-const GoalSelectionForm = () => {
+const GoalSelectionForm = ({ onNext }) => {
   const [selectedGoals, setSelectedGoals] = useState([]);
+
   const goals = [
     "Lose weight",
     "Improve my general physical health",
@@ -20,6 +21,11 @@ const GoalSelectionForm = () => {
   };
 
   const isButtonDisabled = selectedGoals.length === 0;
+
+  const handleContinue = () => {
+    // Pass the selected goals data to the parent component and move to the next form
+    onNext({ selectedGoals }, "userInfo"); // Adjust "userInfo" to whatever the next step should be
+  };
 
   return (
     <div className="max-w-fit mx-auto">
@@ -48,12 +54,13 @@ const GoalSelectionForm = () => {
 
           <button
             type="button"
-            className={`mt-6 w-full py-3  text-white font-semibold rounded-full ${
+            className={`mt-6 w-full py-3 text-white font-semibold rounded-full ${
               isButtonDisabled
                 ? "bg-gray-400 cursor-not-allowed"
                 : "bg-primary hover:bg-primary"
             }`}
             disabled={isButtonDisabled}
+            onClick={handleContinue} // Trigger the continue action
           >
             Continue
           </button>

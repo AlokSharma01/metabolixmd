@@ -1,11 +1,20 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 
 
-const PrescriptionQuestion = () => {
+const PrescriptionQuestion = ({ onNext }) => {
   const [activeTab, setActiveTab] = useState("")
 
   const handleTab = (e) => {
     setActiveTab(e.currentTarget.id)
+  }
+
+  const handleClick = () => {
+    if (activeTab === "yes") {
+      onNext({}, "uploadPrescription")
+    }
+    else{
+      onNext({}, "goalSelection")
+    }
   }
   return (
     <div className="max-w-fit mx-auto">
@@ -24,6 +33,8 @@ const PrescriptionQuestion = () => {
         <button
           type="button"
           className={`mt-6 p-3 text-white w-full py-3text-white font-semibold rounded-full bg-primary hover:bg-primary`}
+
+          onClick={handleClick}
         >
           Continue
         </button>

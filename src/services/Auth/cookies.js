@@ -36,34 +36,3 @@ export const getUser = () => {
 };
 
 export const removeUser = () => cookies.remove('user');
-// fcm token cookie
-export const getFcmToken = () => {
-  const cookie = cookies.get('fcmtoken');
-  if (!cookie) {
-    return null;
-  }
-  return (cookie);
-};
-
-export const setFcmToken = token => {
-  cookies.set('fcmtoken', token,{
-    expires: 7
-  });
-};
-
-export const removeFcmToken = () => cookies.remove('fcmtoken');
-
-//  help support chatroom
-export const getSupportRoomId = () => {
-  const cookie = cookies.get('supportRoomId');
-  if (!cookie) {
-    return null;
-  }
-  return (cookie);
-};
-
-export const setSupportRoomId = token => {
-  cookies.set('supportRoomId', token);
-};
-
-export const removeSupportRoomId = () => cookies.remove('supportRoomId');

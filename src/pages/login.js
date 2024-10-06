@@ -1,6 +1,9 @@
+import { setToken, setUser } from "@/services/Auth/cookies";
 import useFirebaseAuth from "@/services/Auth/useFirebaseAuth";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "react-toastify";
  // Import your hook
 
 const LoginForm = () => {
@@ -8,19 +11,24 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const router  =useRouter()
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    const res = await loginWithEmailAndPassword(email, password, "/dashboard"); // Example redirect
+    const res = await loginWithEmailAndPassword(email, password); // Example redirect
     setLoading(false);
 
     if (res.status) {
       // Successful login
-      console.log("Logged in successfully");
+      toast.success("Logged in successfully");
+      setToken(res.token, res.expiryTime)
+      setUser(res.user.email)
+      router.push("/")
     } else {
       // Handle login error (already handled via toast in your custom hook)
+      toast.error("Verify your email and try again!")
     }
   };
 

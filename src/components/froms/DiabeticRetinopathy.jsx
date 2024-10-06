@@ -1,38 +1,49 @@
+import React, { useState } from 'react';
 
-import React, { useState } from 'react'
+const DiabeticRetinopathy = ({ onNext }) => {
+    const [activeTab, setActiveTab] = useState("");
 
-const DiabeticRetinopathy = () => {
-    const [activeTab, setActiveTab] = useState("")
+    const handleTab = (e) => {
+        setActiveTab(e.currentTarget.id);
+    }
 
-    const handleTab = (e) => {
-        setActiveTab(e.currentTarget.id)
-    }
-    return (
-        <div className="max-w-fit mx-auto">
-            <div className="w-[500px]">
-                <h2 className="text-2xl font-semibold mb-6">
-                   Do you currently have or have you ever been diagnosed with  diabetic retinopathy ?
-                </h2>
-                <p className='text-zinc-500 font-semibold'>We want to make sure there&apos;s a provider overseeing your overall care</p>
+    const handleContinue = () => {
+        const data = {
+            diabeticRetinopathyStatus: activeTab
+        };
+        onNext(data); // Pass the data and move to the next step
+    }
 
-                <div onClick={handleTab} id="yes" className={`bg-white cursor-pointer border rounded-xl p-3 text-lg font-semibold mt-3 ${activeTab==="yes"?"border-primary border-2":""}`}>
-                    Yes
-                </div>
-                <div onClick={handleTab} id="no" className={`bg-white cursor-pointer border rounded-xl p-3 text-lg font-semibold mt-3 ${activeTab==="no"?"border-primary border-2":""}`}>
-                    No
-                </div>
-                <div onClick={handleTab} id="noBut" className={`bg-white cursor-pointer border rounded-xl p-3 text-lg font-semibold mt-3 ${activeTab==="noBut"?"border-primary border-2":""}`}>
-                    No, I dont know
-                </div>
-                <button
-                    type="button"
-                    className={`mt-6 p-3 text-white w-full py-3text-white font-semibold rounded-full bg-primary hover:bg-primary`}
-                >
-                    Continue
-                </button>
-            </div>
-        </div>
-    )
+    const isButtonDisabled = !activeTab; // Disable if no tab is selected
+
+    return (
+        <div className="max-w-fit mx-auto">
+            <div className="w-[500px]">
+                <h2 className="text-2xl font-semibold mb-6">
+                   Do you currently have or have you ever been diagnosed with diabetic retinopathy?
+                </h2>
+                <p className='text-zinc-500 font-semibold'>We want to make sure there&apos;s a provider overseeing your overall care</p>
+
+                <div onClick={handleTab} id="yes" className={`bg-white cursor-pointer border rounded-xl p-3 text-lg font-semibold mt-3 ${activeTab==="yes"?"border-primary border-2":""}`}>
+                    Yes
+                </div>
+                <div onClick={handleTab} id="no" className={`bg-white cursor-pointer border rounded-xl p-3 text-lg font-semibold mt-3 ${activeTab==="no"?"border-primary border-2":""}`}>
+                    No
+                </div>
+                <div onClick={handleTab} id="noBut" className={`bg-white cursor-pointer border rounded-xl p-3 text-lg font-semibold mt-3 ${activeTab==="noBut"?"border-primary border-2":""}`}>
+                    No, I don't know
+                </div>
+                <button
+                    type="button"
+                    className={`mt-6 p-3 text-white w-full font-semibold rounded-full ${isButtonDisabled ? "bg-gray-400 cursor-not-allowed" : "bg-primary hover:bg-primary"}`}
+                    disabled={isButtonDisabled}
+                    onClick={handleContinue}
+                >
+                    Continue
+                </button>
+            </div>
+        </div>
+    );
 }
 
-export default DiabeticRetinopathy
+export default DiabeticRetinopathy;

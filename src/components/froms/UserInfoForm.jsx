@@ -1,11 +1,23 @@
 import { useState } from "react";
 
-const UserInfoForm = () => {
+const UserInfoForm = ({ onNext }) => {
   const [feet, setFeet] = useState("");
   const [inches, setInches] = useState("");
   const [weight, setWeight] = useState("");
 
   const isButtonDisabled = !feet || !inches || !weight;
+
+  const handleContinue = () => {
+    // Pass the height and weight data to the parent component and move to the next form
+    const formData = {
+      height: {
+        feet,
+        inches,
+      },
+      weight,
+    };
+    onNext(formData, "weightCalculation"); // Replace "weightCalculation" with the next form step if needed
+  };
 
   return (
     <div className="max-w-fit mx-auto">
@@ -60,6 +72,7 @@ const UserInfoForm = () => {
               : "bg-primary "
           }`}
           disabled={isButtonDisabled}
+          onClick={handleContinue} // Trigger continue action
         >
           Continue
         </button>

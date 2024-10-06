@@ -1,8 +1,10 @@
 import { postMethod } from "@/services/API/ApiMethod";
 import useFirebaseAuth from "@/services/Auth/useFirebaseAuth";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
+
 // Import your hook
 
 const SignupForm = () => {
@@ -11,6 +13,7 @@ const SignupForm = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const router =useRouter()
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -36,8 +39,9 @@ const SignupForm = () => {
       };
       const resp = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/auth/onBoarding", requestOptions)
       const res1 = await resp.json()
+      router.push("/login")
     } else {
-      // Handle signup error (already handled via toast in your hook)
+      toast.error("Something went wrong!")
     }
   };
 

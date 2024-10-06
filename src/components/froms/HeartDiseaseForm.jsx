@@ -1,22 +1,23 @@
-
-
 import { useState } from "react";
 
-const HeartDiseaseForm = () => {
+const HeartDiseaseForm = ({ onNext }) => {
   const [selectedGoals, setSelectedGoals] = useState([]);
+  
+  // Heart condition options
   const goals = [
     "Atrial fibrillation or flutter",
     "Tachycardia (episodes of rapid heart rate)",
     "Heart failure",
-    "heart disease, stroke, or peripheral vascular disease",
+    "Heart disease, stroke, or peripheral vascular disease",
     "Prolonged QT interval",
-    "Other heart rythm issues or ECG abnormalities",
+    "Other heart rhythm issues or ECG abnormalities",
     "Hypertension (high blood pressure)",
     "Hyperlipidemia (high cholesterol)",
-    "Hypertringlyceridemia (high triglycerides)",
-    "No, I have not been diagnoased with any of these heart conditions",
+    "Hypertriglyceridemia (high triglycerides)",
+    "No, I have not been diagnosed with any of these heart conditions",
   ];
 
+  // Handle checkbox change
   const handleCheckboxChange = (goal) => {
     setSelectedGoals((prev) =>
       prev.includes(goal)
@@ -27,6 +28,14 @@ const HeartDiseaseForm = () => {
 
   const isButtonDisabled = selectedGoals.length === 0;
 
+  // Handle form submission
+  const handleNext = () => {
+    const data = {
+      heart_conditions: selectedGoals
+    };
+    onNext(data); // Replace "nextFormStep" with the next form step identifier
+  };
+
   return (
     <div className="max-w-fit mx-auto">
       <div className="w-[500px]">
@@ -34,6 +43,8 @@ const HeartDiseaseForm = () => {
           Do you currently have, or have you ever been diagnosed with, any of the following heart or heart-related conditions?
         </h2>
         <p className="my-5 font-semibold text-zinc-500">Select all that apply</p>
+        
+        {/* Form with heart condition checkboxes */}
         <form>
           <div className="space-y-4">
             {goals.map((goal, index) => (
@@ -52,14 +63,16 @@ const HeartDiseaseForm = () => {
             ))}
           </div>
 
+          {/* Continue button */}
           <button
             type="button"
-            className={`mt-6 w-full py-3  text-white font-semibold rounded-full ${
+            className={`mt-6 w-full py-3 text-white font-semibold rounded-full ${
               isButtonDisabled
                 ? "bg-gray-400 cursor-not-allowed"
                 : "bg-primary hover:bg-primary"
             }`}
             disabled={isButtonDisabled}
+            onClick={handleNext}
           >
             Continue
           </button>

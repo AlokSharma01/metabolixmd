@@ -26,7 +26,7 @@ export default function useFirebaseAuth() {
         try {
             const res = await createUserWithEmailAndPassword(auth, email, password);
             //  Send a verification email
-            await sendEmailVerification(auth.currentUser)
+            // await sendEmailVerification(auth.currentUser)
             // Set up the cookie expiry time
             const expiryTime = new Date(Date.now() + 3600 * 1000);
             // Set the cookie
@@ -86,7 +86,6 @@ export default function useFirebaseAuth() {
             const res = await signOut(auth);
             removeToken();
             removeUser();
-            removeFcmToken()
             localStorage.removeItem("theme");
             removeSupportRoomId();
             return { status: true };

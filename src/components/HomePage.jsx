@@ -4,8 +4,10 @@ import FaqList from './Faq'
 import MeetExpertBackground from './MeetExpertBackground'
 import CompareModule from './CompareModule'
 import Link from 'next/link'
+import { getAuthToken } from '@/services/API/apiHelper'
 
 const WeightLossMedication = () => {
+    let token = getAuthToken()
     return (
         <div>
             <NavBar />
@@ -18,9 +20,16 @@ const WeightLossMedication = () => {
                     <p className='mt-3 text-zinc-500'>
                         Compounded semaglutide, including MetabolixMD’ product (pictured above),
                         is not approved or evaluated for safety, efficacy, or quality by FDA.</p>
-                    <Link href="/get-started" className='bg-primary flex items-center justify-center p-4 px-10 w-[300px] text-white font-semibold text-lg rounded-full mt-6'>
-                        GET STARTED
-                    </Link>
+                    {
+                        token ?
+                            <Link href="/get-started" className='bg-primary flex items-center justify-center p-4 px-10 w-[300px] text-white font-semibold text-lg rounded-full mt-6'>
+                                GET STARTED
+                            </Link>
+                            :
+                            <Link href="/login" className='bg-primary flex items-center justify-center p-4 px-10 w-[300px] text-white font-semibold text-lg rounded-full mt-6'>
+                                GET STARTED
+                            </Link>
+                    }
                 </div>
                 <div className='bg-[#d3d2cc] flex-1 flex items-center justify-center'>
 
