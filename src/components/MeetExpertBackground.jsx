@@ -2,7 +2,7 @@ import React from 'react'
 
 const MeetExpertBackground = ({children }) => {
     return (
-        <div className='h-[600px] min-w-[320px] w-[500px] bg-white relative flex flex-col justify-end overflow-hidden '>
+        <div className='md:h-[600px] min-w-[320px]  md:w-[500px] bg-white relative flex flex-col justify-end overflow-hidden '>
 
             <div className='h-[500px] bg-orange-400 rounded-t-3xl flex flex-col justify-end'>
 

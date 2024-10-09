@@ -9,13 +9,14 @@ import { getAuthToken } from '@/services/API/apiHelper'
 const WeightLossMedication = () => {
     let token = getAuthToken()
     return (
-        <div>
+        <div >
             <NavBar />
-            <section className='flex min-h-[600px] border-b'>
+            <section className='flex flex-col lg:flex-row min-h-[600px] gap-10 border-b'>
                 <div className='flex-1 flex flex-col justify-center  px-10'>
-                    <h1 className='text-5xl font-medium '>
-                        Get Access to prescription
-                        <b className='text-orange-500'>Weight Loss</b> Medication Online
+                    <h1 className='text-5xl font-medium text-wrap'>
+                        Get Access to prescription<br/>
+                        <b className='text-orange-500 text-wrap'>Weight Loss </b> 
+                        Medication Online
                     </h1>
                     <p className='mt-3 text-zinc-500'>
                         Compounded semaglutide, including MetabolixMD’ product (pictured above),
@@ -31,74 +32,92 @@ const WeightLossMedication = () => {
                             </Link>
                     }
                 </div>
-                <div className='bg-[#d3d2cc] flex-1 flex items-center justify-center'>
-
-                    <img src="/images/medicine.png" />
+                <div style={{backgroundImage:`url(/images/medicine.png)`}} className='bg-[#d3d2cc] min-h-[300px] flex-1  bg-cover bg-center bg-no-repeat'>
+                 
                 </div>
             </section>
             <section className='px-3 mt-10'>
-                <div className='flex '>
+                <div className='flex  flex-wrap '>
                     <h2 className='text-5xl flex-1'>
                         <b className='text-primary'>Prescription </b>
                         ingredients
                         for personalised care.
                     </h2>
-                    <div className='flex-1 flex justify-end'>
-                        <button className='bg-primary flex items-center justify-center p-4 px-10 w-[300px] text-white font-semibold text-lg rounded-xl mt-6'>
+                    <div className='flex-1 flex md:justify-end'>
+                        <button className='bg-primary flex items-center justify-center p-4 px-10 max-h-[80px] w-[300px] text-white font-semibold text-lg rounded-xl mt-6'>
                             GET STARTED
                         </button>
                     </div>
                 </div>
-
                 <div className='mt-5 flex gap-10  flex-wrap'>
-                    <div style={{ backgroundImage: `url(/images/medicine.png)` }} className='h-[500px] bg-[#d3d2cc] px-5 py-10 flex   rounded-3xl    bg-cover bg-center bg-no-repeat'>
+                    <div style={{ backgroundImage: `url(/images/41.png)` }} className='h-[500px] bg-[#d3d2cc] px-5 py-10 flex   rounded-3xl    bg-contain bg-center bg-no-repeat'>
                         <div className='flex flex-col justify-between items-center'>
-                            <div className='flex items-center justify-between w-full  gap-10'>
+                            <div className='flex flex-wrap items-center justify-between w-full  gap-10'>
                                 <div className=''>
-                                    <h2 className='w-fit text-primary text-4xl'>
-                                        Ozempic
+                                    <h2 className='w-fit text-primary font-bold text-4xl'>
+                                    Semaglutide
                                     </h2>
-                                    <p>Semaglutide (GLP-1s)</p>
+                                    <p>Injection (GLP-1s)</p>
                                 </div>
 
-                                <div className='bg-primary text-white p-4 rounded-3xl px-10'>
+                                <div className='bg-primary p-2 text-white md:p-4 rounded-3xl md:px-10'>
                                     In Stock
                                 </div>
                             </div>
                             <div className='flex items-center bg-brown-400 gap-5 backdrop-filter bg-clip-padding backdrop-blur-3xl bg-opacity-100 px-5 py-3 border rounded-3xl '>
                                 <p className='text-lg text-white font-semibold'>See If <b className='text-primary'>GLP-1s</b> are right for me? </p>
-                                <div className='bg-white rounded-full size-14'>
-
+                                <div className='bg-white rounded-full size-14 flex items-center justify-center'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div style={{ backgroundImage: `url(/images/medicine.png)` }} className='h-[500px] bg-[#d3d2cc] px-5 py-10 flex   rounded-3xl    bg-cover bg-center bg-no-repeat'>
+                    <div style={{ backgroundImage: `url(/images/medicine-2.png)` }} className='h-[500px] bg-[#d3d2cc] px-5 py-10 flex   rounded-3xl    bg-cover bg-center bg-no-repeat'>
                         <div className='flex flex-col justify-between items-center'>
-                            <div className='flex items-center justify-between w-full  gap-10'>
+                            <div className='flex flex-wrap items-center justify-between w-full  gap-10'>
                                 <div className=''>
                                     <h2 className='w-fit text-primary text-4xl'>
                                         Tirzepatide
                                     </h2>
                                     <p>Injection</p>
                                 </div>
-
-                                <div className='bg-orange-200 p-4 rounded-3xl px-10'>
-                                    Sold Out
+                                <div className='bg-primary p-2 text-white md:p-4 rounded-3xl md:px-10'>
+                                    In Stock
                                 </div>
+                                
                             </div>
                             <div className='flex items-center bg-brown-400 gap-5 backdrop-filter bg-clip-padding backdrop-blur-3xl bg-opacity-100 px-5 py-3 border rounded-3xl '>
                                 <p className='text-lg text-white font-semibold'>See If <b className='text-primary'>GLP-1s</b> are right for me? </p>
-                                <div className='bg-white rounded-full size-14'>
-
+                                <div className='bg-white rounded-full size-14 flex items-center justify-center'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style={{ backgroundImage: `url(/images/42.png)` }} className='h-[500px] bg-[#d3d2cc] px-5 py-10 flex   rounded-3xl     bg-contain bg-center bg-no-repeat'>
+                        <div className='flex flex-col justify-between items-center'>
+                            <div className='flex flex-wrap items-center justify-between w-full  gap-10'>
+                                <div className=''>
+                                    <h2 className='w-fit text-primary text-4xl'>
+                                        Tirzepatide
+                                    </h2>
+                                    <p>Injection</p>
+                                </div>
+                                <div className='bg-primary p-2 text-white md:p-4 rounded-3xl md:px-10'>
+                                    In Stock
+                                </div>
+                               
+                            </div>
+                            <div className='flex items-center bg-brown-400 gap-5 backdrop-filter bg-clip-padding backdrop-blur-3xl bg-opacity-100 px-5 py-3 border rounded-3xl '>
+                                <p className='text-lg text-white font-semibold'>See If <b className='text-primary'>GLP-1s</b> are right for me? </p>
+                                <div className='bg-white rounded-full size-14 flex items-center justify-center'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                 </div>
-
-
                 <p className='mt-5 text-zinc-400'>
                     *with a 12-mo subscription. Pay upfront in full. Actual price to customer will depend on product and subscription plan purchase.
 
@@ -108,9 +127,8 @@ const WeightLossMedication = () => {
                     2 diabetes treatment but may be prescribed off-label for weight loss at a healthcare provider’s discretion.
                 </p>
             </section>
-
             <section style={{ backgroundImage: "url(/images/20.png)" }} className='h-screen flex flex-col justify-center  bg-zinc-200 mt-10 bg-cover bg-no-repeat bg-center bg-opacity-50 '>
-                <div className='mx-20 '>
+                <div className='md:mx-20  p-1'>
                     <h2 className='text-5xl '>
                         Looking to<b className='text-orange-400'> shed </b>some <br />
                         pounds?
@@ -134,18 +152,15 @@ const WeightLossMedication = () => {
                     </div>
                 </div>
             </section>
-
-            <div className='min-h-96 h-screen flex justify-center items-center'>
+            <section className='min-h-96 h-screen flex justify-center items-center'>
 
                 <h2 className='text-5xl text-primary text-center '>
                     Weight loss treatment for
 
                     <br />where you are now</h2>
-
-            </div>
-
+            </section>
             <section className='mt-10 p-5'>
-                <div className='flex items-center justify-between gap-10'>
+                <div className='flex flex-wrap items-center justify-between gap-10'>
                     <h2 className='text-5xl text-primary'>
                         MEET OUR EXPERTS
 
@@ -153,7 +168,7 @@ const WeightLossMedication = () => {
                     <img src="/images/logo.png" />
                 </div>
 
-                <div className='flex  gap-10 mt-10'>
+                <div className='flex flex-wrap  gap-10 mt-10'>
                     <div className='max-w-[500px]'>
                         <MeetExpertBackground>
                             <img src="/images/24.png" className='min-h-[600px] object-cover' />
@@ -170,6 +185,14 @@ const WeightLossMedication = () => {
                         <h3 className='text-4xl font-bold text-primary'>Raj sabar, MD</h3>
                         <p className='text-2xl  text-primary'>Consultant</p>
                     </div>
+                    <div className='max-w-[500px]'>
+                        <MeetExpertBackground>
+                            <img src="/images/mohit.jpeg" className='min-h-[600px] object-cover' />
+                        </MeetExpertBackground>
+
+                        <h3 className='text-4xl font-bold text-primary'>Dr mohit chawla</h3>
+                        <p className='text-2xl  text-primary'>Consultant Physician</p>
+                    </div>
                 </div>
 
                 <p className='mt-3'>
@@ -180,9 +203,9 @@ const WeightLossMedication = () => {
                     Wegovy® (semaglutide) and Ozempic® (semaglutide) are not compounded. Wegovy® (semaglutide) is FDA-approved for weight loss. Ozempic® (semaglutide) is FDA-approved for type 2 diabetes treatment but may be prescribed off-label for weight loss at a healthcare provider’s discretion.
                 </p>
             </section>
-            <section className='flex items-center h-[600px]  px-10'>
+            <section className='flex flex-wrap items-center h-[600px] p-2 md:px-10'>
 
-                <div className='flex-1  px-10'>
+                <div className='flex-1  md:px-10'>
                     <h2 className='text-5xl font-bold '>Frequently asked
                         questions</h2>
                     <button className='bg-primary flex items-center justify-center p-4 px-10 w-[300px] text-white font-semibold text-lg rounded-xl mt-6'>
@@ -194,7 +217,6 @@ const WeightLossMedication = () => {
                 </div>
 
             </section>
-
             <section className='mt-10 bg-[#d3d2cc] p-5 mb-10 '>
                 <h2 className='text-5xl font-extrabold text-center mt-10 mb-5'>
                     Transformations
@@ -207,12 +229,11 @@ const WeightLossMedication = () => {
                     desc="Dr. Pepper lost 30 lbs in 1 year “I started losing weight almost immediately. To me, truly, this has been a game-changer.” Dr. Pepper Ro Ambassador who inspired the Body Program, after taking GLP-1 medication" />
 
                 <CompareModule
-                    img1="/images/21.png"
-                    img2="/images/22.png"
+                    img1="/images/38.png"
+                    img2="/images/39.png"
                     desc="Dr. Pepper lost 30 lbs in 1 year “I started losing weight almost immediately. To me, truly, this has been a game-changer.” Dr. Pepper Ro Ambassador who inspired the Body Program, after taking GLP-1 medication" />
             </section>
-
-            <section className='flex p-5 gap-10 justify-between'>
+            <section className='flex flex-wrap p-5 gap-10 justify-between'>
                 <div className='w-[320px]'>
                     <h4 className='text-primary text-2xl font-bold'>Lifestyle and Nutrition</h4>
                     <p className='mt-3'>What sets you apart from your competition? Is it your offerings? Your philosophies? Or your values? </p>
@@ -235,33 +256,7 @@ const WeightLossMedication = () => {
                     </p>
                 </div>
             </section>
-
-            <section className='mt-10 bg-[#d3d2cc] p-5 h-screen flex items-center'>
-                <div className='flex w-full items-center gap-10'>
-                    <div className='w-[320px]'>
-                        <h2 className='font-bold text-6xl'>Our Products</h2>
-                        <p className='leading-10 '>FOR EVERYBODY</p>
-                        <p className='mt-10 font-medium'>
-                            Mathica Beauty uses ethically sourced, fair trade, natural materials that are expertly crafted to match user&apos;s needs.
-                        </p>
-                    </div>
-                    <div className='flex items-center gap-10 justify-around flex-1'>
-                        <div>
-                            <img src="/images/medicine.png" className='w-36' />
-                            <p className='mt-10 font-medium text-center'>Body Care</p>
-                        </div>
-                        <div>
-                            <img src="/images/medicine.png" className='w-36 rotate-45' />
-                            <p className='mt-10 font-medium text-center'>Scents</p>
-                        </div>
-                        <div>
-                            <img src="/images/medicine.png" className='w-36' />
-                            <p className='mt-10 font-medium text-center'>Facial Care</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+            
             <section className=' bg-black p-5 h-screen flex items-center'>
                 <div className='flex w-full items-center gap-10'>
                     <div className=' text-white'>

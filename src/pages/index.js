@@ -15,8 +15,8 @@ const geistMono = localFont({
 
 export default function Home() {
   return (
-    <div>
+    <>
       <WeightLossMedication/>
-    </div>
+    </>
   );
 }

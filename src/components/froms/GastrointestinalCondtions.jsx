@@ -36,15 +36,15 @@ const GastrointestinalCondtions = () => {
             {goals.map((goal, index) => (
               <label
                 key={index}
-                className="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50"
+                className="flex items-center gap-2 p-4 border rounded-lg cursor-pointer hover:bg-gray-50"
               >
                 <input
                   type="checkbox"
-                  className="form-checkbox h-5 w-5 text-green-600"
+                  className="form-checkbox min-h-[20px] min-w-[20px] text-green-600"
                   checked={selectedGoals.includes(goal)}
                   onChange={() => handleCheckboxChange(goal)}
                 />
-                <span className="ml-3 text-gray-800">{goal}</span>
+                <span className=" text-gray-800">{goal}</span>
               </label>
             ))}
           </div>

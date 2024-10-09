@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-const GLP1 = () => {
-    const [activeTab, setActiveTab] = useState("")
+const GLP1 = ({onNext}) => {
+    const [activeTab, setActiveTab] = useState("no")
 
     const handleTab = (e) => {
         setActiveTab(e.currentTarget.id)
@@ -26,6 +26,7 @@ const GLP1 = () => {
                 <button
                     type="button"
                     className={`mt-6 p-3 text-white w-full py-3text-white font-semibold rounded-full bg-primary hover:bg-primary`}
+                    onClick={()=>onNext({allergy_GLP_1:activeTab==="no"?false:true},"anyMedication")}
                 >
                     Continue
                 </button>

@@ -14,35 +14,22 @@ const UploadPrescription = () => {
         
         <div className="border-2 border-primary border-dashed rounded-lg p-10 mb-4">
           <div className="flex flex-col items-center justify-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-10 w-10 mb-3 text-gray-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1M4 12l4-4m0 0l4-4m-4 4v12"
-              />
-            </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-upload"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
             <p className="text-gray-500">
               upload prescription in <span className="text-primary">jpg, png, pdf</span>
             </p>
           </div>
         </div>
 
-        <div className="flex items-center justify-center mb-4">
+        <div className="flex items-center gap-2 justify-center mb-4">
           <input
             type="checkbox"
             id="terms"
             checked={checked}
             onChange={handleCheckboxChange}
-            className="w-5 h-5 accent-primary"
+            className="min-h-[20px] min-w-[20px] accent-primary"
           />
-          <label htmlFor="terms" className="ml-2 text-sm text-gray-600">
+          <label htmlFor="terms" className=" text-sm text-gray-600">
             I agree to the <span className="font-semibold text-primary">terms & conditions</span> of metabolixMD.
           </label>
         </div>

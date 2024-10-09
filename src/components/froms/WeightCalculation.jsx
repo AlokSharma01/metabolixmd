@@ -1,16 +1,15 @@
 import React from 'react'
 
-const WeightCalculation = ({ onNext }) => {
+const WeightCalculation = ({data, onNext }) => {
   const handleContinue = () => {
     // Assuming there's no additional data to pass here
     onNext({}, "basicsUserInfo"); // Replace "basicsUserInfo" with the actual next form step
   };
-
   return (
     <div className="max-w-fit mx-auto">
       <div className="w-[500px]">
         <p>Your weight</p>
-        <h2 className='text-5xl font-bold'>160 lbs</h2>
+        <h2 className='text-5xl font-bold'>{data?.weight} lbs</h2>
         <p className='text-primary text-3xl font-semibold'>40 lbs</p>
 
         <div className='mt-10'>

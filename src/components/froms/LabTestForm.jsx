@@ -1,6 +1,7 @@
- const LabTestForm = () => {
+ const LabTestForm = ({onNext}) => {
     const handleProceed = () => {
       // Handle the "I want to proceed" action
+      onNext({},"beforeWrapUp")
     };
   
     const handleNotProceed = () => {

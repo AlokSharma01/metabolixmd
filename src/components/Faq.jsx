@@ -28,14 +28,14 @@ const FaqItem = ({ question, answer }) => {
 const FaqList = () => {
   const faqs = [
     {
-      question: "What are my weight loss treatment options through Hims?",
+      question: "What are my weight loss treatment options through metabolixmd?",
       answer:
-        "Hims offers several weight loss treatments tailored to individual needs, including medications and consultations.",
+        "metabolixmd offers several weight loss treatments tailored to individual needs, including medications and consultations.",
     },
     {
       question: "What medications do you offer?",
       answer:
-        "Hims provides FDA-approved medications for weight loss under the guidance of healthcare professionals.",
+        "metabolixmd provides FDA-approved medications for weight loss under the guidance of healthcare professionals.",
     },
     {
       question: "How much does weight loss treatment cost?",
@@ -45,7 +45,7 @@ const FaqList = () => {
     {
       question: "Is insurance required?",
       answer:
-        "No, insurance is not required. Hims provides affordable, out-of-pocket options for treatments.",
+        "No, insurance is not required. metabolixmd provides affordable, out-of-pocket options for treatments.",
     },
   ];
 

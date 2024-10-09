@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import PrescriptionQuestion from './froms/PrescriptionQuestion';
 import PrescriptionUpload from './froms/UploadPriscription';
 import GoalSelectionForm from './froms/GoalSelectionForm';
@@ -20,6 +20,7 @@ import BeforeWrapUp from './froms/BeforeWrapUp';
 
 const MultiStepForm = () => {
   const [activeForm, setActiveForm] = useState("prescriptionQuestion");
+  const [isClient, setIsClient] = useState(false);
   const [formData, setFormData] = useState({
     accomplish_with_body_program: "",
     height: { feet: 0, inch: 0 },
@@ -75,8 +76,16 @@ const MultiStepForm = () => {
     // You can now send formData to your backend
   };
 
+  useEffect(() => {
+    setIsClient(true); // Ensures rendering only on client-side
+  }, []);
+
+  if (!isClient) {
+    return null; // Prevents hydration error by not rendering on the server
+  }
+
   return (
-    <div className="multi-step-form">
+    <div className="multi-step-form  bg-[#d3d2cc]">
       {activeForm === "prescriptionQuestion" && (
         <PrescriptionQuestion onNext={(data, next) => handleNextForm(next, data)} />
       )}
@@ -90,7 +99,7 @@ const MultiStepForm = () => {
         <UserInfoForm onNext={(data, next) => handleNextForm(next, data)} />
       )}
       {activeForm === "weightCalculation" && (
-        <WeightCalculation onNext={(data, next) => handleNextForm(next, data)} />
+        <WeightCalculation data={formData} onNext={(data, next) => handleNextForm(next, data)} />
       )}
       {activeForm === "basicsUserInfo" && (
         <BasicsUserInfo onNext={(data, next) => handleNextForm(next, data)} />
@@ -131,6 +140,25 @@ const MultiStepForm = () => {
       {activeForm === "beforeWrapUp" && (
         <BeforeWrapUp onSubmit={handleSubmit} />
       )}
+
+      {/* <PrescriptionQuestion />
+      <PrescriptionUpload />
+      <GoalSelectionForm />
+      <UserInfoForm />
+      <WeightCalculation data={formData}/>
+      <BasicsUserInfo />
+      <PrimaryCareConfirmation />
+      <HeartDiseaseForm />
+      <AnyDiseaseForm />
+      <Type2Diabetes />
+      <DiabeticRetinopathy />
+      <AnyDisease2Form />
+      <SearchAndSelectAllergies />
+      <GLP1 />
+      <AnyMedicationForm />
+      <EthnicityForm />
+      <LabTestForm />
+      <BeforeWrapUp /> */}
     </div>
   );
 };

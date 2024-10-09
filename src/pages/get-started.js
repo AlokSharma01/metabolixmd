@@ -9,7 +9,6 @@ const GetStarted = () => {
             {
                 token &&
                 <MultiStepForm/>
-               
             }
         </div>
     )

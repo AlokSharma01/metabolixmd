@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const AnyDisease2Form = () => {
+const AnyDisease2Form = ({onNext}) => {
   const [selectedGoals, setSelectedGoals] = useState([]);
   const goals = [
     "Chronic condidiasis (fungal infectons)",
@@ -27,6 +27,11 @@ const AnyDisease2Form = () => {
 
   const isButtonDisabled = selectedGoals.length === 0;
 
+  const handleContinue = () => {
+    // Pass the selected goals data to the parent component and move to the next form
+    onNext({additional_condition:selectedGoals }, "searchAndSelectAllergies"); // Adjust "userInfo" to whatever the next step should be
+  };
+
   return (
     <div className="max-w-fit mx-auto">
       <div className="w-[500px]">
@@ -39,15 +44,15 @@ const AnyDisease2Form = () => {
             {goals.map((goal, index) => (
               <label
                 key={index}
-                className="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50"
+                className="flex items-center gap-2 p-4 border rounded-lg cursor-pointer hover:bg-gray-50"
               >
                 <input
                   type="checkbox"
-                  className="form-checkbox h-5 w-5 text-green-600"
+                  className="form-checkbox min-h-[20px] min-w-[20px]   text-green-600"
                   checked={selectedGoals.includes(goal)}
                   onChange={() => handleCheckboxChange(goal)}
                 />
-                <span className="ml-3 text-gray-800">{goal}</span>
+                <span className=" text-gray-800">{goal}</span>
               </label>
             ))}
           </div>
@@ -60,6 +65,7 @@ const AnyDisease2Form = () => {
                 : "bg-primary hover:bg-primary"
             }`}
             disabled={isButtonDisabled}
+            onClick={handleContinue}
           >
             Next
           </button>

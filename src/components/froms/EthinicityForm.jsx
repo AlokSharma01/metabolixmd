@@ -32,15 +32,15 @@ const EthnicityForm = () => {
             {ethnicities.map((ethnicity, index) => (
               <label
                 key={index}
-                className="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-50"
+                className="flex items-center gap-2 p-4 border rounded-lg cursor-pointer hover:bg-gray-50"
               >
                 <input
                   type="checkbox"
-                  className="form-checkbox h-5 w-5 text-green-600"
+                  className="form-checkbox min-h-[20px] min-w-[20px] text-green-600"
                   checked={selectedEthnicities.includes(ethnicity)}
                   onChange={() => handleCheckboxChange(ethnicity)}
                 />
-                <span className="ml-3 text-gray-800">{ethnicity}</span>
+                <span className=" text-gray-800">{ethnicity}</span>
               </label>
             ))}
           </div>
@@ -53,6 +53,7 @@ const EthnicityForm = () => {
                 : "bg-primary hover:bg-primary"
             }`}
             disabled={isButtonDisabled}
+            onClick={()=>onNext({describe_yourself:selectedMedications},"labTest")}
           >
             Next
           </button>
