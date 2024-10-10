@@ -13,7 +13,7 @@ const WeightLossMedication = () => {
             <NavBar />
             <section className='flex flex-col lg:flex-row min-h-[600px] gap-10 border-b'>
                 <div className='flex-1 flex flex-col justify-center  px-10'>
-                    <h1 className='text-5xl font-medium text-wrap'>
+                    <h1 className='text-3xl md:text-4xl lg:text-5xl font-medium text-wrap'>
                         Get Access to prescription<br/>
                         <b className='text-orange-500 text-wrap'>Weight Loss </b> 
                         Medication Online
@@ -38,19 +38,19 @@ const WeightLossMedication = () => {
             </section>
             <section className='px-3 mt-10'>
                 <div className='flex  flex-wrap '>
-                    <h2 className='text-5xl flex-1'>
+                    <h2 className='text-3xl md:text-4xl lg:text-5xl flex-1'>
                         <b className='text-primary'>Prescription </b>
                         ingredients
                         for personalised care.
                     </h2>
                     <div className='flex-1 flex md:justify-end'>
-                        <button className='bg-primary flex items-center justify-center p-4 px-10 max-h-[80px] w-[300px] text-white font-semibold text-lg rounded-xl mt-6'>
+                        <Link href="/get-started" className='bg-primary flex items-center justify-center p-4 px-10 max-h-[80px] w-[300px] text-white font-semibold text-lg rounded-xl mt-6'>
                             GET STARTED
-                        </button>
+                        </Link>
                     </div>
                 </div>
-                <div className='mt-5 flex gap-10  flex-wrap'>
-                    <div style={{ backgroundImage: `url(/images/41.png)` }} className='h-[500px] bg-[#d3d2cc] px-5 py-10 flex   rounded-3xl    bg-contain bg-center bg-no-repeat'>
+                <div className='mt-5 flex gap-10  overflow-x-scroll'>
+                    <div style={{ backgroundImage: `url(/images/41.png)` }} className='h-[500px] min-w-[350px] bg-[#d3d2cc] px-5 py-10 flex   rounded-3xl    bg-contain bg-center bg-no-repeat'>
                         <div className='flex flex-col justify-between items-center'>
                             <div className='flex flex-wrap items-center justify-between w-full  gap-10'>
                                 <div className=''>
@@ -66,13 +66,13 @@ const WeightLossMedication = () => {
                             </div>
                             <div className='flex items-center bg-brown-400 gap-5 backdrop-filter bg-clip-padding backdrop-blur-3xl bg-opacity-100 px-5 py-3 border rounded-3xl '>
                                 <p className='text-lg text-white font-semibold'>See If <b className='text-primary'>GLP-1s</b> are right for me? </p>
-                                <div className='bg-white rounded-full size-14 flex items-center justify-center'>
+                                <Link href="/get-started" className='bg-white rounded-full size-14 flex items-center justify-center'>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
-                                </div>
+                                </Link>
                             </div>
                         </div>
                     </div>
-                    <div style={{ backgroundImage: `url(/images/medicine-2.png)` }} className='h-[500px] bg-[#d3d2cc] px-5 py-10 flex   rounded-3xl    bg-cover bg-center bg-no-repeat'>
+                    <div style={{ backgroundImage: `url(/images/medicine-2.png)` }} className='h-[500px] min-w-[350px] bg-[#d3d2cc] px-5 py-10 flex   rounded-3xl    bg-cover bg-center bg-no-repeat'>
                         <div className='flex flex-col justify-between items-center'>
                             <div className='flex flex-wrap items-center justify-between w-full  gap-10'>
                                 <div className=''>
@@ -88,13 +88,13 @@ const WeightLossMedication = () => {
                             </div>
                             <div className='flex items-center bg-brown-400 gap-5 backdrop-filter bg-clip-padding backdrop-blur-3xl bg-opacity-100 px-5 py-3 border rounded-3xl '>
                                 <p className='text-lg text-white font-semibold'>See If <b className='text-primary'>GLP-1s</b> are right for me? </p>
-                                <div className='bg-white rounded-full size-14 flex items-center justify-center'>
+                                <Link href="/get-started" className='bg-white rounded-full size-14 flex items-center justify-center'>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
-                                </div>
+                                </Link>
                             </div>
                         </div>
                     </div>
-                    <div style={{ backgroundImage: `url(/images/42.png)` }} className='h-[500px] bg-[#d3d2cc] px-5 py-10 flex   rounded-3xl     bg-contain bg-center bg-no-repeat'>
+                    <div style={{ backgroundImage: `url(/images/42.png)` }} className='h-[500px] min-w-[350px] bg-[#d3d2cc] px-5 py-10 flex   rounded-3xl     bg-contain bg-center bg-no-repeat'>
                         <div className='flex flex-col justify-between items-center'>
                             <div className='flex flex-wrap items-center justify-between w-full  gap-10'>
                                 <div className=''>
@@ -110,9 +110,9 @@ const WeightLossMedication = () => {
                             </div>
                             <div className='flex items-center bg-brown-400 gap-5 backdrop-filter bg-clip-padding backdrop-blur-3xl bg-opacity-100 px-5 py-3 border rounded-3xl '>
                                 <p className='text-lg text-white font-semibold'>See If <b className='text-primary'>GLP-1s</b> are right for me? </p>
-                                <div className='bg-white rounded-full size-14 flex items-center justify-center'>
+                                <Link href="/get-started" className='bg-white rounded-full size-14 flex items-center justify-center'>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
-                                </div>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -127,9 +127,9 @@ const WeightLossMedication = () => {
                     2 diabetes treatment but may be prescribed off-label for weight loss at a healthcare provider’s discretion.
                 </p>
             </section>
-            <section style={{ backgroundImage: "url(/images/20.png)" }} className='h-screen flex flex-col justify-center  bg-zinc-200 mt-10 bg-cover bg-no-repeat bg-center bg-opacity-50 '>
+            <section style={{ backgroundImage: "url(/images/20.png)" }} className='h-screen  flex flex-col justify-center   mt-10 bg-cover bg-no-repeat bg-center bg-opacity-50 '>
                 <div className='md:mx-20  p-1'>
-                    <h2 className='text-5xl '>
+                    <h2 className='text-3xl md:text-4xl lg:text-5xl '>
                         Looking to<b className='text-orange-400'> shed </b>some <br />
                         pounds?
                     </h2>
@@ -154,21 +154,21 @@ const WeightLossMedication = () => {
             </section>
             <section className='min-h-96 h-screen flex justify-center items-center'>
 
-                <h2 className='text-5xl text-primary text-center '>
+                <h2 className='text-3xl md:text-4xl lg:text-5xl text-primary text-center '>
                     Weight loss treatment for
 
                     <br />where you are now</h2>
             </section>
             <section className='mt-10 p-5'>
                 <div className='flex flex-wrap items-center justify-between gap-10'>
-                    <h2 className='text-5xl text-primary'>
+                    <h2 className='text-3xl md:text-4xl lg:text-5xl text-primary'>
                         MEET OUR EXPERTS
 
                     </h2>
                     <img src="/images/logo.png" />
                 </div>
 
-                <div className='flex flex-wrap  gap-10 mt-10'>
+                <div className='flex overflow-x-scroll  gap-10 mt-10'>
                     <div className='max-w-[500px]'>
                         <MeetExpertBackground>
                             <img src="/images/24.png" className='min-h-[600px] object-cover' />
@@ -187,7 +187,7 @@ const WeightLossMedication = () => {
                     </div>
                     <div className='max-w-[500px]'>
                         <MeetExpertBackground>
-                            <img src="/images/mohit.jpeg" className='min-h-[600px] object-cover' />
+                            <img src="/images/mohit.png" className='min-h-[600px] object-cover' />
                         </MeetExpertBackground>
 
                         <h3 className='text-4xl font-bold text-primary'>Dr mohit chawla</h3>
@@ -206,11 +206,11 @@ const WeightLossMedication = () => {
             <section className='flex flex-wrap items-center h-[600px] p-2 md:px-10'>
 
                 <div className='flex-1  md:px-10'>
-                    <h2 className='text-5xl font-bold '>Frequently asked
+                    <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold '>Frequently asked
                         questions</h2>
-                    <button className='bg-primary flex items-center justify-center p-4 px-10 w-[300px] text-white font-semibold text-lg rounded-xl mt-6'>
+                    <Link href="/get-started" className='bg-primary flex items-center justify-center p-4 px-10 w-[300px] text-white font-semibold text-lg rounded-xl mt-6'>
                         GET STARTED
-                    </button>
+                    </Link>
                 </div>
                 <div className='flex-1'>
                     <FaqList />
@@ -218,7 +218,7 @@ const WeightLossMedication = () => {
 
             </section>
             <section className='mt-10 bg-[#d3d2cc] p-5 mb-10 '>
-                <h2 className='text-5xl font-extrabold text-center mt-10 mb-5'>
+                <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mt-10 mb-5'>
                     Transformations
 
                 </h2>
@@ -276,7 +276,7 @@ const WeightLossMedication = () => {
             </section>
             <section className='px-5 mt-10'>
 
-                <h2 className='font-semibold text-primary text-5xl'>
+                <h2 className='font-semibold text-primary text-3xl md:text-4xl lg:text-5xl'>
                     IMPORTANT SAFETY INFORMATION
                 </h2>
 

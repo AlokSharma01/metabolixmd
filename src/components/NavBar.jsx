@@ -16,6 +16,10 @@ const NavBar = () => {
     router.push("/login")
   }
 
+  const handleMobileMenuToggle = () => {
+    document.getElementById("mobile-menu").classList.toggle("hidden")
+  }
+
   useEffect(() => {
     setIsClient(true); // Ensures rendering only on client-side
   }, []);
@@ -28,15 +32,17 @@ const NavBar = () => {
     <div className='p-5 flex items-center justify-between gap-10'>
       {/* Logo */}
       <Link href="/">
-        <Image src="/images/logo.png" width={200} height={50} alt="Logo" className=" " />
+        <Image src="/images/logo.png" width={200} height={50} alt="Logo" className="w-[150px] md:w-[200px] " />
       </Link>
 
       {/* Hamburger Menu for Mobile */}
       <div className='flex md:hidden'>
-        <button id="mobile-menu-toggle" className="text-white focus:outline-none">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-          </svg>
+        <button 
+          id="mobile-menu-toggle" 
+          className="cursor-pointer focus:outline-none"
+          onClick={handleMobileMenuToggle}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></svg>
         </button>
       </div>
 
@@ -74,16 +80,16 @@ const NavBar = () => {
       </div>
 
       {/* Mobile Menu (Hidden by Default) */}
-      <div id="mobile-menu" className="fixed  top-0 left-0 w-full h-full bg-gray-800 bg-opacity-75 hidden flex-col md:hidden z-50">
+      <div id="mobile-menu" className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-75 hidden flex-col md:hidden z-50">
         <div className="flex flex-col items-center justify-center gap-5 text-white py-10">
-          <Link href="about-us" className='text-lg' onClick={() => document.getElementById("mobile-menu").classList.toggle("hidden")}>About</Link>
-          <Link href="contact-us" className='text-lg' onClick={() => document.getElementById("mobile-menu").classList.toggle("hidden")}>Contact</Link>
+          <Link href="about-us" className='text-lg' onClick={handleMobileMenuToggle}>About</Link>
+          <Link href="contact-us" className='text-lg' onClick={handleMobileMenuToggle}>Contact</Link>
 
           {user ? (
             <button
               onClick={() => {
                 handleLogout()
-                document.getElementById("mobile-menu").classList.toggle("hidden")
+                handleMobileMenuToggle()
               }}
               className="text-lg text-red-500"
             >
@@ -93,7 +99,7 @@ const NavBar = () => {
             <Link
               href="/login"
               className='text-lg px-8 py-2 rounded-full font-semibold border'
-              onClick={() => document.getElementById("mobile-menu").classList.toggle("hidden")}
+              onClick={handleMobileMenuToggle}
             >
               Login
             </Link>

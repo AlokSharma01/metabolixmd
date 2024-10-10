@@ -13,7 +13,7 @@ const PrimaryCareConfirmation = ({ onNext }) => {
     const data = {
       seen_primary_care_provider: activeTab === "yes" ? true : false
     };
-    onNext(data, "heartDiseaseForm"); // Replace "heartDiseaseForm" with the next form step
+    onNext(data, "heartDisease"); // Replace "heartDiseaseForm" with the next form step
   };
 
   return (
