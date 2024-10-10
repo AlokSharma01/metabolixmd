@@ -22,7 +22,7 @@ const BasicsUserInfo = ({ onNext }) => {
 
   return (
     <div className="max-w-fit mx-auto">
-      <div className="w-[500px]">
+      <div className="w-full md:w-[500px]">
 
         <p>START WITH</p>
         <h2 className='text-3xl font-semibold'>The Basics</h2>

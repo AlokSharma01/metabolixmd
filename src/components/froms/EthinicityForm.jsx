@@ -24,7 +24,7 @@ const EthnicityForm = () => {
 
   return (
     <div className="max-w-fit mx-auto">
-      <div className="w-[500px]">
+      <div className="w-full md:w-[500px]">
         <h2 className="text-2xl font-semibold mb-6">How would you describe yourself?</h2>
         <p className="my-5 font-semibold text-zinc-500">Select all that apply</p>
         <form>

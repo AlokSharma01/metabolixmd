@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import PrescriptionQuestion from './froms/PrescriptionQuestion';
 import PrescriptionUpload from './froms/UploadPriscription';
 import GoalSelectionForm from './froms/GoalSelectionForm';
@@ -42,7 +42,6 @@ const MultiStepForm = () => {
 
   const handleNextForm = (nextForm, data) => {
     setFormData({ ...formData, ...data });
-    // Set the next form based on the passed "nextForm" or default to the next in sequence
     setActiveForm(nextForm || getNextFormKey(activeForm));
   };
 
@@ -67,25 +66,60 @@ const MultiStepForm = () => {
       "beforeWrapUp"
     ];
     const currentIndex = formOrder.indexOf(currentForm);
-    return formOrder[currentIndex + 1] || "beforeWrapUp"; // Default to last step if none
+    return formOrder[currentIndex + 1] || "beforeWrapUp";
   };
 
   const handleSubmit = () => {
-    // Submit the collected data (formData) to the backend
     console.log("Final data:", formData);
-    // You can now send formData to your backend
   };
 
   useEffect(() => {
-    setIsClient(true); // Ensures rendering only on client-side
+    setIsClient(true);
   }, []);
 
+  // Calculate progress as a percentage
+  const formOrder = [
+    "prescriptionQuestion",
+    "goalSelection",
+    "userInfo",
+    "weightCalculation",
+    "basicsUserInfo",
+    "primaryCareConfirmation",
+    "heartDisease",
+    "anyDisease",
+    "type2Diabetes",
+    "diabeticRetinopathy",
+    "anyDisease2",
+    "searchAndSelectAllergies",
+    "glp1",
+    "anyMedication",
+    "ethnicity",
+    "labTest",
+    "beforeWrapUp"
+  ];
+  const currentStep = formOrder.indexOf(activeForm) + 1;
+  const totalSteps = formOrder.length;
+  const progressPercentage = (currentStep / totalSteps) * 100;
+
   if (!isClient) {
-    return null; // Prevents hydration error by not rendering on the server
+    return null;
   }
 
   return (
-    <div className="multi-step-form  bg-[#d3d2cc]">
+    <div className="multi-step-form bg-[#d3d2cc] min-h-screen flex flex-col justify-center items-center">
+
+      {/* Stepper */}
+      <div className="w-full md:w-[500px] flex gap-2 items-center">
+        {/* Dynamic width based on progress */}
+        <div className="h-[15px] border rounded-full bg-white flex-1">
+          <div
+            className="h-full bg-primary rounded-full"
+            style={{ width: `${progressPercentage}%` }}
+          ></div>
+        </div>
+        <img src="images/27.png" className="w-[70px]" alt="Step indicator" />
+      </div>
+
       {activeForm === "prescriptionQuestion" && (
         <PrescriptionQuestion onNext={(data, next) => handleNextForm(next, data)} />
       )}
@@ -140,25 +174,6 @@ const MultiStepForm = () => {
       {activeForm === "beforeWrapUp" && (
         <BeforeWrapUp onSubmit={handleSubmit} />
       )}
-
-      {/* <PrescriptionQuestion />
-      <PrescriptionUpload />
-      <GoalSelectionForm />
-      <UserInfoForm />
-      <WeightCalculation data={formData}/>
-      <BasicsUserInfo />
-      <PrimaryCareConfirmation />
-      <HeartDiseaseForm />
-      <AnyDiseaseForm />
-      <Type2Diabetes />
-      <DiabeticRetinopathy />
-      <AnyDisease2Form />
-      <SearchAndSelectAllergies />
-      <GLP1 />
-      <AnyMedicationForm />
-      <EthnicityForm />
-      <LabTestForm />
-      <BeforeWrapUp /> */}
     </div>
   );
 };

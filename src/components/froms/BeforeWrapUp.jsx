@@ -10,7 +10,7 @@ const BeforeWrapUp = () => {
     }
     return (
         <div className="max-w-fit mx-auto">
-            <div className="w-[500px]">
+            <div className="w-full md:w-[500px]">
                 <p>BEFORE WE WRAP UP</p>
                 <h2 className="text-2xl font-semibold mb-6">
                    Is there anything else you want your healthcare provider to know about your health?

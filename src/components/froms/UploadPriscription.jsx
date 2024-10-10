@@ -9,7 +9,7 @@ const UploadPrescription = () => {
 
   return (
     <div className="max-w-fit mx-auto">
-      <div className="w-[500px] text-center">
+      <div className="w-full md:w-[500px] text-center">
         <h2 className="text-2xl font-semibold mb-4">Upload prescription</h2>
         
         <div className="border-2 border-primary border-dashed rounded-lg p-10 mb-4">

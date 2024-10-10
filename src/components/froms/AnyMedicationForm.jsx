@@ -26,7 +26,7 @@ const AnyMedicationForm = ({onNext}) => {
 
   return (
     <div className="max-w-fit mx-auto">
-      <div className="w-[500px]">
+      <div className="w-full md:w-[500px]">
         <h2 className="text-2xl font-semibold mb-6">Do you currently take any of the following medications?</h2>
         <p className="my-5 font-semibold text-zinc-500">Select all that apply</p>
         <form>

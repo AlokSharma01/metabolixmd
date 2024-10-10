@@ -8,7 +8,7 @@ const GLP1 = ({onNext}) => {
     }
     return (
         <div className="max-w-fit mx-auto">
-            <div className="w-[500px]">
+            <div className="w-full md:w-[500px]">
                 <h2 className="text-2xl font-semibold mb-6">
                    Do you have an allergy to GLP-1 agonist medications?
                 </h2>

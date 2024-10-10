@@ -26,7 +26,7 @@ const GastrointestinalCondtions = () => {
 
   return (
     <div className="max-w-fit mx-auto">
-      <div className="w-[500px]">
+      <div className="w-full md:w-[500px]">
         <h2 className="text-2xl font-semibold mb-6">
           Do you currently have, or have you ever been diagnosed with, any of these gastrointestinal conditions or procedures?
         </h2>

@@ -7,7 +7,7 @@ const WeightCalculation = ({data, onNext }) => {
   };
   return (
     <div className="max-w-fit mx-auto">
-      <div className="w-[500px]">
+      <div className="w-full md:w-[500px]">
         <p>Your weight</p>
         <h2 className='text-5xl font-bold'>{data?.weight} lbs</h2>
         <p className='text-primary text-3xl font-semibold'>40 lbs</p>
