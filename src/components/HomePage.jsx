@@ -3,137 +3,176 @@ import NavBar from './NavBar'
 import FaqList from './Faq'
 import MeetExpertBackground from './MeetExpertBackground'
 import CompareModule from './CompareModule'
-import Link from 'next/link'
+
 import { getAuthToken } from '@/services/API/apiHelper'
+import Link from 'next/link'
 
 const WeightLossMedication = () => {
     let token = getAuthToken()
     return (
-        <div >
+        <div className='font-tt-hoves' >
             <NavBar />
-            <section className='flex flex-col lg:flex-row min-h-[600px] gap-10 border-b'>
-                <div className='flex-1 flex flex-col justify-center  px-10'>
-                    <h1 className='text-3xl md:text-4xl lg:text-5xl font-medium text-wrap'>
-                        Get Access to prescription<br/>
-                        <b className='text-orange-500 text-wrap'>Weight Loss </b> 
+            <section className='flex flex-col-reverse lg:flex-row   min-h-[600px] gap-10 sm:border-b'>
+                <div className='flex-1 flex text-center md:text-start flex-col justify-center    px-2 md:px-10'>
+                    <h1 className='text-3xl md:text-4xl    font-medium text-wrap'>
+                        Get Access to prescription<br />
+                        <b className='text-orange-500 text-wrap'>Weight Loss </b>
                         Medication Online
                     </h1>
-                    <p className='mt-3 text-zinc-500'>
-                        Compounded semaglutide, including MetabolixMD’ product (pictured above),
-                        is not approved or evaluated for safety, efficacy, or quality by FDA.</p>
+                    <p className='mt-3 text-sm  text-zinc-500'>
+                        At MetabolixMD, we offer prescription weight loss medications, including GLP-1s like semaglutide and Tirzepatide, conveniently available through our telehealth platform. These cutting-edge treatments are designed to help regulate appetite and support effective weight loss. Backed by clinical expertise, our team provides personalized care to help you achieve your health goals safely and efficiently. Start your journey toward a healthier lifestyle with MetabolixMD today!</p>
                     {
                         token ?
-                            <Link href="/get-started" className='bg-primary flex items-center justify-center p-4 px-10 w-[300px] text-white font-semibold text-lg rounded-full mt-6'>
+                            <Link href="/get-started" className='bg-primary hidden  h-[40px] md:h-fit w-fit mx-auto md:mx-0 md:flex items-center justify-center p-4 px-10 md:w-[300px] text-white  text-lg rounded-full mt-6'>
                                 GET STARTED
                             </Link>
                             :
-                            <Link href="/login" className='bg-primary flex items-center justify-center p-4 px-10 w-[300px] text-white font-semibold text-lg rounded-full mt-6'>
+                            <Link href="/login" className='bg-primary hidden  h-[40px] md:h-fit w-fit mx-auto md:mx-0 md:flex items-center justify-center p-4 px-10 md:w-[300px] text-white  text-lg rounded-full mt-6'>
                                 GET STARTED
                             </Link>
                     }
+
+                    <div className='flex justify-center md:justify-start items-center gap-4  my-5'>
+                        <Link href="#safety" className='text-sm underline text-primary '>
+                            Important safety information
+                        </Link>
+
+                        <Link href="#safety" className='bg-white border-primary border rounded-full size-10 flex items-center justify-center'>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                        </Link>
+                    </div>
                 </div>
-                <div style={{backgroundImage:`url(/images/medicine.png)`}} className='bg-[#d3d2cc] min-h-[300px] flex-1  bg-cover bg-center bg-no-repeat'>
-                 
+                <div style={{ backgroundImage: `url(/images/medicine.png)` }} className='bg-[#d3d2cc] min-h-[300px] flex-1 bg-contain  bg-center bg-no-repeat'>
+
                 </div>
             </section>
-            <section className='px-3 mt-10'>
-                <div className='flex  flex-wrap '>
-                    <h2 className='text-3xl md:text-4xl lg:text-5xl flex-1'>
+            <section className='px-3 md:px-10 mt-10 '>
+                <div className='flex  flex-wrap md:items-center md:gap-5 '>
+                    <h2 className='text-3xl min-w-fit md:flex-1 text-center md:text-start md:text-4xl lg:text-5xl flex-1'>
                         <b className='text-primary'>Prescription </b>
-                        ingredients
+                        ingredients <br/>
                         for personalised care.
                     </h2>
-                    <div className='flex-1 flex md:justify-end'>
-                        <Link href="/get-started" className='bg-primary flex items-center justify-center p-4 px-10 max-h-[80px] w-[300px] text-white font-semibold text-lg rounded-xl mt-6'>
-                            GET STARTED
+                    <div className='flex-1 flex justify-center md:justify-end mb-5'>
+                        <Link href="/get-started" className='bg-primary  flex items-center justify-center p-4 px-20 md:px-8 max-h-[80px] w-fit md:w-[300px] md:h-[100px]  text-sm md:text-lg  text-white  ms:text-lg rounded-xl mt-6 '>
+                            Get Started
                         </Link>
                     </div>
                 </div>
                 <div className='mt-5 flex gap-10  overflow-x-scroll'>
-                    <div style={{ backgroundImage: `url(/images/41.png)` }} className='h-[500px] min-w-[350px] bg-[#d3d2cc] px-5 py-10 flex   rounded-3xl    bg-contain bg-center bg-no-repeat'>
-                        <div className='flex flex-col justify-between items-center'>
+
+                    <div className='min-w-full md:min-w-fit'>
+                        <div className=' bg-[#d8d6d3] px-5 py-7  rounded-3xl '>
                             <div className='flex flex-wrap items-center justify-between w-full  gap-10'>
                                 <div className=''>
-                                    <h2 className='w-fit text-primary font-bold text-4xl'>
-                                    Semaglutide
+                                    <h2 className='w-fit text-primary  text-4xl'>
+                                        Semaglutide
                                     </h2>
                                     <p>Injection (GLP-1s)</p>
                                 </div>
 
-                                <div className='bg-primary p-2 text-white md:p-4 rounded-3xl md:px-10'>
+                                <div className='bg-primary text-xs px-5 p-2 text-white md:p-4 rounded-3xl md:px-10'>
                                     In Stock
                                 </div>
                             </div>
-                            <div className='flex items-center bg-brown-400 gap-5 backdrop-filter bg-clip-padding backdrop-blur-3xl bg-opacity-100 px-5 py-3 border rounded-3xl '>
-                                <p className='text-lg text-white font-semibold'>See If <b className='text-primary'>GLP-1s</b> are right for me? </p>
-                                <Link href="/get-started" className='bg-white rounded-full size-14 flex items-center justify-center'>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                    <div style={{ backgroundImage: `url(/images/medicine-2.png)` }} className='h-[500px] min-w-[350px] bg-[#d3d2cc] px-5 py-10 flex   rounded-3xl    bg-cover bg-center bg-no-repeat'>
-                        <div className='flex flex-col justify-between items-center'>
-                            <div className='flex flex-wrap items-center justify-between w-full  gap-10'>
-                                <div className=''>
-                                    <h2 className='w-fit text-primary text-4xl'>
-                                        Tirzepatide
-                                    </h2>
-                                    <p>Injection</p>
+                            <div style={{ backgroundImage: `url(/images/41.png)` }} className='h-[400px] min-w-full md:min-w-[350px]  flex    bg-contain bg-right bg-no-repeat'>
+                                <div className='flex flex-col justify-between items-center'>
+                                    <div></div>
+                                    <div className='flex items-center bg-brown-400 gap-5  drop-shadow-2xl backdrop-filter bg-clip-padding backdrop-blur-md bg-opacity-100 px-5 py-3  rounded-3xl '>
+                                        <p className='text-sm md:text-lg text-white '>See If <b className='text-primary'>GLP-1s</b> are right for me? </p>
+                                        <Link href="/get-started" className='bg-white rounded-full size-12 min-w-12 md:size-14 md:min-w-14 flex items-center justify-center'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                                        </Link>
+                                    </div>
                                 </div>
-                                <div className='bg-primary p-2 text-white md:p-4 rounded-3xl md:px-10'>
-                                    In Stock
-                                </div>
-                                
                             </div>
-                            <div className='flex items-center bg-brown-400 gap-5 backdrop-filter bg-clip-padding backdrop-blur-3xl bg-opacity-100 px-5 py-3 border rounded-3xl '>
-                                <p className='text-lg text-white font-semibold'>See If <b className='text-primary'>GLP-1s</b> are right for me? </p>
-                                <Link href="/get-started" className='bg-white rounded-full size-14 flex items-center justify-center'>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                    <div style={{ backgroundImage: `url(/images/42.png)` }} className='h-[500px] min-w-[350px] bg-[#d3d2cc] px-5 py-10 flex   rounded-3xl     bg-contain bg-center bg-no-repeat'>
-                        <div className='flex flex-col justify-between items-center'>
-                            <div className='flex flex-wrap items-center justify-between w-full  gap-10'>
-                                <div className=''>
-                                    <h2 className='w-fit text-primary text-4xl'>
-                                        Tirzepatide
-                                    </h2>
-                                    <p>Injection</p>
-                                </div>
-                                <div className='bg-primary p-2 text-white md:p-4 rounded-3xl md:px-10'>
-                                    In Stock
-                                </div>
-                               
-                            </div>
-                            <div className='flex items-center bg-brown-400 gap-5 backdrop-filter bg-clip-padding backdrop-blur-3xl bg-opacity-100 px-5 py-3 border rounded-3xl '>
-                                <p className='text-lg text-white font-semibold'>See If <b className='text-primary'>GLP-1s</b> are right for me? </p>
-                                <Link href="/get-started" className='bg-white rounded-full size-14 flex items-center justify-center'>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
 
+                        </div>
+                        <div className='flex justify-center my-2'>
+                            <Link href="#safety" className='text-sm underline text-primary '>
+                                Important safety information
+                            </Link>
+                        </div>
+                    </div>
+                    <div className='min-w-full md:w-[350px] md:min-w-fit'>
+                        <div className=' bg-[#d8d6d3] px-5 py-7  rounded-3xl '>
+                            <div className='flex flex-wrap items-center justify-between w-full  gap-10'>
+                                <div className=''>
+                                    <h2 className='w-fit text-primary  text-4xl'>
+                                    Tirzepatide
+                                    </h2>
+                                    <p>Injection </p>
+                                </div>
+
+                                <div className='bg-primary text-xs px-5 p-2 text-white md:p-4 rounded-3xl md:px-10'>
+                                    In Stock
+                                </div>
+                            </div>
+                            <div style={{ backgroundImage: `url(/images/medicine-2.png)` }} className='h-[400px] min-w-full md:min-w-[350px]  flex    bg-contain bg-right bg-no-repeat'>
+                                <div className='flex flex-col justify-between items-center'>
+                                    <div></div>
+                                    <div className='flex items-center bg-brown-400 gap-5  drop-shadow-2xl backdrop-filter bg-clip-padding backdrop-blur-md bg-opacity-100 px-5 py-3  rounded-3xl '>
+                                        <p className='text-sm md:text-lg text-white '>See If <b className='text-primary'>GLP-1s</b> are right for me? </p>
+                                        <Link href="/get-started" className='bg-white rounded-full size-12 min-w-12 md:size-14 md:min-w-14 flex items-center justify-center'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div className='flex justify-center my-2'>
+                            <Link href="#safety" className='text-sm underline text-primary '>
+                                Important safety information
+                            </Link>
+                        </div>
+                    </div>
+                    <div className='min-w-full md:w-[350px] md:min-w-fit'>
+                        <div className=' bg-[#d8d6d3] px-5 py-7  rounded-3xl '>
+                            <div className='flex flex-wrap items-center justify-between w-full  gap-10'>
+                                <div className=''>
+                                    <h2 className='w-fit text-primary  text-4xl'>
+                                    Tirzepatide
+                                    </h2>
+                                    <p>Injection </p>
+                                </div>
+
+                                <div className='bg-primary text-xs px-5 p-2 text-white md:p-4 rounded-3xl md:px-10'>
+                                    In Stock
+                                </div>
+                            </div>
+                            <div style={{ backgroundImage: `url(/images/42.png)` }} className='h-[400px] min-w-full md:min-w-[350px]  flex    bg-contain bg-right bg-no-repeat'>
+                                <div className='flex flex-col justify-between items-center'>
+                                    <div></div>
+                                    <div className='flex items-center bg-brown-400 gap-5  drop-shadow-2xl backdrop-filter bg-clip-padding backdrop-blur-md bg-opacity-100 px-5 py-3  rounded-3xl '>
+                                        <p className='text-sm md:text-lg text-white '>See If <b className='text-primary'>GLP-1s</b> are right for me? </p>
+                                        <Link href="/get-started" className='bg-white rounded-full size-12 min-w-12 md:size-14 md:min-w-14 flex items-center justify-center'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div className='flex justify-center my-2'>
+                            <Link href="#safety" className='text-sm underline text-primary '>
+                                Important safety information
+                            </Link>
+                        </div>
+                    </div>
                 </div>
                 <p className='mt-5 text-zinc-400'>
-                    *with a 12-mo subscription. Pay upfront in full. Actual price to customer will depend on product and subscription plan purchase.
-
-                    Compounded semaglutide, including Hims & Hers’ product (pictured above), is not approved or evaluated for safety, efficacy, or quality by FDA.
-
-                    Wegovy® (semaglutide) and Ozempic® (semaglutide) are not compounded. Wegovy® (semaglutide) is FDA-approved for weight loss. Ozempic® (semaglutide) is FDA-approved for type
-                    2 diabetes treatment but may be prescribed off-label for weight loss at a healthcare provider’s discretion.
+                    Semaglutide and Tirzepatide facilitate significant weight loss by reducing appetite and slowing gastric emptying. They effectively lower blood glucose levels, improving the management of type 2 diabetes. These medications also reduce the risk of cardiovascular events, such as heart attacks and strokes. With a low risk of hypoglycemia, they act primarily in response to elevated blood sugar levels. Additionally, they may help reduce liver fat and improve liver function, offering potential benefits.
                 </p>
+
             </section>
-            <section style={{ backgroundImage: "url(/images/20.png)" }} className='h-screen  flex flex-col justify-center   mt-10 bg-cover bg-no-repeat bg-center bg-opacity-50 '>
-                <div className='md:mx-20  p-1'>
-                    <h2 className='text-3xl md:text-4xl lg:text-5xl '>
+            <section style={{ backgroundImage: "url(/images/20.png)" }} className='h-screen  backdrop-filter bg-clip-padding backdrop-blur-md  flex flex-col justify-center   mt-10 bg-cover bg-no-repeat bg-center bg-opacity-50 '>
+                <div className='md:mx-20  '>
+                    <h2 className='text-3xl md:text-4xl lg:text-5xl pl-5 '>
                         Looking to<b className='text-orange-400'> shed </b>some <br />
                         pounds?
                     </h2>
-                    <p className='mt-10 max-w-48 text-lg'>
+                    <p className='mt-10 max-w-48 text-lg pl-5'>
                         We&apos;ve got you covered!
 
                         Lose weight
@@ -143,23 +182,21 @@ const WeightLossMedication = () => {
 
                     <div className='flex items-center mt-20'>
 
-                        <div className='w-24 h-24 bg-cover bg-center bg-no-repeat'>
+                        <div style={{ backgroundImage: "url(images/orange-logo.png)" }} className='w-[250px] h-24 bg-contain bg-center bg-no-repeat'>
 
                         </div>
-                        <div className='h-24 w-44 bg-cover bg-center bg-no-repeat'>
 
-                        </div>
                     </div>
                 </div>
             </section>
-            <section className='min-h-96 h-screen flex justify-center items-center'>
+            <section className='min-h-96 h-screen flex justify-center items-center border-b'>
 
-                <h2 className='text-3xl md:text-4xl lg:text-5xl text-primary text-center '>
+                <h2 className='text-2xl md:text-4xl lg:text-5xl text-primary text-center '>
                     Weight loss treatment for
 
                     <br />where you are now</h2>
             </section>
-            <section className='mt-10 p-5'>
+            {/* <section className='mt-10 p-5'>
                 <div className='flex flex-wrap items-center justify-between gap-10'>
                     <h2 className='text-3xl md:text-4xl lg:text-5xl text-primary'>
                         MEET OUR EXPERTS
@@ -202,14 +239,18 @@ const WeightLossMedication = () => {
 
                     Wegovy® (semaglutide) and Ozempic® (semaglutide) are not compounded. Wegovy® (semaglutide) is FDA-approved for weight loss. Ozempic® (semaglutide) is FDA-approved for type 2 diabetes treatment but may be prescribed off-label for weight loss at a healthcare provider’s discretion.
                 </p>
-            </section>
-            <section className='flex flex-wrap items-center h-[600px] p-2 md:px-10'>
+                <Link href="#safety" className='text-sm underline text-primary'>
+                    Important safety information
+                </Link>
+            </section> */}
 
+            <section className='flex flex-col md:flex-row flex-wrap items-center h-[600px] p-2 md:px-10'>
                 <div className='flex-1  md:px-10'>
-                    <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold '>Frequently asked
-                        questions</h2>
-                    <Link href="/get-started" className='bg-primary flex items-center justify-center p-4 px-10 w-[300px] text-white font-semibold text-lg rounded-xl mt-6'>
-                        GET STARTED
+                    <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-center md:text-start'>
+                        Frequently asked questions
+                    </h2>
+                    <Link href="/get-started" className='bg-primary mx-auto md:mx-0 flex items-center justify-center md:justify-start p-4 px-20 max-h-[80px] w-fit text-sm md:text-base  text-white  ms:text-lg rounded-xl mt-6 '>
+                        Get Started
                     </Link>
                 </div>
                 <div className='flex-1'>
@@ -220,43 +261,41 @@ const WeightLossMedication = () => {
             <section className='mt-10 bg-[#d3d2cc] p-5 mb-10 '>
                 <h2 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mt-10 mb-5'>
                     Transformations
-
                 </h2>
 
                 <CompareModule
                     img1="/images/21.png"
                     img2="/images/22.png"
-                    desc="Dr. Pepper lost 30 lbs in 1 year “I started losing weight almost immediately. To me, truly, this has been a game-changer.” Dr. Pepper Ro Ambassador who inspired the Body Program, after taking GLP-1 medication" />
+                    desc="Transformation after taking GLP-1 medication" />
 
                 <CompareModule
                     img1="/images/38.png"
                     img2="/images/39.png"
-                    desc="Dr. Pepper lost 30 lbs in 1 year “I started losing weight almost immediately. To me, truly, this has been a game-changer.” Dr. Pepper Ro Ambassador who inspired the Body Program, after taking GLP-1 medication" />
+                    desc="Transformation after taking GLP-1 medication" />
             </section>
-            <section className='flex flex-wrap p-5 gap-10 justify-between'>
+            <section className='flex flex-wrap p-5 gap-10 justify-between md:p-10 md:mb-20'>
                 <div className='w-[320px]'>
-                    <h4 className='text-primary text-2xl font-bold'>Lifestyle and Nutrition</h4>
-                    <p className='mt-3'>What sets you apart from your competition? Is it your offerings? Your philosophies? Or your values? </p>
+                    <h4 className='text-primary text-2xl font-bold'>Access to licensed providers</h4>
                     <p className='mt-2'>
-                        Whichever it is, highlight them on this page as separate pillars that build hold your brand aloft.
+                    Ongoing care comes from an experienced Care Team and vetted providers specializing in weight loss—at no extra cost.
                     </p>
                 </div>
                 <div className='w-[320px]'>
-                    <h4 className='text-primary text-2xl font-bold'>Preventive Medicine</h4>
-                    <p className='mt-3'>What sets you apart from your competition? Is it your offerings? Your philosophies? Or your values? </p>
+                    <h4 className='text-primary text-2xl font-bold'>Tailored dosage regimens</h4>
+                    {/* <p className='mt-3'>What sets you apart from your competition? Is it your offerings? Your philosophies? Or your values? </p> */}
                     <p className='mt-2'>
-                        Whichever it is, highlight them on this page as separate pillars that build hold your brand aloft.
+                    Dosage plans are tailored to your specific weight loss goals and preferences.
                     </p>
                 </div>
                 <div className='w-[320px]'>
-                    <h4 className='text-primary text-2xl font-bold'>Wellness Programs</h4>
-                    <p className='mt-3'>What sets you apart from your competition? Is it your offerings? Your philosophies? Or your values? </p>
+                    <h4 className='text-primary text-2xl font-bold'>Fast and free shipping</h4>
+                    {/* <p className='mt-3'>What sets you apart from your competition? Is it your offerings? Your philosophies? Or your values? </p> */}
                     <p className='mt-2'>
-                        Whichever it is, highlight them on this page as separate pillars that build hold your brand aloft.
+                    Temperature-controlled shipping ensures optimal preservation of medication by maintaining the required temperature throughout transit.
                     </p>
                 </div>
             </section>
-            
+
             <section className=' bg-black p-5 h-screen flex items-center'>
                 <div className='flex w-full items-center gap-10'>
                     <div className=' text-white'>
@@ -267,14 +306,14 @@ const WeightLossMedication = () => {
                             Email: hello@reallygreatsite.com
                         </p>
                         <p className='mt-10 font-medium'>
-                            All our branches are wheelchair-accessible
+                            Powered by MetabolixMD, 2024
                         </p>
 
                     </div>
 
                 </div>
             </section>
-            <section className='px-5 mt-10'>
+            <section id="safety" className='md:p-10 px-5 mt-10'>
 
                 <h2 className='font-semibold text-primary text-3xl md:text-4xl lg:text-5xl'>
                     IMPORTANT SAFETY INFORMATION

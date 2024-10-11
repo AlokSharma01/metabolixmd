@@ -11,7 +11,7 @@ const FaqItem = ({ question, answer }) => {
     <div className="border-b border-gray-300 py-4">
       <button
         onClick={toggleFaq}
-        className="w-full gap-2 text-left flex justify-between items-center text-lg font-semibold text-gray-800 focus:outline-none"
+        className="w-full gap-2 text-left flex justify-between items-center text-base  md:text-lg  text-gray-800 focus:outline-none"
       >
         <span>{question}</span>
         <span>{isOpen ? "-" : "+"}</span>
@@ -42,11 +42,7 @@ const FaqList = () => {
       answer:
         "The cost depends on the treatment plan, typically ranging from $50 to $100 per month.",
     },
-    {
-      question: "Is insurance required?",
-      answer:
-        "No, insurance is not required. metabolixmd provides affordable, out-of-pocket options for treatments.",
-    },
+
   ];
 
   return (

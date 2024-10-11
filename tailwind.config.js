@@ -15,6 +15,9 @@ module.exports = {
       screens: {
         xs: "475px",
         bigxl: "1920px"
+      },
+      fontFamily: {
+        'tt-hoves': ['"TT Hoves"', 'sans-serif'],
       }
     },
   },
