@@ -26,13 +26,13 @@ export default function useFirebaseAuth() {
         try {
             const res = await createUserWithEmailAndPassword(auth, email, password);
             //  Send a verification email
-            // await sendEmailVerification(auth.currentUser)
+            await sendEmailVerification(auth.currentUser)
             // Set up the cookie expiry time
             const expiryTime = new Date(Date.now() + 3600 * 1000);
             // Set the cookie
             const token = auth.currentUser.accessToken;
             // setToken(token, expiryTime);
-            return { status: true, user: auth.currentUser, token: token ,expiryTime:expiryTime};
+            return { status: true, user: auth.currentUser, token: token, expiryTime: expiryTime };
         }
         catch (e) {
             const error = firebaseErrorFinder(e);
@@ -63,6 +63,7 @@ export default function useFirebaseAuth() {
             const res = await signInWithEmailAndPassword(auth, email, password);
             if (!res.user.emailVerified && redirect != "") {
                 router.push(redirect)
+                await resendEmailVerificationLink()
                 return { status: false };
             }
             // Set up the cookie expiry time
@@ -70,7 +71,7 @@ export default function useFirebaseAuth() {
             // Set the cookie
             const token = auth.currentUser.accessToken;
             // setToken(token, expiryTime);
-            return { status: true, user: auth.currentUser, token: token,expiryTime:expiryTime };
+            return { status: true, user: auth.currentUser, token: token, expiryTime: expiryTime };
         }
         catch (e) {
             const error = firebaseErrorFinder(e);

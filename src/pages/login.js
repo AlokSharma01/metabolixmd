@@ -18,6 +18,8 @@ const LoginForm = () => {
     setLoading(true);
 
     const res = await loginWithEmailAndPassword(email, password); // Example redirect
+
+   
     setLoading(false);
 
     if (res.status) {

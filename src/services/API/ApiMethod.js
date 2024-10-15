@@ -1,6 +1,6 @@
 
-import {auth} from "../Auth/firebaseConfigue"
-import {setToken } from "../Auth/cookies";
+import { auth } from "../Auth/firebaseConfigue"
+import { setToken } from "../Auth/cookies";
 import { getAuthToken } from "./apiHelper";
 import { toast } from "react-toastify";
 
@@ -49,7 +49,7 @@ export async function tokenValidator() {
 
 export async function getMethod(url, payload) {
     const token = await tokenValidator()
-   
+
 
     var myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
@@ -111,7 +111,7 @@ export async function getAuthData(url) {
             // }
         }
         catch (e) {
-            return e.message
+            toast (e.message)
         }
     }
     else {
@@ -138,15 +138,12 @@ export async function postWithFileMethod(url, payload) {
         try {
             const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + url, requestOptions)
             const data = await response.json()
-            if (data.status == true) {
+          
                 return data
-            }
-            else {
-                return data.message
-            }
+           
         }
         catch (e) {
-            return e.message
+            toast (e.message)
         }
     }
     else {
@@ -181,20 +178,12 @@ export async function postMethod(url, payload) {
         try {
             const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + url, requestOptions)
             const data = await response.json()
-            console.log(data)
-            // when hitting help support api
-            if(data.chatRoomId){
+
                 return data
-            }
-            if (data.status == true) {
-                return data
-            }
-            else {
-                return data.message
-            }
+            
         }
         catch (e) {
-            return e.message
+            toast (e.message)
         }
     }
     else {
@@ -222,15 +211,12 @@ export async function patchWithFileMethod(url, payload) {
         try {
             const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + url, requestOptions)
             const data = await response.json()
-            if (data.status == true) {
+           
                 return data
-            }
-            else {
-                return data
-            }
+           
         }
         catch (e) {
-            return e.message
+            toast (e.message)
         }
     }
     else {
@@ -238,8 +224,8 @@ export async function patchWithFileMethod(url, payload) {
     }
 }
 
-export async function patchWithFileMethodCustomToken(url, payload,token) {
-    
+export async function patchWithFileMethodCustomToken(url, payload, token) {
+
     if (token) {
         var myHeaders = new Headers();
         myHeaders.append("timezone", tz);
@@ -291,15 +277,12 @@ export async function patchMethod(url, payload) {
         try {
             const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + url, requestOptions)
             const data = await response.json()
-            if (data.status == true) {
-                return data
-            }
-            else {
-                return data
-            }
+
+            return data
+
         }
         catch (e) {
-            return e.message
+            toast (e.message)
         }
     }
     else {

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const UserInfoForm = ({ onNext }) => {
   const [feet, setFeet] = useState("");
@@ -16,11 +17,16 @@ const UserInfoForm = ({ onNext }) => {
       },
       weight,
     };
-    onNext(formData, "weightCalculation"); // Replace "weightCalculation" with the next form step if needed
+    if (weight > 100) { // Replace "weightCalculation" with the next form step if needed
+      onNext(formData, "weightCalculation");
+    }
+    else {
+      toast("Weight can't be less than 100 pounds")
+    }
   };
 
   return (
-    <div className="max-w-fit mx-auto">
+    <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto">
       <div className="w-full md:w-[500px]">
         <h2 className="text-2xl font-semibold mb-6">
           Let’s start with where you are now
@@ -66,11 +72,10 @@ const UserInfoForm = ({ onNext }) => {
         {/* Continue Button */}
         <button
           type="button"
-          className={`w-full py-3 rounded-full text-white font-semibold ${
-            isButtonDisabled
+          className={`w-full py-3 rounded-full text-white font-semibold ${isButtonDisabled
               ? "bg-gray-400 cursor-not-allowed"
               : "bg-primary "
-          }`}
+            }`}
           disabled={isButtonDisabled}
           onClick={handleContinue} // Trigger continue action
         >

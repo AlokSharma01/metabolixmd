@@ -21,7 +21,7 @@ const BasicsUserInfo = ({ onNext }) => {
   };
 
   return (
-    <div className="max-w-fit mx-auto">
+    <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto">
       <div className="w-full md:w-[500px]">
 
         <p>START WITH</p>

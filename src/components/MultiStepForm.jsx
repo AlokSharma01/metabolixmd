@@ -17,6 +17,9 @@ import AnyMedicationForm from './froms/AnyMedicationForm';
 import EthnicityForm from './froms/EthinicityForm';
 import LabTestForm from './froms/LabTestForm';
 import BeforeWrapUp from './froms/BeforeWrapUp';
+import CheckOutForm from './froms/CheckOutForm';
+import SuccessPropt from './froms/SuccessPropt';
+import { patchMethod } from '@/services/API/ApiMethod';
 
 const MultiStepForm = () => {
   const [activeForm, setActiveForm] = useState("prescriptionQuestion");
@@ -69,8 +72,17 @@ const MultiStepForm = () => {
     return formOrder[currentIndex + 1] || "beforeWrapUp";
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     console.log("Final data:", formData);
+    let payload = {
+      detail: formData
+    }
+    const res = await patchMethod("/users/updateDetails", payload)
+
+    if (res) {
+      handleNextForm("checkout", {})
+    }
+
   };
 
   useEffect(() => {
@@ -106,19 +118,22 @@ const MultiStepForm = () => {
   }
 
   return (
-    <div className="multi-step-form bg-[#d3d2cc] min-h-screen flex flex-col justify-center items-center">
+    <div className="multi-step-form font-tt-hoves bg-[#d3d2cc] min-h-screen flex flex-col justify-center items-center">
 
       {/* Stepper */}
-      <div className="w-full md:w-[500px] flex gap-2 items-center">
-        {/* Dynamic width based on progress */}
-        <div className="h-[15px] border rounded-full bg-white flex-1">
-          <div
-            className="h-full bg-primary rounded-full"
-            style={{ width: `${progressPercentage}%` }}
-          ></div>
+      {
+        formOrder.includes(activeForm) &&
+        <div className="w-full p-5 md:p-0 md:w-[500px] flex gap-2 items-center">
+          {/* Dynamic width based on progress */}
+          <div className="h-[15px] border rounded-full bg-white flex-1">
+            <div
+              className="h-full bg-primary rounded-full"
+              style={{ width: `${progressPercentage}%` }}
+            ></div>
+          </div>
+          <img src="images/27.png" className="w-[70px]" alt="Step indicator" />
         </div>
-        <img src="images/27.png" className="w-[70px]" alt="Step indicator" />
-      </div>
+      }
 
       {activeForm === "prescriptionQuestion" && (
         <PrescriptionQuestion onNext={(data, next) => handleNextForm(next, data)} />
@@ -172,8 +187,20 @@ const MultiStepForm = () => {
         <LabTestForm onNext={(data, next) => handleNextForm(next, data)} />
       )}
       {activeForm === "beforeWrapUp" && (
-        <BeforeWrapUp onSubmit={handleSubmit} />
+        <BeforeWrapUp onSubmit={handleSubmit} onNext={(data, next) => handleNextForm(next, data)} />
       )}
+
+      {activeForm === "checkout" && (
+        <CheckOutForm userdata={formData} onNext={(data, next) => handleNextForm(next, data)} />
+      )}
+      {activeForm === "success" && (
+        <SuccessPropt type="1" />
+      )}
+      {activeForm === "success2" && (
+        <SuccessPropt type="2" />
+      )}
+
+
     </div>
   );
 };

@@ -2,14 +2,14 @@
 
 import React, { useState } from 'react'
 
-const BeforeWrapUp = () => {
+const BeforeWrapUp = ({onSubmit}) => {
     const [activeTab, setActiveTab] = useState("")
 
     const handleTab = (e) => {
         setActiveTab(e.currentTarget.id)
     }
     return (
-        <div className="max-w-fit mx-auto">
+        <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto">
             <div className="w-full md:w-[500px]">
                 <p>BEFORE WE WRAP UP</p>
                 <h2 className="text-2xl font-semibold mb-6">
@@ -29,6 +29,7 @@ const BeforeWrapUp = () => {
                 <button
                     type="button"
                     className={`mt-6 p-3 text-white w-full py-3text-white font-semibold rounded-full bg-primary hover:bg-primary`}
+                    onClick={onSubmit}
                 >
                     Continue
                 </button>

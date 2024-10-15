@@ -25,7 +25,7 @@ const AnyMedicationForm = ({onNext}) => {
   const isButtonDisabled = selectedMedications.length === 0;
 
   return (
-    <div className="max-w-fit mx-auto">
+    <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto">
       <div className="w-full md:w-[500px]">
         <h2 className="text-2xl font-semibold mb-6">Do you currently take any of the following medications?</h2>
         <p className="my-5 font-semibold text-zinc-500">Select all that apply</p>

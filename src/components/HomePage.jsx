@@ -15,12 +15,17 @@ const WeightLossMedication = () => {
             <section className='flex flex-col-reverse lg:flex-row   min-h-[600px] gap-10 sm:border-b'>
                 <div className='flex-1 flex text-center md:text-start flex-col justify-center    px-2 md:px-10'>
                     <h1 className='text-3xl md:text-4xl    font-medium text-wrap'>
-                        Get Access to prescription<br />
+                        {/* Get Access to prescription<br />
                         <b className='text-orange-500 text-wrap'>Weight Loss </b>
-                        Medication Online
+                        Medication Online */}
+                        Unlock Your Weight Loss Potential with <b className='text-orange-500 text-wrap'>MetabolixMD</b>
                     </h1>
                     <p className='mt-3 text-sm  text-zinc-500'>
-                        At MetabolixMD, we offer prescription weight loss medications, including GLP-1s like semaglutide and Tirzepatide, conveniently available through our telehealth platform. These cutting-edge treatments are designed to help regulate appetite and support effective weight loss. Backed by clinical expertise, our team provides personalized care to help you achieve your health goals safely and efficiently. Start your journey toward a healthier lifestyle with MetabolixMD today!</p>
+                        Discover our revolutionary GLP-1, GLP-1/GIP program, expertly crafted to support your journey to a healthier, happier you. Our dedicated team will guide you every step of the way.
+
+
+                    </p><p className='mt-3 text-sm  text-zinc-500'>Schedule a consultation and see if you qualify for our program.
+                        We partner only with top-notch 503A and 503B pharmacies to ensure seamless delivery of our premium compounded medicines, directly to your door.</p>
                     {
                         token ?
                             <Link href="/get-started" className='bg-primary hidden  h-[40px] md:h-fit w-fit mx-auto md:mx-0 md:flex items-center justify-center p-4 px-10 md:w-[300px] text-white  text-lg rounded-full mt-6'>
@@ -50,7 +55,7 @@ const WeightLossMedication = () => {
                 <div className='flex  flex-wrap md:items-center md:gap-5 '>
                     <h2 className='text-3xl min-w-fit md:flex-1 text-center md:text-start md:text-4xl lg:text-5xl flex-1'>
                         <b className='text-primary'>Prescription </b>
-                        ingredients <br/>
+                        ingredients <br />
                         for personalised care.
                     </h2>
                     <div className='flex-1 flex justify-center md:justify-end mb-5'>
@@ -99,7 +104,7 @@ const WeightLossMedication = () => {
                             <div className='flex flex-wrap items-center justify-between w-full  gap-10'>
                                 <div className=''>
                                     <h2 className='w-fit text-primary  text-4xl'>
-                                    Tirzepatide
+                                        Tirzepatide
                                     </h2>
                                     <p>Injection </p>
                                 </div>
@@ -132,7 +137,7 @@ const WeightLossMedication = () => {
                             <div className='flex flex-wrap items-center justify-between w-full  gap-10'>
                                 <div className=''>
                                     <h2 className='w-fit text-primary  text-4xl'>
-                                    Tirzepatide
+                                        Tirzepatide
                                     </h2>
                                     <p>Injection </p>
                                 </div>
@@ -227,7 +232,7 @@ const WeightLossMedication = () => {
                             <img src="/images/mohit.png" className='min-h-[600px] object-cover' />
                         </MeetExpertBackground>
 
-                        <h3 className='text-4xl font-bold text-primary'>Dr mohit chawla</h3>
+                        <h3 className='text-4xl font-bold text-primary'>Dr Mohit chawla</h3>
                         <p className='text-2xl  text-primary'>Consultant Physician</p>
                     </div>
                 </div>
@@ -277,21 +282,21 @@ const WeightLossMedication = () => {
                 <div className='w-[320px]'>
                     <h4 className='text-primary text-2xl font-bold'>Access to licensed providers</h4>
                     <p className='mt-2'>
-                    Ongoing care comes from an experienced Care Team and vetted providers specializing in weight loss—at no extra cost.
+                        Ongoing care comes from an experienced Care Team and vetted providers specializing in weight loss—at no extra cost.
                     </p>
                 </div>
                 <div className='w-[320px]'>
                     <h4 className='text-primary text-2xl font-bold'>Tailored dosage regimens</h4>
                     {/* <p className='mt-3'>What sets you apart from your competition? Is it your offerings? Your philosophies? Or your values? </p> */}
                     <p className='mt-2'>
-                    Dosage plans are tailored to your specific weight loss goals and preferences.
+                        Dosage plans are tailored to your specific weight loss goals and preferences.
                     </p>
                 </div>
                 <div className='w-[320px]'>
                     <h4 className='text-primary text-2xl font-bold'>Fast and free shipping</h4>
                     {/* <p className='mt-3'>What sets you apart from your competition? Is it your offerings? Your philosophies? Or your values? </p> */}
                     <p className='mt-2'>
-                    Temperature-controlled shipping ensures optimal preservation of medication by maintaining the required temperature throughout transit.
+                        Temperature-controlled shipping ensures optimal preservation of medication by maintaining the required temperature throughout transit.
                     </p>
                 </div>
             </section>

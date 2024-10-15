@@ -49,6 +49,7 @@ const NavBar = () => {
       {/* Navigation Links - Hidden on Mobile */}
       <div className='hidden md:flex items-center gap-5'>
         <div className='flex gap-5 capitalize text-lg'>
+        
           <Link href="about-us" className='cursor-pointer hover:text-primary hover:font-bold'>About</Link>
           <Link href="contact-us" className='cursor-pointer hover:text-primary hover:font-bold'>Contact</Link>
         </div>
@@ -82,6 +83,7 @@ const NavBar = () => {
       {/* Mobile Menu (Hidden by Default) */}
       <div id="mobile-menu" className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-75 hidden flex-col md:hidden z-50">
         <div className="flex flex-col items-center justify-center gap-5 text-white py-10">
+        <Link href="/" className='cursor-pointer hover:text-primary hover:font-bold'>Home</Link>
           <Link href="about-us" className='text-lg' onClick={handleMobileMenuToggle}>About</Link>
           <Link href="contact-us" className='text-lg' onClick={handleMobileMenuToggle}>Contact</Link>
 
