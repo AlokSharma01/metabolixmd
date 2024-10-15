@@ -61,8 +61,8 @@ const CheckOutForm = ({onNext}) => {
 
         const payload = {
             "orderItems": [{
-                "product": "663a7dcf91ba0dbbc2179226",
-                "quantity": 2
+                "product": "670c155fda7d6e34119c8e8e",
+                "quantity": 1
 
             }],
             deliveryAddress

@@ -12,9 +12,7 @@ const GLP1 = ({onNext}) => {
                 <h2 className="text-2xl font-semibold mb-6">
                    Do you have an allergy to GLP-1 agonist medications?
                 </h2>
-                <p className='text-zinc-500 font-semibold'>
-                    Examples include tirzepatide (Zepbound/Mounjaro), Liraglutide (Saxenda/Victoza), semaglutide (Wegovy/Ozempic), and dulaglutide (Trulicity)
-                </p>
+               
 
                 <div onClick={handleTab} id="yes" className={`bg-white cursor-pointer border rounded-xl p-3 text-lg font-semibold mt-3 ${activeTab==="yes"?"border-primary border-2":""}`}>
                     Yes

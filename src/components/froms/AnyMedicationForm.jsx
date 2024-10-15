@@ -3,8 +3,8 @@ import { useState } from "react";
 const AnyMedicationForm = ({onNext}) => {
   const [selectedMedications, setSelectedMedications] = useState([]);
   const medications = [
-    "A GLP-1 agonist such as (but not limited to) semaglutide (Wegovy/Ozempic), liraglutide (Saxenda/Victoza), dulaglutide (Trulicity), tirzepatide (Zepbound/Mounjaro)",
-    "Sulfonylureas such as (but not limited to) glipizide (Glucotrol), glimepiride (Amaryl)",
+    "A GLP-1 agonist",
+    "Sulfonylureas",
     "Insulin",
     "Warfarin (also called Jantoven or Coumadin) - a blood thinner that usually requires regular lab testing",
     "Meglitinides such as repaglinide or nateglinide",
