@@ -72,7 +72,10 @@ const CheckOutForm = ({onNext}) => {
             setLoading(true);
             let res = await postMethod("/order", payload);
             setLoading(false);
-            onNext({},"success2")
+            if(res){
+                window.open(res?.data?.url);
+            }
+            // onNext({},"success2")
             toast.success(res.message);
         } catch (err) {
             toast.error(err.message);
