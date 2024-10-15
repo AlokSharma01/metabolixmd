@@ -5,14 +5,14 @@ const Introduction = () => {
     <div className="bg-white text-gray-800 p-5   rounded-lg  container mx-auto mb-5">
       <h1 className="text-3xl md:text-4xl lg:text-5xl text-primary  uppercase mb-5">About Us</h1>
       <p className="text-lg mb-6">
-        Your trusted partner in weight loss and wellness. We're dedicated to helping busy
+        Your trusted partner in weight loss and wellness. We&apos;re dedicated to helping busy
         professionals achieve their health goals through personalized guidance and cutting-edge
         treatments.
       </p>
       
       <p className="text-lg mb-6">
-        At MetabolixMD, we're committed to excellence in every aspect of our care. That's why
-        we've partnered with the top pharmaceutical companies to offer the best GLP-1 and
+        At MetabolixMD, we&apos;re committed to excellence in every aspect of our care. That&apos;s why
+        we&apos;ve partnered with the top pharmaceutical companies to offer the best GLP-1 and
         GLP-1/GIP agonists available. Our treatments are:
       </p>
       
@@ -41,7 +41,7 @@ const Introduction = () => {
       
       <h2 className="text-xl font-semibold text-gray-900 mb-4">This introduction highlights:</h2>
       <ul className="list-disc list-inside mb-6">
-        <li>MetabolixMD's commitment to excellence and personalized care</li>
+        <li>MetabolixMD&apos;s commitment to excellence and personalized care</li>
         <li>Partnerships with top pharmaceutical companies</li>
         <li>FDA-approved and certified treatments</li>
         <li>Expert team and comprehensive approach</li>
