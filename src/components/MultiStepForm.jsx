@@ -199,6 +199,9 @@ const MultiStepForm = () => {
       {activeForm === "success2" && (
         <SuccessPropt type="2" />
       )}
+      {activeForm === "lessbmi" && (
+        <SuccessPropt type="3" />
+      )}
 
 
     </div>

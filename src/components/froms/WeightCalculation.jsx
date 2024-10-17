@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const WeightCalculation = ({ data, onNext }) => {
   const handleContinue = () => {
@@ -12,25 +12,25 @@ const WeightCalculation = ({ data, onNext }) => {
 
   // Calculate BMI
   const bmiValue = weightInKg / (heightInMeters * heightInMeters);
+
+  useEffect(() => {
+   if(bmiValue<=25){
+    onNext({},"lessbmi")
+   }
+  }, [])
+  
   return (
     <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto">
       <div className="w-full md:w-[500px]">
 
-        {
-          bmiValue > 25 &&
-          <>
+      
             <p>Your weight</p>
             <h2 className='text-5xl font-bold'>{data?.weight - 40} lbs</h2>
             <p className='text-primary text-3xl font-semibold flex items-center gap-5'>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down"><path d="M12 5v14" /><path d="m19 12-7 7-7-7" /></svg>
               40 lbs
             </p>
-          </>
-        }
-
-
-        {
-          bmiValue > 25 ?
+        
             <div className='mt-10'>
               <h3 className='text-2xl font-bold'>Your treatment options</h3>
               <p className='text-zinc-500 '>
@@ -49,12 +49,7 @@ const WeightCalculation = ({ data, onNext }) => {
                 Continue
               </button>
             </div>
-            :
-            <div className='mt-10'>
-              <h3 className='text-2xl font-bold'>You are not eligible! </h3>
-
-            </div>
-        }
+          
       </div>
     </div >
   );
