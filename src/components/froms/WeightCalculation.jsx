@@ -5,6 +5,13 @@ const WeightCalculation = ({data, onNext }) => {
     // Assuming there's no additional data to pass here
     onNext({}, "basicsUserInfo"); // Replace "basicsUserInfo" with the actual next form step
   };
+
+  const totalInches = parseInt(data?.height.feet) * 12 + parseInt(data?.height.inch);
+    const heightInMeters = totalInches * 0.0254;
+    const weightInKg = data.weight * 0.453592;
+
+    // Calculate BMI
+    const bmiValue = weightInKg / (heightInMeters * heightInMeters);
   return (
     <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto">
       <div className="w-full md:w-[500px]">
@@ -15,7 +22,9 @@ const WeightCalculation = ({data, onNext }) => {
           40 lbs
         </p>
 
-        <div className='mt-10'>
+        {
+          bmiValue >25 ?
+          <div className='mt-10'>
           <h3 className='text-2xl font-bold'>Your treatment options</h3>
           <p className='text-zinc-500 '>
             <span className='text-black font-semibold'>
@@ -33,6 +42,12 @@ const WeightCalculation = ({data, onNext }) => {
             Continue
           </button>
         </div>
+        :
+        <div className='mt-10'>
+          <h3 className='text-2xl font-bold'>You are not eligible! </h3>
+
+        </div>
+        }
       </div>
     </div>
   );

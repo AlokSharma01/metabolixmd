@@ -26,7 +26,7 @@ export default function useFirebaseAuth() {
         try {
             const res = await createUserWithEmailAndPassword(auth, email, password);
             //  Send a verification email
-            await sendEmailVerification(auth.currentUser)
+            // await sendEmailVerification(auth.currentUser)
             // Set up the cookie expiry time
             const expiryTime = new Date(Date.now() + 3600 * 1000);
             // Set the cookie
@@ -61,11 +61,11 @@ export default function useFirebaseAuth() {
     const loginWithEmailAndPassword = async (email, password, redirect = "") => {
         try {
             const res = await signInWithEmailAndPassword(auth, email, password);
-            if (!res.user.emailVerified && redirect != "") {
-                router.push(redirect)
-                await resendEmailVerificationLink()
-                return { status: false };
-            }
+            // if (!res.user.emailVerified && redirect != "") {
+            //     router.push(redirect)
+               
+            //     return { status: false };
+            // }
             // Set up the cookie expiry time
             const expiryTime = new Date(Date.now() + 3600 * 1000);
             // Set the cookie

@@ -118,7 +118,7 @@ const MultiStepForm = () => {
   }
 
   return (
-    <div className="multi-step-form font-tt-hoves bg-[#d3d2cc] min-h-screen flex flex-col justify-center items-center">
+    <div className="multi-step-form py-10 md:py-5 font-tt-hoves bg-[#d3d2cc] min-h-screen flex flex-col justify-center items-center">
 
       {/* Stepper */}
       {

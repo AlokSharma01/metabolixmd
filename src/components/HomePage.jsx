@@ -6,11 +6,12 @@ import CompareModule from './CompareModule'
 
 import { getAuthToken } from '@/services/API/apiHelper'
 import Link from 'next/link'
+import Footer from './Footer'
 
 const WeightLossMedication = () => {
     let token = getAuthToken()
     return (
-        <div className='font-tt-hoves' >
+        <div className='font-tt-hoves mt-20' >
             <NavBar />
             <section className='flex flex-col-reverse lg:flex-row   min-h-[600px] gap-10 sm:border-b'>
                 <div className='flex-1 flex text-center md:text-start flex-col justify-center    px-2 md:px-10'>
@@ -301,23 +302,7 @@ const WeightLossMedication = () => {
                 </div>
             </section>
 
-            <section className=' bg-black p-5 h-screen flex items-center'>
-                <div className='flex w-full items-center gap-10'>
-                    <div className=' text-white'>
-                        <img src="/images/logo-white.png" className='w-96' />
-                        <p className='mt-10 '>
-                            Call: +123-456-7980
-                            <br />
-                            Email: hello@reallygreatsite.com
-                        </p>
-                        <p className='mt-10 font-medium'>
-                            Powered by MetabolixMD, 2024
-                        </p>
-
-                    </div>
-
-                </div>
-            </section>
+            
             <section id="safety" className='md:p-10 px-5 mt-10'>
 
                 <h2 className='font-semibold text-primary text-3xl md:text-4xl lg:text-5xl'>
@@ -451,6 +436,8 @@ const WeightLossMedication = () => {
 
 
             </section>
+
+            <Footer/>
         </div>
     )
 }

@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer'
 import Introduction from '@/components/Intro'
 import MeetExpertBackground from '@/components/MeetExpertBackground'
 import NavBar from '@/components/NavBar'
@@ -49,7 +50,7 @@ const AboutUs = () => {
 
             </div>
 
-
+            <Footer />
         </div>
     )
 }

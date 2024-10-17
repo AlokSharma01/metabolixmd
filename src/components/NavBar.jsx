@@ -1,3 +1,4 @@
+import { getAuthToken } from '@/services/API/apiHelper'
 import { getUser } from '@/services/Auth/cookies'
 import useFirebaseAuth from '@/services/Auth/useFirebaseAuth'
 import Image from 'next/image'
@@ -7,9 +8,11 @@ import React, { useState, useEffect } from 'react'
 
 const NavBar = () => {
   let user = getUser()
+
   const [isClient, setIsClient] = useState(false);
   const { logOut } = useFirebaseAuth()
   const router = useRouter()
+  const [token, setToken] = useState("")
 
   const handleLogout = () => {
     logOut()
@@ -22,6 +25,8 @@ const NavBar = () => {
 
   useEffect(() => {
     setIsClient(true); // Ensures rendering only on client-side
+    let token = getAuthToken()
+    setToken(token)
   }, []);
 
   if (!isClient) {
@@ -29,7 +34,7 @@ const NavBar = () => {
   }
 
   return (
-    <div className='p-5 flex items-center justify-between gap-10'>
+    <div className='p-5 z-10 top-0 left-0 bg-white w-full fixed flex items-center justify-between gap-10'>
       {/* Logo */}
       <Link href="/">
         <Image src="/images/logo.png" width={200} height={50} alt="Logo" className="w-[150px] md:w-[200px] " />
@@ -37,8 +42,8 @@ const NavBar = () => {
 
       {/* Hamburger Menu for Mobile */}
       <div className='flex md:hidden'>
-        <button 
-          id="mobile-menu-toggle" 
+        <button
+          id="mobile-menu-toggle"
           className="cursor-pointer focus:outline-none"
           onClick={handleMobileMenuToggle}
         >
@@ -49,20 +54,20 @@ const NavBar = () => {
       {/* Navigation Links - Hidden on Mobile */}
       <div className='hidden md:flex items-center gap-5'>
         <div className='flex gap-5 capitalize text-lg'>
-        
+
           <Link href="about-us" className='cursor-pointer hover:text-primary hover:font-bold'>About</Link>
           <Link href="contact-us" className='cursor-pointer hover:text-primary hover:font-bold'>Contact</Link>
         </div>
 
         {/* User Section */}
-        {user ? (
+        {(token && user) ? (
           <div className="flex items-center gap-4">
-            <p className="flex items-center gap-2">
+            <Link href="/profile-details" className="flex items-center gap-2">
               <span className="text-white capitalize size-10 rounded-full bg-orange-500 flex items-center justify-center text-2xl">
                 {user[0]}
               </span>
               {user.split('@')[0]}
-            </p>
+            </Link>
             <button
               onClick={handleLogout}
               className="text-lg text-red-500 font-semibold cursor-pointer"
@@ -83,11 +88,14 @@ const NavBar = () => {
       {/* Mobile Menu (Hidden by Default) */}
       <div id="mobile-menu" className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-75 hidden flex-col md:hidden z-50">
         <div className="flex flex-col items-center justify-center gap-5 text-white py-10">
-        <Link href="/" className='cursor-pointer hover:text-primary hover:font-bold'>Home</Link>
+          <Link href="/" className='cursor-pointer hover:text-primary hover:font-bold'>Home</Link>
+          {
+            (user && token) &&
+            <Link href="profile-details" className='text-lg' onClick={handleMobileMenuToggle}>Profile</Link>
+          }
           <Link href="about-us" className='text-lg' onClick={handleMobileMenuToggle}>About</Link>
           <Link href="contact-us" className='text-lg' onClick={handleMobileMenuToggle}>Contact</Link>
-
-          {user ? (
+          {(user && token) ? (
             <button
               onClick={() => {
                 handleLogout()

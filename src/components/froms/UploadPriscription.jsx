@@ -2,7 +2,7 @@ import { postWithFileMethod } from '@/services/API/ApiMethod';
 import React, { useState, useRef } from 'react';
 import { toast } from 'react-toastify';
 
-const UploadPrescription = () => {
+const UploadPrescription = ({onNext}) => {
   const [checked, setChecked] = useState(false);
   const [loading, setLoading] = useState(false)
   const [preUrl, setPreUrl] = useState("")
@@ -28,6 +28,7 @@ const UploadPrescription = () => {
         let resp = await postWithFileMethod("/prescription", formdata)
         setLoading(false)
         toast(resp?.message)
+        onNext({},"success")
       } else {
         toast("Accept our policies!")
       }
