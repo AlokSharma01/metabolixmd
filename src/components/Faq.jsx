@@ -11,7 +11,7 @@ const FaqItem = ({ question, answer }) => {
     <div className="border-b border-gray-300 py-4">
       <button
         onClick={toggleFaq}
-        className="w-full gap-2 text-left flex justify-between items-center text-base  md:text-lg  text-gray-800 focus:outline-none"
+        className="w-full gap-2 text-primary text-left  flex justify-between items-center text-base  md:text-lg   focus:outline-none"
       >
         <span>{question}</span>
         <span>{isOpen ? "-" : "+"}</span>
@@ -28,22 +28,47 @@ const FaqItem = ({ question, answer }) => {
 const FaqList = () => {
   const faqs = [
     {
-      question: "What are my weight loss treatment options through metabolixmd?",
+      question: "What are GLP-1 and GIP medications used for?",
       answer:
-        "Metabolixmd offers several weight loss treatments tailored to individual needs, including medications and consultations.",
+        "GLP-1 and GIP medications are primarily used to treat type 2 diabetes, but they are also effective in promoting weight loss by controlling appetite and blood sugar levels.",
     },
     {
-      question: "What medications do you offer?",
+      question: "How do GLP-1 and GIP medications help with weight loss?",
       answer:
-        "Metabolixmd provides FDA-approved medications for weight loss under the guidance of healthcare professionals.",
+        "They work by slowing down digestion, reducing appetite, and promoting a sense of fullness, which can lead to lower calorie intake and gradual weight loss.",
     },
     {
-      question: "How much does weight loss treatment cost?",
+      question: "Are GLP-1 and GIP medications safe for weight loss?",
       answer:
-        "The cost depends on the treatment plan, typically ranging from $50 to $100 per month.",
+        "These medications are generally considered safe when prescribed by a healthcare provider, but side effects like nausea, vomiting, or digestive discomfort can occur.",
     },
-
+    {
+      question: "How much weight can I lose with GLP-1 and GIP medications?",
+      answer:
+        "Weight loss varies, but clinical trials have shown that patients can lose between 5-15% of their body weight over time with consistent use and lifestyle changes.",
+    },
+    {
+      question: "Do I need to follow a special diet while taking GLP-1 or GIP medications?",
+      answer:
+        "While no specific diet is required, maintaining a balanced, low-calorie diet and exercising regularly will enhance the weight loss effects of these medications.",
+    },
+    {
+      question: "How long does it take to see weight loss results with GLP-1 and GIP medications?",
+      answer:
+        "Most patients begin to see noticeable weight loss within a few weeks, with more significant changes occurring over several months of consistent use.",
+    },
+    {
+      question: "Can I use GLP-1 or GIP medications if I don’t have diabetes?",
+      answer:
+        "These medications can be prescribed off-label for weight loss in people without diabetes, but it’s important to consult a healthcare provider to determine if they are appropriate for you.",
+    },
+    {
+      question: "What are the common side effects of GLP-1 and GIP medications?",
+      answer:
+        "The most common side effects include nausea, vomiting, diarrhea, constipation, and bloating, but these usually improve over time as the body adjusts.",
+    },
   ];
+  
 
   return (
     <div className="w-full mx-auto  px-2">

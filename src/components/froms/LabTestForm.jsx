@@ -11,9 +11,9 @@
     return (
       <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto">
         <div className="w-full md:w-[500px]">
-          <h2 className="text-2xl font-semibold mb-6">
+          {/* <h2 className="text-2xl font-semibold mb-6">
             Your provider needs you to complete a lab test
-          </h2>
+          </h2> */}
           <p className="mb-4">
             A metabolic lab test will check for underlying health conditions to see if you are a good candidate for GLP-1 treatment.
           </p>
@@ -22,14 +22,14 @@
             <li>A lipid profile and A1c, thyroid, and kidney function testing</li>
             <li>Detection for conditions such as high cholesterol, prediabetes, hypothyroidism</li>
           </ul>
-          <h3 className="font-swiemibold">How do I complete the lab test?</h3>
+          {/* <h3 className="font-swiemibold">How do I complete the lab test?</h3>
           <p className="mb-4"> 
             Testing at Quest is included in the Body Program in most states, or you can get an at-home collection kit for $75. In some states, you will get an at-home kit at no extra cost.
           </p>
           <h3 className="font-semibold">What happens afterward?</h3>
           <p className="mb-4">
             A Ro-affiliated provider will discuss your lab results and options with you. If the lab tests do not show any underlying health conditions, you may not qualify for treatment.
-          </p>
+          </p> */}
           <div className="space-y-4">
             <button
               type="button"

@@ -17,12 +17,8 @@ const UserInfoForm = ({ onNext }) => {
       },
       weight,
     };
-    if (weight > 100) { // Replace "weightCalculation" with the next form step if needed
-      onNext(formData, "weightCalculation");
-    }
-    else {
-      toast("Weight can't be less than 100 pounds")
-    }
+    onNext(formData, "weightCalculation");
+
   };
 
   return (
@@ -37,7 +33,7 @@ const UserInfoForm = ({ onNext }) => {
           <label className="block text-gray-700 font-medium mb-2">
             Your height
           </label>
-          <div className="flex space-x-4">
+          <div className="flex flex-wrap gap-4">
             <input
               type="text"
               placeholder="Feet"

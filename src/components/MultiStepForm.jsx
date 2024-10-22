@@ -189,7 +189,6 @@ const MultiStepForm = () => {
       {activeForm === "beforeWrapUp" && (
         <BeforeWrapUp onSubmit={handleSubmit} onNext={(data, next) => handleNextForm(next, data)} />
       )}
-
       {activeForm === "checkout" && (
         <CheckOutForm userdata={formData} onNext={(data, next) => handleNextForm(next, data)} />
       )}
@@ -203,7 +202,7 @@ const MultiStepForm = () => {
         <SuccessPropt type="3" />
       )}
 
-
+{/* <LabTestForm onNext={(data, next) => handleNextForm(next, data)} /> */}
     </div>
   );
 };

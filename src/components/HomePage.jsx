@@ -15,12 +15,13 @@ const WeightLossMedication = () => {
             <NavBar />
             <section className='flex flex-col-reverse lg:flex-row   min-h-[600px] gap-10 sm:border-b'>
                 <div className='flex-1 flex text-center md:text-start flex-col justify-center    px-2 md:px-10'>
-                    <h1 className='text-3xl md:text-4xl    font-medium text-wrap'>
+                    <h1 className='text-3xl     font-medium text-wrap'>
                         {/* Get Access to prescription<br />
                         <b className='text-orange-500 text-wrap'>Weight Loss </b>
                         Medication Online */}
-                        Unlock Your Weight Loss Potential with <b className='text-orange-500 text-wrap'>MetabolixMD</b>
+                        Unlock Your Weight Loss Potential with
                     </h1>
+                    <img src="/images/orange-metabolix.png" className='max-w-[150px] md:max-w-[170px] mx-auto md:mx-0 mt-2' />
                     <p className='mt-3 text-sm  text-zinc-500'>
                         Discover our revolutionary GLP-1, GLP-1/GIP program, expertly crafted to support your journey to a healthier, happier you. Our dedicated team will guide you every step of the way.
 
@@ -57,7 +58,7 @@ const WeightLossMedication = () => {
                     <h2 className='text-3xl min-w-fit md:flex-1 text-center md:text-start md:text-4xl lg:text-5xl flex-1'>
                         <b className='text-primary'>Prescription </b>
                         ingredients <br />
-                        for personalised care.
+                        for personalized care.
                     </h2>
                     <div className='flex-1 flex justify-center md:justify-end mb-5'>
                         <Link href="/get-started" className='bg-primary  flex items-center justify-center p-4 px-20 md:px-8 max-h-[80px] w-fit md:w-[300px] md:h-[100px]  text-sm md:text-lg  text-white  ms:text-lg rounded-xl mt-6 '>
@@ -74,7 +75,7 @@ const WeightLossMedication = () => {
                                     <h2 className='w-fit text-primary  text-4xl'>
                                         Semaglutide
                                     </h2>
-                                    <p>Injection (GLP-1s)</p>
+                                    <p>Injection</p>
                                 </div>
 
                                 <div className='bg-primary text-xs px-5 p-2 text-white md:p-4 rounded-3xl md:px-10'>
@@ -168,7 +169,7 @@ const WeightLossMedication = () => {
                     </div>
                 </div>
                 <p className='mt-5 text-zinc-400'>
-                    Semaglutide and Tirzepatide facilitate significant weight loss by reducing appetite and slowing gastric emptying. They effectively lower blood glucose levels, improving the management of type 2 diabetes. These medications also reduce the risk of cardiovascular events, such as heart attacks and strokes. With a low risk of hypoglycemia, they act primarily in response to elevated blood sugar levels. Additionally, they may help reduce liver fat and improve liver function, offering potential benefits.
+                    Semaglutide and Tirzepatide facilitate significant weight loss by reducing appetite and slowing gastric emptying. These medications also reduce the risk of cardiovascular events, such as heart attacks and strokes. With a low risk of hypoglycemia, they act primarily in response to elevated blood sugar levels. Additionally, they may help reduce liver fat and improve liver function, offering potential benefits.
                 </p>
 
             </section>
@@ -183,7 +184,7 @@ const WeightLossMedication = () => {
 
                         Lose weight
 
-                        With <b className='text-orange-400'>GLP-1s</b>.
+                        with <b className='text-orange-400'>GLP-1s</b>.
                     </p>
 
                     <div className='flex items-center mt-20'>
@@ -195,12 +196,20 @@ const WeightLossMedication = () => {
                     </div>
                 </div>
             </section>
-            <section className='min-h-96 h-screen flex justify-center items-center border-b'>
+            <section className='min-h-96 h-fit py-20 flex flex-col justify-center items-center border-b'>
 
-                <h2 className='text-2xl md:text-4xl lg:text-5xl text-primary text-center '>
-                    Weight loss treatment for
+                <div className='flex flex-col'>
+                    <div>
+                        <h2 className='text-2xl md:text-3xl  text-primary text-center '>
+                            Weight loss treatment from
+                        </h2>
+                        <img src="/images/orange-metabolix.png" className='max-w-[150px] md:max-w-[200px] mx-auto mt-2' />
+                    </div>
+                    <div className='max-w-[1440px] '>
+                        <img src="/images/img-1.png" className='object-cover max-w-full' />
+                    </div>
+                </div>
 
-                    <br />where you are now</h2>
             </section>
             {/* <section className='mt-10 p-5'>
                 <div className='flex flex-wrap items-center justify-between gap-10'>
@@ -250,16 +259,16 @@ const WeightLossMedication = () => {
                 </Link>
             </section> */}
 
-            <section className='flex flex-col md:flex-row flex-wrap items-center h-[600px] p-2 md:px-10'>
+            <section className='flex flex-col md:flex-row flex-wrap items-center h-fit p-2 md:px-10'>
                 <div className='flex-1  md:px-10'>
-                    <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-center md:text-start'>
+                    <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-center md:text-start mt-10'>
                         Frequently asked questions
                     </h2>
                     <Link href="/get-started" className='bg-primary mx-auto md:mx-0 flex items-center justify-center md:justify-start p-4 px-20 max-h-[80px] w-fit text-sm md:text-base  text-white  ms:text-lg rounded-xl mt-6 '>
                         Get Started
                     </Link>
                 </div>
-                <div className='flex-1'>
+                <div className='flex-1 mt-5 md mx-3'>
                     <FaqList />
                 </div>
 
@@ -302,7 +311,7 @@ const WeightLossMedication = () => {
                 </div>
             </section>
 
-            
+
             <section id="safety" className='md:p-10 px-5 mt-10'>
 
                 <h2 className='font-semibold text-primary text-3xl md:text-4xl lg:text-5xl'>
@@ -437,7 +446,7 @@ const WeightLossMedication = () => {
 
             </section>
 
-            <Footer/>
+            <Footer />
         </div>
     )
 }

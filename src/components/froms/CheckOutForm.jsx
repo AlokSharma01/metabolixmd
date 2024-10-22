@@ -173,10 +173,10 @@ const CheckOutForm = ({onNext}) => {
                             <label>Postal code<b className="text-red-500">*</b></label>
                             <input
                                 placeholder="462038"
-                                {...register('postalCode', { required: true, pattern: /^[0-9]{6}$/ })}
+                                {...register('postalCode', { required: true})}
                                 className="border outline-none p-1 pl-3 pr-3 border-zinc-400 rounded-md w-full"
                             />
-                            {errors.postalCode && <p className="text-red-500 text-xs">Postal code must be 6 digits</p>}
+                            {/* {errors.postalCode && <p className="text-red-500 text-xs">Postal code must be 6 digits</p>} */}
                         </div>
                     </div>
 
