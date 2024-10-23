@@ -202,7 +202,7 @@ const MultiStepForm = () => {
         <SuccessPropt type="3" />
       )}
 
-{/* <LabTestForm onNext={(data, next) => handleNextForm(next, data)} /> */}
+
     </div>
   );
 };

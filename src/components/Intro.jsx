@@ -2,7 +2,7 @@ import React from 'react';
 
 const Introduction = () => {
   return (
-    <div className="bg-white text-gray-800 p-5 mt-20   rounded-lg  container mx-auto mb-5">
+    <div className="bg-white text-gray-800 p-5 mt-20   rounded-lg  mx-3 mb-5">
       <h1 className="text-3xl md:text-4xl lg:text-5xl text-primary  uppercase mb-5">About Us</h1>
       <p className="text-lg mb-6">
         Your trusted partner in weight loss and wellness. We&apos;re dedicated to helping busy

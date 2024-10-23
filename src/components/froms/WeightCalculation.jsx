@@ -1,5 +1,5 @@
 import { useRouter } from 'next/navigation';
-import React, { useEffect } from 'react';
+import React from 'react';
 import dynamic from 'next/dynamic';
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
@@ -11,23 +11,28 @@ const WeightCalculation = ({ data, onNext }) => {
     onNext({}, "basicsUserInfo");
   };
 
+  // Calculations for BMI
   const totalInches = parseInt(+data?.height.feet) * 12 + parseInt(+data?.height.inches);
   const heightInMeters = totalInches * 0.0254;
   const weightInKg = data.weight * 0.453592;
   const bmiValue = weightInKg / (heightInMeters * heightInMeters);
 
+  // ApexCharts configuration
   const chartData = {
     series: [{
       name: 'Weight Data',
-      data: [30, 28, 25, 23, 20, 15, 10] // Random data points
+      data: [30, 28, 25, 23, 20, 15, 10] // Example data points
     }],
     options: {
       chart: {
         type: 'area',
         height: 350,
+        toolbar: {
+          show: false, // Disable toolbar
+        },
         zoom: {
-          enabled: false
-        }
+          enabled: false // Disable zoom
+        },
       },
       stroke: {
         curve: 'smooth',
@@ -37,10 +42,10 @@ const WeightCalculation = ({ data, onNext }) => {
         show: false // Remove background grid lines
       },
       xaxis: {
-        show: false // Hide x-axis
+        show: true // Show x-axis
       },
       yaxis: {
-        show: false // Hide y-axis
+        show: true // Show y-axis
       },
       dataLabels: {
         enabled: false // Disable data labels
@@ -57,14 +62,14 @@ const WeightCalculation = ({ data, onNext }) => {
       tooltip: {
         enabled: false // Disable tooltip
       },
-      colors: ['#00E396'],
+      colors: ['#365d56'], // Set chart color
     }
   };
 
   return (
     <>
       {
-        bmiValue > 25 ?
+        (bmiValue > 25) ?
           <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto">
             <div className="w-full md:w-[500px]">
               <p>Your weight</p>
@@ -75,13 +80,10 @@ const WeightCalculation = ({ data, onNext }) => {
                 </svg>
                 40 lbs
               </p>
-              {/* Chart added here */}
+
+              {/* Chart */}
               <div className='mt-10'>
-                <div style={{ position: 'relative', height: '180px', width: '350px', overflow: 'hidden' }}>
-                  <div style={{ position: 'absolute', top: '-50%', width: '100%', height: '100%' }}>
-                    <Chart options={chartData.options} series={chartData.series} type="area" height={350} />
-                  </div>
-                </div>
+                <Chart options={chartData.options} series={chartData.series} type="area" height={350} />
                 <h3 className='text-2xl font-bold mt-6'>Your treatment options</h3>
                 <p className='text-zinc-500'>
                   <span className='text-black font-semibold'>

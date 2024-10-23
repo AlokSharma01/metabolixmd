@@ -54,9 +54,9 @@ const NavBar = () => {
       {/* Navigation Links - Hidden on Mobile */}
       <div className='hidden md:flex items-center gap-5'>
         <div className='flex gap-5 capitalize text-lg'>
-
+        <Link href="/" className='cursor-pointer hover:text-primary hover:font-bold'>Home</Link>
           <Link href="about-us" className='cursor-pointer hover:text-primary hover:font-bold'>About</Link>
-          <Link href="contact-us" className='cursor-pointer hover:text-primary hover:font-bold'>Contact</Link>
+          {/* <Link href="contact-us" className='cursor-pointer hover:text-primary hover:font-bold'>Contact</Link> */}
         </div>
 
         {/* User Section */}
@@ -94,7 +94,7 @@ const NavBar = () => {
             <Link href="profile-details" className='text-lg' onClick={handleMobileMenuToggle}>Profile</Link>
           }
           <Link href="about-us" className='text-lg' onClick={handleMobileMenuToggle}>About</Link>
-          <Link href="contact-us" className='text-lg' onClick={handleMobileMenuToggle}>Contact</Link>
+          {/* <Link href="contact-us" className='text-lg' onClick={handleMobileMenuToggle}>Contact</Link> */}
           {(user && token) ? (
             <button
               onClick={() => {

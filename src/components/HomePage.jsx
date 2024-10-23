@@ -96,7 +96,7 @@ const WeightLossMedication = () => {
 
                         </div>
                         <div className='flex justify-center my-2'>
-                            <Link href="#safety" className='text-sm underline text-primary '>
+                            <Link href="/important-safety-semaglutide" className='text-sm underline text-primary '>
                                 Important safety information
                             </Link>
                         </div>
@@ -129,7 +129,7 @@ const WeightLossMedication = () => {
 
                         </div>
                         <div className='flex justify-center my-2'>
-                            <Link href="#safety" className='text-sm underline text-primary '>
+                            <Link href="/important-safety-tirzepatide" className='text-sm underline text-primary '>
                                 Important safety information
                             </Link>
                         </div>
@@ -162,7 +162,7 @@ const WeightLossMedication = () => {
 
                         </div>
                         <div className='flex justify-center my-2'>
-                            <Link href="#safety" className='text-sm underline text-primary '>
+                            <Link href="/important-safety-tirzepatide"  className='text-sm underline text-primary '>
                                 Important safety information
                             </Link>
                         </div>
