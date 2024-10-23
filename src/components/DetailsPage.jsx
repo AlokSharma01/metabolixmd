@@ -21,7 +21,7 @@ const DetailsPage = ({ name, subName, mainRole, designation,detailedJob, img, ch
                     </div>
                 </div>
 
-                <div className='flex-1 flex items-center justify-center md:p-5'>
+                <div className='flex-1 flex items-center  md:p-5'>
                     <div className='text-primary flex flex-col gap-3 mt-2'>
                         <p className='font-bold text-3xl lg:text-4xl xl:text-5xl '>{name}, </p>
                         <p className='font-bold text-3xl lg:text-4xl xl:text-5xl'>{subName}</p>
