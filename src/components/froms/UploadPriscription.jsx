@@ -1,5 +1,6 @@
 import { postWithFileMethod } from '@/services/API/ApiMethod';
 import React, { useState, useRef } from 'react';
+import { ClipLoader } from 'react-spinners';
 import { toast } from 'react-toastify';
 
 const UploadPrescription = ({onNext}) => {
@@ -78,14 +79,14 @@ const UploadPrescription = ({onNext}) => {
 
         <button
           type="button"
-          className={`mt-6 p-3 text-white w-full font-semibold rounded-full bg-primary hover:bg-primary-dark ${!checked ? 'opacity-50 cursor-not-allowed' : ''
+          className={`mt-6 p-3 hover:bg-primary/90  text-white w-full font-semibold rounded-full bg-primary hover:bg-primary-dark ${!checked ? 'opacity-50 cursor-not-allowed' : ''
             }`}
           disabled={!checked || loading}
           onClick={handleUpload}
         >
           {
             loading ?
-            "Uploading..."
+            <ClipLoader size={24} color="white"/>
             :
             "Upload"
           }

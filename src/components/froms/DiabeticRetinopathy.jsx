@@ -35,7 +35,7 @@ const DiabeticRetinopathy = ({ onNext }) => {
                 </div>
                 <button
                     type="button"
-                    className={`mt-6 p-3 text-white w-full font-semibold rounded-full ${isButtonDisabled ? "bg-gray-400 cursor-not-allowed" : "bg-primary hover:bg-primary"}`}
+                    className={`mt-6 hover:bg-primary/90  p-3 text-white w-full font-semibold rounded-full ${isButtonDisabled ? "bg-gray-400 cursor-not-allowed" : "bg-primary hover:bg-primary"}`}
                     disabled={isButtonDisabled}
                     onClick={handleContinue}
                 >

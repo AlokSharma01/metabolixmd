@@ -66,7 +66,7 @@ const HeartDiseaseForm = ({ onNext }) => {
           {/* Continue button */}
           <button
             type="button"
-            className={`mt-6 w-full py-3 text-white font-semibold rounded-full ${
+            className={`mt-6 hover:bg-primary/90  w-full py-3 text-white font-semibold rounded-full ${
               isButtonDisabled
                 ? "bg-gray-400 cursor-not-allowed"
                 : "bg-primary hover:bg-primary"

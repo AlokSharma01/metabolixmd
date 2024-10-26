@@ -33,7 +33,7 @@
           <div className="space-y-4">
             <button
               type="button"
-              className="w-full py-3 text-white font-semibold rounded-full bg-primary hover:bg-primary"
+              className="w-full hover:bg-primary/90  py-3 text-white font-semibold rounded-full bg-primary hover:bg-primary"
               onClick={handleProceed}
             >
               I want to proceed

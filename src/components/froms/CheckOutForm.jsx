@@ -4,6 +4,7 @@ import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-au
 import { toast } from 'react-toastify';
 import { postMethod } from '@/services/API/ApiMethod';
 import { useRouter } from 'next/router';
+import { ClipLoader } from 'react-spinners';
 
 const CheckOutForm = ({onNext}) => {
     const wrapperRef = useRef(null);
@@ -83,11 +84,12 @@ const CheckOutForm = ({onNext}) => {
     };
 
     return (
-        <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto ">
+        <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto font-tt-hoves ">
             <div className="w-full md:w-[500px]">
                 <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
+                    <h1 className='text-2xl font-semibold mb-6 text-primary'>Please fill out your shipping details</h1>
                     <div>
-                        <label>Address<b className="text-red-500">*</b></label>
+                        <label>Address</label>
                         {/* <PlacesAutocomplete
                             value={address}
                             onChange={setAddress}
@@ -129,7 +131,7 @@ const CheckOutForm = ({onNext}) => {
                     </div>
 
                     <div>
-                        <label>Street<b className="text-red-500">*</b></label>
+                        <label>Street</label>
                         <input
                             placeholder="Street"
                             {...register('street', { required: true })}
@@ -140,7 +142,7 @@ const CheckOutForm = ({onNext}) => {
 
                     <div className="flex gap-2">
                         <div>
-                            <label>City<b className="text-red-500">*</b></label>
+                            <label>City</label>
                             <input
                                 placeholder="City"
                                 {...register('city', { required: true })}
@@ -149,7 +151,7 @@ const CheckOutForm = ({onNext}) => {
                             {errors.city && <p className="text-red-500 text-xs">City is required</p>}
                         </div>
                         <div>
-                            <label>State<b className="text-red-500">*</b></label>
+                            <label>State</label>
                             <input
                                 placeholder="State"
                                 {...register('state', { required: true })}
@@ -161,7 +163,7 @@ const CheckOutForm = ({onNext}) => {
 
                     <div className="flex gap-2">
                         <div>
-                            <label>Country<b className="text-red-500">*</b></label>
+                            <label>Country</label>
                             <input
                                 placeholder="India"
                                 {...register('country', { required: true })}
@@ -170,7 +172,7 @@ const CheckOutForm = ({onNext}) => {
                             {errors.country && <p className="text-red-500 text-xs">Country is required</p>}
                         </div>
                         <div>
-                            <label>Postal code<b className="text-red-500">*</b></label>
+                            <label>Postal code</label>
                             <input
                                 placeholder="462038"
                                 {...register('postalCode', { required: true})}
@@ -183,9 +185,9 @@ const CheckOutForm = ({onNext}) => {
                     <button
                         disabled={loading}
                         type="submit"
-                        className={`mt-6 w-full py-3 text-white font-semibold rounded-full ${loading ? "bg-gray-400" : "bg-primary hover:bg-primary"}`}
+                        className={`mt-10 hover:bg-primary/90  w-full py-3 text-white font-semibold rounded-full ${loading ? "bg-gray-400" : "bg-primary hover:bg-primary"}`}
                     >
-                        {loading ? "Loading..." : "Checkout"}
+                        {loading ? <ClipLoader size={24} color="white"/> : "Checkout"}
                     </button>
                 </form>
             </div>

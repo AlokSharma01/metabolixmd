@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { toast } from 'react-toastify';
 
 const BasicsUserInfo = ({ onNext }) => {
   const [activeTab, setActiveTab] = useState(""); // To capture gender
@@ -11,13 +12,38 @@ const BasicsUserInfo = ({ onNext }) => {
 
   const isButtonDisabled = !activeTab || !birthday || !zipCode; // Disable button if fields are empty
 
+  // const handleNext = () => {
+  //   const data = {
+  //     gender: activeTab,
+  //     dob: birthday,
+  //     zipCode: zipCode
+  //   };
+
+   
+  //   onNext(data, "primaryCareConfirmation"); // Replace "primaryCareConfirmation" with the next form step
+  // };
   const handleNext = () => {
-    const data = {
-      gender: activeTab,
-      dob: birthday,
-      zipCode: zipCode
-    };
-    onNext(data, "primaryCareConfirmation"); // Replace "primaryCareConfirmation" with the next form step
+    const today = new Date();
+    const birthDate = new Date(birthday);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+  
+    // Adjust age if the birthday hasn't occurred yet this year
+    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+  
+    if (age >= 18) {
+      const data = {
+        gender: activeTab,
+        dob: birthday,
+        zipCode: zipCode
+      };
+      
+      onNext(data, "primaryCareConfirmation"); // Replace "primaryCareConfirmation" with the next form step
+    } else {
+      toast("You must be at least 18 years old to proceed.");
+    }
   };
 
   return (
@@ -59,6 +85,7 @@ const BasicsUserInfo = ({ onNext }) => {
               className="flex-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
               value={birthday}
               onChange={(e) => setBirthday(e.target.value)}
+             
             />
           </div>
 
@@ -77,7 +104,7 @@ const BasicsUserInfo = ({ onNext }) => {
           {/* Next Button */}
           <button
             type="button"
-            className={`mt-6 p-3 text-white w-full font-semibold rounded-full ${isButtonDisabled ? "bg-gray-400 cursor-not-allowed" : "bg-primary"}`}
+            className={`mt-6 hover:bg-primary/90  p-3 text-white w-full font-semibold rounded-full ${isButtonDisabled ? "bg-gray-400 cursor-not-allowed" : "bg-primary"}`}
             onClick={handleNext}
             disabled={isButtonDisabled}
           >

@@ -33,7 +33,7 @@ const Type2Diabetes = ({ onNext }) => {
                 </div>
                 <button
                     type="button"
-                    className={`mt-6 p-3  w-full py-3 text-white font-semibold rounded-full bg-primary hover:bg-primary`}
+                    className={`mt-6 p-3 hover:bg-primary/90   w-full py-3 text-white font-semibold rounded-full bg-primary hover:bg-primary`}
                     onClick={handleContinue}
                 >
                     Continue

@@ -1,9 +1,11 @@
 import NavBar from "@/components/NavBar";
+import Loader from "@/Icons/Loader";
 import { setToken, setUser } from "@/services/Auth/cookies";
 import useFirebaseAuth from "@/services/Auth/useFirebaseAuth";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { ClipLoader } from "react-spinners";
 import { toast } from "react-toastify";
 // Import your hook
 
@@ -58,7 +60,7 @@ const LoginForm = () => {
   return (
     <div>
       <NavBar/>
-      <div className="h-screen mt-20 w-full flex items-center justify-center">
+      <div className="h-screen mt-20 w-full flex items-center justify-center ">
         {
           isForget ?
             <div className="w-full mx-5 md:w-[500px] ">
@@ -85,7 +87,7 @@ const LoginForm = () => {
                 </div>
                 <button
                   type="submit"
-                  className={`w-full py-3 text-white font-semibold rounded-full ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-primary"
+                  className={`w-full py-3 hover:bg-primary/90  text-white font-semibold rounded-full ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-primary"
                     }`}
                   disabled={loading}
                 >
@@ -136,11 +138,12 @@ const LoginForm = () => {
                 </div>
                 <button
                   type="submit"
-                  className={`w-full py-3 text-white font-semibold rounded-full ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-primary"
+                  className={`w-full hover:bg-primary/90  hover:bg-primary/90    flex items-center justify-center py-3 text-white font-semibold rounded-full  ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-primary"
                     }`}
                   disabled={loading}
                 >
-                  {loading ? "Logging in..." : "Login"}
+                 
+                  {loading ?<ClipLoader size={24} color="white"/> : " Login"}
                 </button>
               </form>
               <p className="text-center text-gray-500 mt-6">

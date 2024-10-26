@@ -21,7 +21,7 @@ const WeightCalculation = ({ data, onNext }) => {
   const chartData = {
     series: [{
       name: 'Weight Data',
-      data: [30, 28, 25, 23, 20, 15, 10] // Example data points
+      data: [data.weight, data.weight - 40] // Example data points
     }],
     options: {
       chart: {
@@ -72,9 +72,13 @@ const WeightCalculation = ({ data, onNext }) => {
         (bmiValue > 25) ?
           <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto">
             <div className="w-full md:w-[500px]">
-              <p>Your weight</p>
+              <p className='mb-5'>
+                This graph shows that with GLP-1 and GLP-1/GIP agonist medications,
+                you can expect to lose around 40 pounds over the course of a year.
+              </p>
+              {/* <p className='mt-2 text-xl font-semibold'>Your weight</p> */}
               <h2 className='text-5xl font-bold'>{data?.weight - 40} lbs</h2>
-              <p className='text-primary text-3xl font-semibold flex items-center gap-5'>
+              <p className='text-primary text-3xl font-semibold flex items-center gap-3'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-down">
                   <path d="M12 5v14" /><path d="m19 12-7 7-7-7" />
                 </svg>
@@ -82,7 +86,7 @@ const WeightCalculation = ({ data, onNext }) => {
               </p>
 
               {/* Chart */}
-              <div className='mt-10'>
+              <div className='mt-2'>
                 <Chart options={chartData.options} series={chartData.series} type="area" height={350} />
                 <h3 className='text-2xl font-bold mt-6'>Your treatment options</h3>
                 <p className='text-zinc-500'>
@@ -95,8 +99,8 @@ const WeightCalculation = ({ data, onNext }) => {
 
                 <button
                   type="button"
-                  className={`mt-6 p-3 text-white w-full py-3 font-semibold rounded-full bg-primary hover:bg-primary`}
-                  onClick={handleContinue} // Trigger continue action
+                  className={`mt-6 p-3 hover:bg-primary/90  text-white w-full py-3 font-semibold rounded-full bg-primary hover:bg-primary`}
+                  onClick={handleContinue} 
                 >
                   Continue
                 </button>

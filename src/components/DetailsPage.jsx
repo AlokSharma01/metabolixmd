@@ -23,10 +23,9 @@ const DetailsPage = ({ name, subName, mainRole, designation,detailedJob, img, ch
 
                 <div className='flex-1 flex items-center  md:p-5'>
                     <div className='text-primary flex flex-col gap-3 mt-2'>
-                        <p className='font-bold text-3xl lg:text-4xl xl:text-5xl '>{name}, </p>
-                        <p className='font-bold text-3xl lg:text-4xl xl:text-5xl'>{subName}</p>
+                        <p className='font-bold text-3xl lg:text-4xl xl:text-5xl '>{name}, {subName} </p>
                         <p className='text-[#ff8c2c] text-2xl'>{mainRole && <b>{mainRole},</b>} {designation}</p>
-                        <p className=' text-3xl  '>{detailedJob}</p>
+                        <p className='text-xl md:text-2xl lg:text-3xl '>{detailedJob}</p>
                     </div>
                 </div>
             </div>

@@ -32,7 +32,7 @@ const PrescriptionQuestion = ({ onNext }) => {
 
         <button
           type="button"
-          className={`mt-6 p-3 text-white w-full py-3text-white font-semibold rounded-full bg-primary hover:bg-primary`}
+          className={`mt-6 hover:bg-primary/90  p-3 text-white w-full py-3text-white font-semibold rounded-full bg-primary hover:bg-primary`}
 
           onClick={handleClick}
         >

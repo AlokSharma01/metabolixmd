@@ -4,6 +4,7 @@ import useFirebaseAuth from "@/services/Auth/useFirebaseAuth";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { ClipLoader } from "react-spinners";
 import { toast } from "react-toastify";
 
 const SignupForm = () => {
@@ -117,11 +118,11 @@ const SignupForm = () => {
 
             <button
               type="submit"
-              className={`w-full py-3 text-white font-semibold rounded-full ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-primary"
+              className={`w-full py-3 hover:bg-primary/90  text-white font-semibold rounded-full ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-primary"
                 }`}
               disabled={loading || password !== confirmPassword}
             >
-              {loading ? "Signing up..." : "Sign Up"}
+              {loading ? <ClipLoader size={24} color="white"/> : "Sign Up"}
             </button>
           </form>
           <p className="text-center text-gray-500 mt-6">
@@ -130,6 +131,7 @@ const SignupForm = () => {
               Log in
             </Link>
           </p>
+          
         </div>
       </div>
     </div>

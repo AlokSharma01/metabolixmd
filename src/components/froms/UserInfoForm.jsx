@@ -68,7 +68,7 @@ const UserInfoForm = ({ onNext }) => {
         {/* Continue Button */}
         <button
           type="button"
-          className={`w-full py-3 rounded-full text-white font-semibold ${isButtonDisabled
+          className={`w-full py-3 hover:bg-primary/90  rounded-full text-white font-semibold ${isButtonDisabled
               ? "bg-gray-400 cursor-not-allowed"
               : "bg-primary "
             }`}

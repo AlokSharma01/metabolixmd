@@ -1,9 +1,12 @@
 import Link from 'next/link'
 import React from 'react'
+import FloatingButton from './FloatingButton'
 
 const Footer = () => {
     return (
-        <section className=' bg-black p-5 py-20 flex items-center mt-auto'>
+        <div >
+            <FloatingButton/>
+            <section id="bottom-footer" className=' bg-black p-5 py-20 flex items-center mt-auto'>
             <div className='flex w-full items-center gap-10'>
                 <div className=' text-white'>
                     <img src="/images/logo-white.png" className='w-96' />
@@ -112,6 +115,7 @@ const Footer = () => {
 
             </div>
         </section>
+        </div>
     )
 }
 
