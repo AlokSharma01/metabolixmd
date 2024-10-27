@@ -16,7 +16,7 @@ const BeforeWrapUp = ({onSubmit}) => {
                    Is there anything else you want your healthcare provider to know about your health?
                 </h2>
                 <p className='text-zinc-500 font-semibold'>
-                     include any additional details about teh condtions you have already reported.
+                     include any additional details about the condtions you have already reported.
                 </p>
 
                 <div onClick={handleTab} id="yes" className={`bg-white cursor-pointer border rounded-xl p-3 text-lg font-semibold mt-3 ${activeTab==="yes"?"border-primary border-2":""}`}>
