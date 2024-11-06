@@ -24,16 +24,34 @@ const LoginForm = () => {
     const res = await loginWithEmailAndPassword(email, password); // Example redirect
 
 
-    setLoading(false);
 
     if (res.status) {
       // Successful login
-      toast.success("Logged in successfully");
-      setToken(res.token, res.expiryTime)
-      setUser(res.user.email)
-      router.push("/")
+      var myHeaders = new Headers();
+      myHeaders.append("Authorization", `Bearer ${res.token}`);
+      let requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+      };
+
+      if (res.token) {
+        try {
+          const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/users/me", requestOptions)
+          const data = await response.json()
+          setToken(res.token, res.expiryTime)
+          setUser(data.data)
+          router.push("/")
+          setLoading(false);
+        }
+        catch (e) {
+          setLoading(false);
+          return e.message
+        }
+      }
     } else {
       // Handle login error (already handled via toast in your custom hook)
+      setLoading(false);
       toast.error("Not able to login!")
     }
   };
@@ -59,13 +77,13 @@ const LoginForm = () => {
 
   return (
     <div>
-      <NavBar/>
+      <NavBar />
       <div className="h-screen mt-20 w-full flex items-center justify-center ">
         {
           isForget ?
             <div className="w-full mx-5 md:w-[500px] ">
               <h2 className="text-2xl font-semibold mb-6">Reset password</h2>
-              <form onSubmit={isForget ? handleLogin : handleLogin}>
+              <form onSubmit={handlepassword}>
                 <div className="mb-4">
                   <label className="block text-gray-700 text-sm font-bold mb-2">
                     Email Address
@@ -91,7 +109,7 @@ const LoginForm = () => {
                     }`}
                   disabled={loading}
                 >
-                  Reset
+                  {loading ? <ClipLoader size={24} color="white" /> : " Reset"}
                 </button>
               </form>
               <p className="text-center text-gray-500 mt-6">
@@ -138,12 +156,12 @@ const LoginForm = () => {
                 </div>
                 <button
                   type="submit"
-                  className={`w-full hover:bg-primary/90  hover:bg-primary/90    flex items-center justify-center py-3 text-white font-semibold rounded-full  ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-primary"
+                  className={`w-full   hover:bg-primary/90    flex items-center justify-center py-3 text-white font-semibold rounded-full  ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-primary"
                     }`}
                   disabled={loading}
                 >
-                 
-                  {loading ?<ClipLoader size={24} color="white"/> : " Login"}
+
+                  {loading ? <ClipLoader size={24} color="white" /> : " Login"}
                 </button>
               </form>
               <p className="text-center text-gray-500 mt-6">

@@ -51,7 +51,7 @@ const BasicsUserInfo = ({ onNext }) => {
       <div className="w-full md:w-[500px]">
 
         <p>START WITH</p>
-        <h2 className='text-3xl font-semibold'>The Basics</h2>
+        <h2 className='text-2xl  mb-6 text-primary'>The Basics</h2>
         <p className='text-zinc-500 my-3'>This information helps your healthcare provider determine if you’re eligible for treatment.</p>
 
         <label className='text-lg font-medium'>Sex Assigned at Birth</label>

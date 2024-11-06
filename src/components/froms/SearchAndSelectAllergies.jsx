@@ -39,7 +39,7 @@ const SearchAndSelectAllergies = ({ onNext }) => {
     return (
         <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto">
             <div className="w-full md:w-[500px]">
-                <h2 className="text-2xl font-semibold mb-6">
+                <h2 className="text-2xl  mb-6 text-primary">
                     Search and select all allergies you have
                 </h2>
                 <p className="my-5 font-semibold text-zinc-500">

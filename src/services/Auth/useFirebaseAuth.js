@@ -104,7 +104,10 @@ export default function useFirebaseAuth() {
             toastId: "firebase-reset-password-sent-message"
         })
     }
-
+    const deleteMyAccount = async () => {
+        const user = auth.currentUser;
+        await user.delete()        
+    }
     const signInWithGoogle = async () => {
         try {
             const res = await signInWithPopup(auth, googleProvider);
@@ -215,9 +218,7 @@ export default function useFirebaseAuth() {
 
     const confirmCode = async (verificationCode) => {
         try {
-            console.log("hi", confirmationResultRef)
             const res = await confirmationResultRef.current.confirm(verificationCode);
-            console.log("hello", res)
             const user = res.user;
             // Check if this is the user's first sign-in
             const isFirstSignIn = user.metadata.creationTime === user.metadata.lastSignInTime;
@@ -252,6 +253,7 @@ export default function useFirebaseAuth() {
         signInWithFacebook,
         initializeRecaptcha,
         phoneSignIn,
-        confirmCode
+        confirmCode,
+        deleteMyAccount
     }
 }

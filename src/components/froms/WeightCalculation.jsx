@@ -1,11 +1,13 @@
 import { useRouter } from 'next/navigation';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const WeightCalculation = ({ data, onNext }) => {
   const router = useRouter();
+  const [lossCount, setLossCount] = useState(20)
+  const [chartValue, setChartValue] = useState("")
 
   const handleContinue = () => {
     onNext({}, "basicsUserInfo");
@@ -16,55 +18,77 @@ const WeightCalculation = ({ data, onNext }) => {
   const heightInMeters = totalInches * 0.0254;
   const weightInKg = data.weight * 0.453592;
   const bmiValue = weightInKg / (heightInMeters * heightInMeters);
+  const currentYear = new Date().getFullYear();
+const nextYear = currentYear + 1;
+
+  useEffect(() => {
+
+    let Count = data?.weight*.18
+    setLossCount(Count)
+
+    setChartValue(
+      {
+        series: [{
+          name: 'Weight',
+          data: [data.weight, data.weight - Count] // Example data points
+        }],
+        options: {
+          chart: {
+            type: 'area',
+            height: 350,
+            toolbar: {
+              show: false, // Disable toolbar
+            },
+            zoom: {
+              enabled: false // Disable zoom
+            },
+          },
+          stroke: {
+            curve: 'smooth',
+            width: 2,
+          },
+          grid: {
+            show: false // Remove background grid lines
+          },
+          xaxis: {
+            show: true, // Show x-axis
+            title: {
+              text: 'Year' // Set x-axis title to "Year"
+            },
+            categories: [ currentYear.toString(),nextYear.toString()], // Add years as example labels
+          },
+          yaxis: {
+            show: true, // Show y-axis
+            // title: {
+            //   text: 'Weight' // Set y-axis title to "Weight"
+            // },
+          },
+          dataLabels: {
+            enabled: false // Disable data labels
+          },
+          fill: {
+            type: 'gradient',
+            gradient: {
+              shadeIntensity: 1,
+              opacityFrom: 0.6,
+              opacityTo: 0.3,
+              stops: [0, 90, 100]
+            }
+          },
+          tooltip: {
+            enabled: true // Enable tooltip
+          },
+          colors: ['#365d56'], // Set chart color
+        }
+      }
+      
+    )
+    
+  }, [])
+  
 
   // ApexCharts configuration
-  const chartData = {
-    series: [{
-      name: 'Weight Data',
-      data: [data.weight, data.weight - 40] // Example data points
-    }],
-    options: {
-      chart: {
-        type: 'area',
-        height: 350,
-        toolbar: {
-          show: false, // Disable toolbar
-        },
-        zoom: {
-          enabled: false // Disable zoom
-        },
-      },
-      stroke: {
-        curve: 'smooth',
-        width: 2,
-      },
-      grid: {
-        show: false // Remove background grid lines
-      },
-      xaxis: {
-        show: true // Show x-axis
-      },
-      yaxis: {
-        show: true // Show y-axis
-      },
-      dataLabels: {
-        enabled: false // Disable data labels
-      },
-      fill: {
-        type: 'gradient',
-        gradient: {
-          shadeIntensity: 1,
-          opacityFrom: 0.6,
-          opacityTo: 0.3,
-          stops: [0, 90, 100]
-        }
-      },
-      tooltip: {
-        enabled: false // Disable tooltip
-      },
-      colors: ['#365d56'], // Set chart color
-    }
-  };
+
 
   return (
     <>
@@ -74,20 +98,23 @@ const WeightCalculation = ({ data, onNext }) => {
             <div className="w-full md:w-[500px]">
               <p className='mb-5'>
                 This graph shows that with GLP-1 and GLP-1/GIP agonist medications,
-                you can expect to lose around 40 pounds over the course of a year.
+                you can expect to lose around 15 - 20% over the course of a year.
               </p>
               {/* <p className='mt-2 text-xl font-semibold'>Your weight</p> */}
-              <h2 className='text-5xl font-bold'>{data?.weight - 40} lbs</h2>
+              <h2 className='text-5xl font-bold'>{data?.weight - lossCount} lbs</h2>
               <p className='text-primary text-3xl font-semibold flex items-center gap-3'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-down">
                   <path d="M12 5v14" /><path d="m19 12-7 7-7-7" />
                 </svg>
-                40 lbs
+                {lossCount} lbs
               </p>
 
               {/* Chart */}
               <div className='mt-2'>
-                <Chart options={chartData.options} series={chartData.series} type="area" height={350} />
+                {
+                  chartValue &&
+                  <Chart  options={chartValue?.options} series={chartValue?.series} type="area" height={350} />
+                }
                 <h3 className='text-2xl font-bold mt-6'>Your treatment options</h3>
                 <p className='text-zinc-500'>
                   <span className='text-black font-semibold'>
@@ -110,7 +137,7 @@ const WeightCalculation = ({ data, onNext }) => {
           :
           <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto">
             <div className="w-full md:w-[500px]">
-              <h1 className='text-primary font-semibold text-3xl'>Thank you for reaching out to us.</h1>
+              <h1 className='text-3xl  mb-6 text-primary'>Thank you for reaching out to us.</h1>
               <p className='mt-5 text-lg font-normal'>
                 We regret to inform you that, based on your current BMI, you do not meet the eligibility criteria for GLP-1 medication.
               </p>

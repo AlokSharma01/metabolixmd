@@ -14,20 +14,56 @@ const AnyMedicationForm = ({onNext}) => {
     "None of the above",
   ];
 
-  const handleCheckboxChange = (medication) => {
-    setSelectedMedications((prev) =>
-      prev.includes(medication)
-        ? prev.filter((m) => m !== medication)
-        : [...prev, medication]
-    );
+  // const handleCheckboxChange = (medication) => {
+  //   setSelectedMedications((prev) =>
+  //     prev.includes(medication)
+  //       ? prev.filter((m) => m !== medication)
+  //       : [...prev, medication]
+  //   );
+  // };
+  const handleCheckboxChange = (goal) => {
+    if (goal ===  "None of the above") {
+      if (selectedMedications.includes(goal)) {
+        // If "No" is already selected, deselect it
+        setSelectedMedications([]);
+      } else {
+        // If "No" is not selected, select only "No" and deselect all others
+        setSelectedMedications([goal]);
+      }
+    } else {
+      if (selectedMedications.includes( "None of the above")) {
+        // Prevent selecting other options if "No" is selected
+        return;
+      }
+      // Toggle the selection of other options
+      setSelectedMedications((prev) =>
+        prev.includes(goal) ? prev.filter((g) => g !== goal) : [...prev, goal]
+      );
+    }
   };
-
   const isButtonDisabled = selectedMedications.length === 0;
+  const handleContinue = () => {
+    const criticalMedications = [
+      "Selective Serotonin Reuptake Inhibitor (SSRI) such as (but not limited to) citalopram (Celexa), fluoxetine (Prozac), escitalopram (Lexapro)",
+      "Monoamine Oxidase Inhibitor (MAOI) such as (but not limited to) phenelzine (Nardil), selegiline (Emsam)"
+    ];
+  
+
+    const shouldStop = selectedMedications.some((medication) =>
+      criticalMedications.includes(medication)
+    );
+
+    const nextStep = shouldStop ? "stopProcess" : "ethnicity";
+    const data = { additional_condition: selectedMedications };
+  
+    onNext(data, nextStep);
+  };
+  
 
   return (
     <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto">
       <div className="w-full md:w-[500px]">
-        <h2 className="text-2xl font-semibold mb-6">Do you currently take any of the following medications?</h2>
+        <h2 className="text-2xl  mb-6 text-primary">Do you currently take any of the following medications?</h2>
         <p className="my-5 font-semibold text-zinc-500">Select all that apply</p>
         <form>
           <div className="space-y-4">
@@ -55,7 +91,7 @@ const AnyMedicationForm = ({onNext}) => {
                 : "bg-primary hover:bg-primary"
             }`}
             disabled={isButtonDisabled}
-            onClick={()=>onNext({medications:selectedMedications},"ethnicity")}
+            onClick={ handleContinue }
           >
             Next
           </button>

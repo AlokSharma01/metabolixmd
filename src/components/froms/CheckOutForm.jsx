@@ -6,10 +6,10 @@ import { postMethod } from '@/services/API/ApiMethod';
 import { useRouter } from 'next/router';
 import { ClipLoader } from 'react-spinners';
 
-const CheckOutForm = ({onNext}) => {
+const CheckOutForm = ({ onNext }) => {
     const wrapperRef = useRef(null);
     const [address, setAddress] = useState('');
-    const router = useRouter()
+    const router = useRouter();
     const [coordinates, setCoordinates] = useState({ lat: null, lng: null });
     const [loading, setLoading] = useState(false);
 
@@ -28,30 +28,19 @@ const CheckOutForm = ({onNext}) => {
         setAddress(value);
         setCoordinates(latLng);
 
-        addressComponents.forEach(component => {
+        addressComponents.forEach((component) => {
             const types = component.types;
-            if (types.includes("country")) {
-                setValue("country", component.long_name);
-            }
-            if (types.includes("administrative_area_level_1")) {
-                setValue("state", component.long_name);
-            }
-            if (types.includes("locality")) {
-                setValue("city", component.long_name);
-            }
-            if (types.includes("postal_code")) {
-                setValue("postalCode", component.long_name);
-            }
-            if (types.includes("route")) {
-                setValue("street", component.long_name);
-            }
+            if (types.includes("country")) setValue("country", component.long_name);
+            if (types.includes("administrative_area_level_1")) setValue("state", component.long_name);
+            if (types.includes("locality")) setValue("city", component.long_name);
+            if (types.includes("postal_code")) setValue("postalCode", component.long_name);
+            if (types.includes("route")) setValue("street", component.long_name);
         });
 
         setValue('address', value);
     };
 
     const onSubmit = async (data) => {
-
         const deliveryAddress = {
             ...data,
             position: {
@@ -61,11 +50,7 @@ const CheckOutForm = ({onNext}) => {
         };
 
         const payload = {
-            "orderItems": [{
-                "product": "670c155fda7d6e34119c8e8e",
-                "quantity": 1
-
-            }],
+            orderItems: [{ product: "670c155fda7d6e34119c8e8e", quantity: 1 }],
             deliveryAddress
         };
 
@@ -73,10 +58,7 @@ const CheckOutForm = ({onNext}) => {
             setLoading(true);
             let res = await postMethod("/order", payload);
             setLoading(false);
-            if(res){
-                window.open(res?.data?.url);
-            }
-            // onNext({},"success2")
+            if (res) window.open(res?.data?.url);
             toast.success(res.message);
         } catch (err) {
             toast.error(err.message);
@@ -84,24 +66,25 @@ const CheckOutForm = ({onNext}) => {
     };
 
     return (
-        <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto font-tt-hoves ">
+        <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto font-tt-hoves">
             <div className="w-full md:w-[500px]">
                 <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
-                    <h1 className='text-2xl font-semibold mb-6 text-primary'>Please fill out your shipping details</h1>
+                    <h1 className='text-2xl mb-6 text-primary'>Please fill out your shipping details</h1>
+                    
                     <div>
                         <label>Address</label>
-                        {/* <PlacesAutocomplete
+                        <PlacesAutocomplete
                             value={address}
                             onChange={setAddress}
                             onSelect={handleSelect}
-                            
+                            // searchOptions={{ componentRestrictions: { country: "usa" } }}
                         >
                             {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                                 <div className="relative">
                                     <input
                                         {...getInputProps({
                                             placeholder: 'Enter your address',
-                                            className: 'border outline-none p-1 pl-3 pr-3 border-zinc-400 rounded-md w-full',
+                                            className: 'shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
                                             name: 'address'
                                         })}
                                     />
@@ -111,22 +94,15 @@ const CheckOutForm = ({onNext}) => {
                                             <div
                                                 {...getSuggestionItemProps(suggestion)}
                                                 key={index}
-                                                className="flex d-align-center p-1 pl-5 pr-5"
+                                                className="flex items-center p-1 pl-5 pr-5 cursor-pointer"
                                             >
-                                                <h6 className="cursor-pointer m-1 h6 f-400">
-                                                    {suggestion.description}
-                                                </h6>
+                                                <h6 className="m-1 h6 f-400">{suggestion.description}</h6>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
                             )}
-                        </PlacesAutocomplete> */}
-                        <textarea
-                            {...register('address', { required: true })}
-                            placeholder="Enter your address"
-                            className="border outline-none p-1 pl-3 pr-3 border-zinc-400 rounded-md w-full"
-                        />
+                        </PlacesAutocomplete>
                         {errors.address && <p className="text-red-500 text-xs">Address is required</p>}
                     </div>
 
@@ -135,7 +111,7 @@ const CheckOutForm = ({onNext}) => {
                         <input
                             placeholder="Street"
                             {...register('street', { required: true })}
-                            className="border outline-none p-1 pl-3 pr-3 border-zinc-400 rounded-md w-full"
+                            className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         />
                         {errors.street && <p className="text-red-500 text-xs">Street is required</p>}
                     </div>
@@ -146,7 +122,7 @@ const CheckOutForm = ({onNext}) => {
                             <input
                                 placeholder="City"
                                 {...register('city', { required: true })}
-                                className="border outline-none p-1 pl-3 pr-3 border-zinc-400 rounded-md w-full"
+                                className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             />
                             {errors.city && <p className="text-red-500 text-xs">City is required</p>}
                         </div>
@@ -155,7 +131,7 @@ const CheckOutForm = ({onNext}) => {
                             <input
                                 placeholder="State"
                                 {...register('state', { required: true })}
-                                className="border outline-none p-1 pl-3 pr-3 border-zinc-400 rounded-md w-full"
+                                className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             />
                             {errors.state && <p className="text-red-500 text-xs">State is required</p>}
                         </div>
@@ -165,29 +141,29 @@ const CheckOutForm = ({onNext}) => {
                         <div>
                             <label>Country</label>
                             <input
-                                placeholder="India"
+                                placeholder="USA"
                                 {...register('country', { required: true })}
-                                className="border outline-none p-1 pl-3 pr-3 border-zinc-400 rounded-md w-full"
+                                className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             />
                             {errors.country && <p className="text-red-500 text-xs">Country is required</p>}
                         </div>
                         <div>
-                            <label>Postal code</label>
+                            <label>Postal Code</label>
                             <input
                                 placeholder="462038"
-                                {...register('postalCode', { required: true})}
-                                className="border outline-none p-1 pl-3 pr-3 border-zinc-400 rounded-md w-full"
+                                {...register('postalCode', { required: true, pattern: /^[0-9]{6}$/ })}
+                                className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             />
-                            {/* {errors.postalCode && <p className="text-red-500 text-xs">Postal code must be 6 digits</p>} */}
+                            {errors.postalCode && <p className="text-red-500 text-xs">Postal code must be 6 digits</p>}
                         </div>
                     </div>
 
                     <button
                         disabled={loading}
                         type="submit"
-                        className={`mt-10 hover:bg-primary/90  w-full py-3 text-white font-semibold rounded-full ${loading ? "bg-gray-400" : "bg-primary hover:bg-primary"}`}
+                        className={`mt-10 hover:bg-primary/90 w-full py-3 text-white font-semibold rounded-full ${loading ? "bg-gray-400" : "bg-primary hover:bg-primary"}`}
                     >
-                        {loading ? <ClipLoader size={24} color="white"/> : "Checkout"}
+                        {loading ? <ClipLoader size={24} color="white" /> : "Checkout"}
                     </button>
                 </form>
             </div>

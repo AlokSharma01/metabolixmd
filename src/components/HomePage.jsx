@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import NavBar from './NavBar'
 import FaqList from './Faq'
 import MeetExpertBackground from './MeetExpertBackground'
@@ -8,14 +8,16 @@ import { getAuthToken } from '@/services/API/apiHelper'
 import Link from 'next/link'
 import Footer from './Footer'
 
+
 import ScrollProgressBar from './ProgressBar'
 
 const WeightLossMedication = () => {
     let token = getAuthToken()
+   
     return (
         <div className='font-tt-hoves mt-20' >
             <NavBar />
-            
+
             <section className='flex flex-col-reverse lg:flex-row   min-h-[600px] gap-10 sm:border-b'>
                 <div className='flex-1 flex text-center md:text-start flex-col justify-center    px-2 md:px-10'>
                     <h1 className='text-3xl     font-medium text-wrap'>
@@ -48,7 +50,7 @@ const WeightLossMedication = () => {
                         </Link>
 
                         <Link href="#safety" className='bg-white border-primary border rounded-full size-10 flex items-center justify-center'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
                         </Link>
                     </div>
                 </div>
@@ -91,7 +93,7 @@ const WeightLossMedication = () => {
                                     <div className='flex items-center bg-brown-400 gap-5  drop-shadow-2xl backdrop-filter bg-clip-padding backdrop-blur-md bg-opacity-100 px-5 py-3  rounded-3xl '>
                                         <p className='text-sm md:text-lg text-white '>See If <b className='text-primary'>GLP-1s</b> are right for me? </p>
                                         <Link href="/get-started" className='bg-white rounded-full size-12 min-w-12 md:size-14 md:min-w-14 flex items-center justify-center'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
                                         </Link>
                                     </div>
                                 </div>
@@ -124,7 +126,7 @@ const WeightLossMedication = () => {
                                     <div className='flex items-center bg-brown-400 gap-5  drop-shadow-2xl backdrop-filter bg-clip-padding backdrop-blur-md bg-opacity-100 px-5 py-3  rounded-3xl '>
                                         <p className='text-sm md:text-lg text-white '>See If <b className='text-primary'>GLP-1s</b> are right for me? </p>
                                         <Link href="/get-started" className='bg-white rounded-full size-12 min-w-12 md:size-14 md:min-w-14 flex items-center justify-center'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
                                         </Link>
                                     </div>
                                 </div>
@@ -157,7 +159,7 @@ const WeightLossMedication = () => {
                                     <div className='flex items-center bg-brown-400 gap-5  drop-shadow-2xl backdrop-filter bg-clip-padding backdrop-blur-md bg-opacity-100 px-5 py-3  rounded-3xl '>
                                         <p className='text-sm md:text-lg text-white '>See If <b className='text-primary'>GLP-1s</b> are right for me? </p>
                                         <Link href="/get-started" className='bg-white rounded-full size-12 min-w-12 md:size-14 md:min-w-14 flex items-center justify-center'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
                                         </Link>
                                     </div>
                                 </div>
@@ -214,7 +216,7 @@ const WeightLossMedication = () => {
                 </div>
 
             </section>
-           
+
 
             <section className='flex flex-col md:flex-row flex-wrap items-center h-fit p-2 md:px-10'>
                 <div className='flex-1  md:px-10'>
@@ -269,7 +271,7 @@ const WeightLossMedication = () => {
             </section>
 
 
-            <section id="safety" className='md:p-10 px-5 mt-24'>
+            {/* <section id="safety" className='md:p-10 px-5 mt-24'>
                 <h2 className='font-semibold text-primary text-3xl md:text-4xl lg:text-5xl'>
                     IMPORTANT SAFETY INFORMATION
                 </h2>
@@ -320,6 +322,60 @@ const WeightLossMedication = () => {
                     <li>Heart Rate Increase: Monitor heart rate at regular intervals.</li>
                     <li>Suicidal Behavior and Ideation: Monitor for depression or suicidal thoughts. Discontinue COMPOUNDED SEMAGLUTIDE/TIRZEPATIDE if symptoms develop.</li>
                     <li>A recent study suggested a possible connection between semaglutide/tirzepatide use and increased risk for a blinding eye disease called non-arteritic anterior ischemic optic neuropathy (NAION). There isn&apos;t enough data yet to suggest patients should be concerned or stop taking their medications. Further research is necessary to confirm the hypothesis. Patients should make an informed choice based on individual risk.</li>
+                    <li>Side Effects: Common side effects (≥5% incidence) include nausea, diarrhea, vomiting, constipation, abdominal pain, headache, fatigue, dyspepsia, dizziness, abdominal distension, eructation, hypoglycemia (in type 2 diabetes patients), flatulence, gastroenteritis, gastroesophageal reflux disease, and nasopharyngitis.</li>
+                </ul>
+            </section> */}
+            <section id="safety" className="md:p-10 px-5 mt-24">
+                <h2 className="font-semibold text-primary text-3xl md:text-4xl lg:text-5xl">
+                    IMPORTANT SAFETY INFORMATION
+                </h2>
+
+                <div className="flex flex-col gap-2 mt-10">
+                    <p>
+                        <b>COMPOUNDED SEMAGLUTIDE and TIRZEPATIDE</b> are glucagon-like peptide-1 (GLP-1), GLP-1/GIP (glucose-dependent insulinotropic polypeptide) receptor agonists indicated as an adjunct to a reduced-calorie diet and increased physical activity for chronic weight management in adults with an initial body mass index (BMI) of 27 kg/m<sup>2</sup> or greater (overweight or obesity).
+                    </p>
+
+                    <p>
+                        <b>Limitations of Use:</b> Co-administration of COMPOUNDED SEMAGLUTIDE/TIRZEPATIDE or any other GLP-1 receptor agonists is not recommended. The safety and efficacy of coadministration with other products for weight management have not been established. COMPOUNDED SEMAGLUTIDE/TIRZEPATIDE has not been studied in patients with a history of pancreatitis.
+                    </p>
+
+                    <div>
+                        <b>WARNING:</b> <span className="text-orange-400">RISK OF THYROID C-CELL TUMORS</span> See full prescribing information for complete boxed warning.
+                        <ul className="list-disc px-10 my-5">
+                            <li>
+                                In rodents, SEMAGLUTIDE/TIRZEPATIDE causes thyroid C-cell tumors in clinically relevant exposures. It is unknown whether these medications cause thyroid C-cell tumors, including medullary thyroid carcinoma (MTC), in humans as the human relevance of SEMAGLUTIDE/TIRZEPATIDE-induced rodent thyroid C-cell tumors has not been determined.
+                            </li>
+                            <li>
+                                SEMAGLUTIDE/TIRZEPATIDE is contraindicated in patients with a personal or family history of MTC or in patients with Multiple Endocrine Neoplasia syndrome type 2 (MEN 2). Counsel patients regarding the potential risk of MTC and symptoms of thyroid tumors.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4 className="font-semibold mt-5">Do not take COMPOUNDED SEMAGLUTIDE/TIRZEPATIDE if you:</h4>
+                <ul className="list-disc px-10 my-5">
+                    <li>Have a personal or family history of medullary thyroid carcinoma (MTC) or in patients with Multiple Endocrine Neoplasia syndrome type 2 (MEN2).</li>
+                    <li>Have been diagnosed with Diabetes (Type 1 or 2).</li>
+                    <li>Have been diagnosed with pancreatitis or have a history of pancreatitis.</li>
+                    <li>Have a diagnosis or history of gastroparesis - severe problems with your stomach, such as slowed emptying of your stomach (gastroparesis) or problems with digesting food.</li>
+                    <li>Have a known allergy to semaglutide/tirzepatide or any other GLP-1 medication or any of the inactive ingredients in COMPOUNDED SEMAGLUTIDE/TIRZEPATIDE. Inactive ingredients include: di-sodium hydrogen phosphate dihydrate, sodium chloride, benzyl alcohol, hydrochloric acid, sodium hydroxide pellets, and water.</li>
+                    <li>Have a history of suicidal attempts or active suicidal ideation.</li>
+                </ul>
+
+                <h4 className="font-semibold mt-5">WARNINGS AND PRECAUTIONS</h4>
+                <ul className="list-disc px-10 my-5">
+                    <li>Acute Pancreatitis: Has occurred in clinical trials. Discontinue promptly if pancreatitis is suspected. Do not restart if pancreatitis is confirmed.</li>
+                    <li>Acute Gallbladder Disease: Has occurred in clinical trials. If cholelithiasis is suspected, gallbladder studies and clinical follow-up are indicated.</li>
+                    <li>Gastroparesis: Uncommon, but more serious gastrointestinal adverse effects may also occur more frequently with GLP-1, GLP-1/GIP receptor agonists than with other weight loss agents.</li>
+                    <li>Hypoglycemia: Concomitant use with an insulin secretagogue or insulin may increase the risk of hypoglycemia, including severe hypoglycemia. Reducing the dose of insulin secretagogue or insulin may be necessary. Inform all patients of the risk of hypoglycemia and educate them on the signs and symptoms of hypoglycemia.</li>
+                    <li>Acute Kidney Injury: Has occurred. Monitor renal function when initiating or escalating doses of COMPOUNDED SEMAGLUTIDE/TIRZEPATIDE in patients reporting severe adverse gastrointestinal reactions or in those with renal impairment reporting severe adverse gastrointestinal reactions.</li>
+                    <li>Hypersensitivity Reactions: Anaphylactic reactions and angioedema have been reported postmarketing. Discontinue COMPOUNDED SEMAGLUTIDE/TIRZEPATIDE if suspected and promptly seek medical advice.</li>
+                    <li>Females and Males of Reproductive Potential: Discontinue COMPOUNDED SEMAGLUTIDE/TIRZEPATIDE at least 2 months before a planned pregnancy because of the long half-life of these medications.</li>
+                    <li>Pregnancy: May cause fetal harm. When pregnancy is recognized, discontinue COMPOUNDED SEMAGLUTIDE/TIRZEPATIDE immediately.</li>
+                    <li>Diabetic Retinopathy Complications in Patients with Type 2 Diabetes: Has been reported in trials with GLP-1, GLP-1/GIP agonists. Patients with a history of diabetic retinopathy should be monitored.</li>
+                    <li>Heart Rate Increase: Monitor heart rate at regular intervals.</li>
+                    <li>Suicidal Behavior and Ideation: Monitor for depression or suicidal thoughts. Discontinue COMPOUNDED SEMAGLUTIDE/TIRZEPATIDE if symptoms develop.</li>
+                    <li>A recent study suggested a possible connection between semaglutide/tirzepatide use and increased risk for a blinding eye disease called non-arteritic anterior ischemic optic neuropathy (NAION). There isn't enough data yet to suggest patients should be concerned or stop taking their medications. Further research is necessary to confirm the hypothesis. Patients should make an informed choice based on individual risk.</li>
                     <li>Side Effects: Common side effects (≥5% incidence) include nausea, diarrhea, vomiting, constipation, abdominal pain, headache, fatigue, dyspepsia, dizziness, abdominal distension, eructation, hypoglycemia (in type 2 diabetes patients), flatulence, gastroenteritis, gastroesophageal reflux disease, and nasopharyngitis.</li>
                 </ul>
             </section>

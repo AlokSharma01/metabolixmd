@@ -24,7 +24,7 @@ const UserInfoForm = ({ onNext }) => {
   return (
     <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto">
       <div className="w-full md:w-[500px]">
-        <h2 className="text-2xl font-semibold mb-6">
+        <h2 className="text-2xl  mb-6 text-primary">
           Let’s start with where you are now
         </h2>
 

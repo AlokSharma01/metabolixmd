@@ -24,6 +24,7 @@ import { patchMethod } from '@/services/API/ApiMethod';
 const MultiStepForm = () => {
   const [activeForm, setActiveForm] = useState("prescriptionQuestion");
   const [isClient, setIsClient] = useState(false);
+  const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     accomplish_with_body_program: "",
     height: { feet: 0, inch: 0 },
@@ -73,12 +74,12 @@ const MultiStepForm = () => {
   };
 
   const handleSubmit = async () => {
-    console.log("Final data:", formData);
     let payload = {
       detail: formData
     }
+    setLoading(true)
     const res = await patchMethod("/users/updateDetails", payload)
-
+    setLoading(false)
     if (res) {
       handleNextForm("checkout", {})
     }
@@ -187,7 +188,7 @@ const MultiStepForm = () => {
         <LabTestForm onNext={(data, next) => handleNextForm(next, data)} />
       )}
       {activeForm === "beforeWrapUp" && (
-        <BeforeWrapUp onSubmit={handleSubmit} onNext={(data, next) => handleNextForm(next, data)} />
+        <BeforeWrapUp onSubmit={handleSubmit} loading={loading} onNext={(data, next) => handleNextForm(next, data)} />
       )}
       {activeForm === "checkout" && (
         <CheckOutForm userdata={formData} onNext={(data, next) => handleNextForm(next, data)} />
@@ -202,7 +203,9 @@ const MultiStepForm = () => {
         <SuccessPropt type="3" />
       )}
 
-
+      {activeForm === "stopProcess" && (
+        <SuccessPropt type="4" />
+      )}
     </div>
   );
 };

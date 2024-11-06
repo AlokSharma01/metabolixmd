@@ -11,7 +11,7 @@ const GastrointestinalCondtions = () => {
     "History of delayed gastric emptying or gastroparesis",
     "Gallstones or other gallbladder disease",
     "GERD / Acid Reflux",
-    "No, I do not have a history of any of tehse condtions or procedures",
+    "No, I do not have a history of any of tehse conditions or procedures",
   ];
 
   const handleCheckboxChange = (goal) => {

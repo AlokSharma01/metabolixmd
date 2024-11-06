@@ -71,13 +71,12 @@ export async function getMethod(url, payload) {
             redirect: 'follow'
         };
     }
-    console.log("hi",token)
+
     if (token) {
         try {
             const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + url, requestOptions)
             // console.log(response)
             const data = await response.json()
-            console.log("hi",data)
             return data
 
         }

@@ -5,7 +5,7 @@ import { useState } from "react";
 const AnyDisease2Form = ({onNext}) => {
   const [selectedGoals, setSelectedGoals] = useState([]);
   const goals = [
-    "Chronic condidiasis (fungal infectons)",
+    "Chronic candidiasis (fungal infections)",
     "Eating disorder",
     "Gout",
     "History of suicide attempt or history of suicidal ideation",
@@ -13,29 +13,48 @@ const AnyDisease2Form = ({onNext}) => {
     "Metabolic syndrome",
     "Obstructive sleep apnea",
     "Osteoarthritis",
-    "Tinea infextions (skin folds",
-    "No, I have not been diagnosed with any of these condtions",
+    "Tinea infections (skin folds)",
+    "No, I have not been diagnosed with any of these conditions",
   ];
 
   const handleCheckboxChange = (goal) => {
-    setSelectedGoals((prev) =>
-      prev.includes(goal)
-        ? prev.filter((g) => g !== goal)
-        : [...prev, goal]
-    );
+    if (goal === "No, I have not been diagnosed with any of these conditions") {
+      if (selectedGoals.includes(goal)) {
+        // If "No" is already selected, deselect it
+        setSelectedGoals([]);
+      } else {
+        // If "No" is not selected, select only "No" and deselect all others
+        setSelectedGoals([goal]);
+      }
+    } else {
+      if (selectedGoals.includes("No, I have not been diagnosed with any of these conditions")) {
+        // Prevent selecting other options if "No" is selected
+        return;
+      }
+      // Toggle the selection of other options
+      setSelectedGoals((prev) =>
+        prev.includes(goal) ? prev.filter((g) => g !== goal) : [...prev, goal]
+      );
+    }
   };
 
   const isButtonDisabled = selectedGoals.length === 0;
 
   const handleContinue = () => {
     // Pass the selected goals data to the parent component and move to the next form
-    onNext({additional_condition:selectedGoals }, "searchAndSelectAllergies"); // Adjust "userInfo" to whatever the next step should be
+    if(selectedGoals.includes("History of suicide attempt or history of suicidal ideation")){
+      onNext({additional_condition:selectedGoals }, "stopProcess");
+    }
+    else{
+      onNext({additional_condition:selectedGoals }, "searchAndSelectAllergies");
+    }
+     
   };
 
   return (
     <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto">
       <div className="w-full md:w-[500px]">
-        <h2 className="text-2xl font-semibold mb-6">
+        <h2 className="text-2xl  mb-6 text-primary">
           Do you currently have, or have you ever been diagnosed with, any of these additional following conditions?
         </h2>
         <p className="my-5 font-semibold text-zinc-500">Select all that apply</p>

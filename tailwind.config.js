@@ -17,7 +17,12 @@ module.exports = {
         bigxl: "1920px"
       },
       fontFamily: {
-        'tt-hoves': ['"TT Hoves"', 'sans-serif'],
+        // 'tt-hoves': ['"TT Hoves"', 'sans-serif'],
+      },
+      gridTemplateColumns: {
+        userTable: "80px 180px 90px 110px 90px 90px 80px",
+        orderTable: "190px 200px 150px 110px ",
+        presTable: "190px 200px 150px 110px 60px 60px",
       }
     },
   },

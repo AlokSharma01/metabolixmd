@@ -16,7 +16,7 @@ const AnyDiseaseForm = ({ onNext }) => {
         "Liver cirrhosis or end stage liver disease",
         "Hypothyroidism (low functioning thyroid)",
         "Hypothyroidism (high functioning thyroid)",
-        "Grave disease",
+        "Graves disease",
         "Other thyroid issues",
         "Syndrome of inappropriate antidiuretic hormones (SIADH)",
         "No, I have not been diagnosed with any of these conditions",
@@ -24,11 +24,24 @@ const AnyDiseaseForm = ({ onNext }) => {
 
     // Handle checkbox toggle
     const handleCheckboxChange = (goal) => {
-        setSelectedGoals((prev) =>
-            prev.includes(goal)
-                ? prev.filter((g) => g !== goal)
-                : [...prev, goal]
-        );
+        if (goal === "No, I have not been diagnosed with any of these conditions") {
+            if (selectedGoals.includes(goal)) {
+                // If "No" is already selected, deselect it
+                setSelectedGoals([]);
+            } else {
+                // If "No" is not selected, select only "No" and deselect all others
+                setSelectedGoals([goal]);
+            }
+        } else {
+            if (selectedGoals.includes("No, I have not been diagnosed with any of these conditions")) {
+                // Prevent selecting other options if "No" is selected
+                return;
+            }
+            // Toggle the selection of other options
+            setSelectedGoals((prev) =>
+                prev.includes(goal) ? prev.filter((g) => g !== goal) : [...prev, goal]
+            );
+        }
     };
 
     const isButtonDisabled = selectedGoals.length === 0;
@@ -40,11 +53,32 @@ const AnyDiseaseForm = ({ onNext }) => {
         };
         onNext(data, "type2Diabetes"); // Replace 'nextStep' with the actual identifier for the next step
     };
+    const handleContinue = () => {
+        // Medications that require stopping the process
+        const criticalMedications = [
+            "Multiple Endocrine Neoplasia syndrome type 2 (MEN2)",
+            "Personal history of thyroid cancer",
+            "Family history of thyroid cancer",
+            "Diabetes requiring insulin"
+        ];
+
+        // Check if any critical medications are selected
+        const shouldStop = selectedGoals.some((medication) =>
+            criticalMedications.includes(medication)
+        );
+
+        // Prepare the data and determine the next step
+        const nextStep = shouldStop ? "stopProcess" : "type2Diabetes";
+        const data = { disease_conditions: selectedMedications };
+
+        onNext(data, nextStep);
+    };
+
 
     return (
         <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto">
             <div className="w-full md:w-[500px]">
-                <h2 className="text-2xl font-semibold mb-6">
+                <h2 className="text-2xl  mb-6 text-primary">
                     Do you currently have, or have you ever been diagnosed with, any of these hormone, kidney, or liver conditions?
                 </h2>
                 <p className="my-5 font-semibold text-zinc-500">Select all that apply</p>
@@ -69,8 +103,8 @@ const AnyDiseaseForm = ({ onNext }) => {
                     <button
                         type="button"
                         className={`mt-6 hover:bg-primary/90  w-full py-3 text-white font-semibold rounded-full ${isButtonDisabled
-                                ? "bg-gray-400 cursor-not-allowed"
-                                : "bg-primary hover:bg-primary"
+                            ? "bg-gray-400 cursor-not-allowed"
+                            : "bg-primary hover:bg-primary"
                             }`}
                         disabled={isButtonDisabled}
                         onClick={handleNext}

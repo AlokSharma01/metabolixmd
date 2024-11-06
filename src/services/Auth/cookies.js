@@ -36,3 +36,26 @@ export const getUser = () => {
 };
 
 export const removeUser = () => cookies.remove('user');
+
+
+export const setUserType = (user, expiry) => {
+  cookies.set('userType', JSON.stringify(user), {
+    expires: 7
+  });
+};
+
+export const getUserType = () => {
+  const cookie = cookies.get('userType');
+  if (!cookie) {
+    return null;
+  }
+  try{
+    return JSON.parse(cookie);
+  }
+  catch(e){
+    console.log(e)
+  }
+};
+
+export const removeUserType = () => cookies.remove('userType');
+

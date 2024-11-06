@@ -4,9 +4,9 @@ import FloatingButton from './FloatingButton'
 
 const Footer = () => {
     return (
-        <div >
+        <div className='mt-auto' >
             <FloatingButton/>
-            <section id="bottom-footer" className=' bg-black p-5 py-20 flex items-center mt-auto'>
+            <section id="bottom-footer" className=' bg-black p-5 py-20 flex items-center '>
             <div className='flex w-full items-center gap-10'>
                 <div className=' text-white'>
                     <img src="/images/logo-white.png" className='w-96' />

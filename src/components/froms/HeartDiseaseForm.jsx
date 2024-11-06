@@ -19,11 +19,24 @@ const HeartDiseaseForm = ({ onNext }) => {
 
   // Handle checkbox change
   const handleCheckboxChange = (goal) => {
-    setSelectedGoals((prev) =>
-      prev.includes(goal)
-        ? prev.filter((g) => g !== goal)
-        : [...prev, goal]
-    );
+    if (goal === "No, I have not been diagnosed with any of these heart conditions") {
+      if (selectedGoals.includes(goal)) {
+        // If "No" is already selected, deselect it
+        setSelectedGoals([]);
+      } else {
+        // If "No" is not selected, select only "No" and deselect all others
+        setSelectedGoals([goal]);
+      }
+    } else {
+      if (selectedGoals.includes("No, I have not been diagnosed with any of these heart conditions")) {
+        // Prevent selecting other options if "No" is selected
+        return;
+      }
+      // Toggle the selection of other options
+      setSelectedGoals((prev) =>
+        prev.includes(goal) ? prev.filter((g) => g !== goal) : [...prev, goal]
+      );
+    }
   };
 
   const isButtonDisabled = selectedGoals.length === 0;
@@ -39,7 +52,7 @@ const HeartDiseaseForm = ({ onNext }) => {
   return (
     <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto">
       <div className="w-full md:w-[500px]">
-        <h2 className="text-2xl font-semibold mb-6">
+        <h2 className="text-2xl  mb-6 text-primary">
           Do you currently have, or have you ever been diagnosed with, any of the following heart or heart-related conditions?
         </h2>
         <p className="my-5 font-semibold text-zinc-500">Select all that apply</p>

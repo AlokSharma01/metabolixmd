@@ -13,11 +13,13 @@ const EthnicityForm = ({onNext}) => {
   ];
 
   const handleCheckboxChange = (ethnicity) => {
-    setSelectedEthnicities((prev) =>
-      prev.includes(ethnicity)
-        ? prev.filter((e) => e !== ethnicity)
-        : [...prev, ethnicity]
-    );
+    if (selectedEthnicities.includes(ethnicity)) {
+      // Deselect the ethnicity if it's already selected
+      setSelectedEthnicities([]);
+    } else {
+      // Select the new ethnicity and deselect others
+      setSelectedEthnicities([ethnicity]);
+    }
   };
 
   const isButtonDisabled = selectedEthnicities.length === 0;
@@ -25,7 +27,7 @@ const EthnicityForm = ({onNext}) => {
   return (
     <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto">
       <div className="w-full md:w-[500px]">
-        <h2 className="text-2xl font-semibold mb-6">How would you describe yourself?</h2>
+        <h2 className="text-2xl  mb-6 text-primary">How would you describe yourself?</h2>
         <p className="my-5 font-semibold text-zinc-500">Select all that apply</p>
         <form>
           <div className="space-y-4">

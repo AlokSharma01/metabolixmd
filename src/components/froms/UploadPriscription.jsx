@@ -45,7 +45,7 @@ const UploadPrescription = ({onNext}) => {
   return (
     <div className="w-full p-5 md:p-0 md:max-w-fit  mx-auto">
       <div className="w-full md:w-[500px] text-center">
-        <h2 className="text-2xl font-semibold mb-4">Upload prescription</h2>
+        <h2 className="text-2xl  mb-6 text-primary">Upload prescription</h2>
 
         <div onClick={() => fileInputRef.current.click()} className="border-2 h-[300px] border-primary border-dashed rounded-lg p-10 mb-4 flex items-center justify-center">
           {
@@ -55,7 +55,7 @@ const UploadPrescription = ({onNext}) => {
               </div>
               :
               <div className="flex flex-col items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-upload"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" x2="12" y1="3" y2="15" /></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" x2="12" y1="3" y2="15" /></svg>
                 <p className="text-gray-500">
                   upload prescription in <span className="text-primary">jpg, png, pdf</span>
                 </p>

@@ -17,7 +17,7 @@ const Type2Diabetes = ({ onNext }) => {
     return (
         <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto">
             <div className="w-full md:w-[500px]">
-                <h2 className="text-2xl font-semibold mb-6">
+                <h2 className="text-2xl  mb-6 text-primary">
                     Do you currently have or have you ever been diagnosed with type 2 diabetes?
                 </h2>
                 <p className='text-zinc-500 font-semibold'>We want to make sure there&apos;s a provider overseeing your overall care</p>

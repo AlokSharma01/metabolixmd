@@ -8,7 +8,7 @@ import { ClipLoader } from "react-spinners";
 import { toast } from "react-toastify";
 
 const SignupForm = () => {
-  const { createUserWithEmailMethod } = useFirebaseAuth(); // Destructure signup method from the hook
+  const { createUserWithEmailMethod,deleteMyAccount } = useFirebaseAuth(); // Destructure signup method from the hook
   const [name, setName] = useState(""); // Add state for name
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -45,6 +45,7 @@ const SignupForm = () => {
       const res1 = await resp.json();
       router.push("/login");
     } else {
+      deleteMyAccount()
       toast.error("Something went wrong!");
     }
   };

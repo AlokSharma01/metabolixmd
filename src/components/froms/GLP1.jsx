@@ -9,7 +9,7 @@ const GLP1 = ({onNext}) => {
     return (
         <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto">
             <div className="w-full md:w-[500px]">
-                <h2 className="text-2xl font-semibold mb-6">
+                <h2 className="text-2xl  mb-6 text-primary">
                    Do you have an allergy to GLP-1 agonist medications?
                 </h2>
                
@@ -24,7 +24,14 @@ const GLP1 = ({onNext}) => {
                 <button
                     type="button"
                     className={`mt-6 hover:bg-primary/90  p-3 text-white w-full py-3text-white font-semibold rounded-full bg-primary hover:bg-primary`}
-                    onClick={()=>onNext({allergy_GLP_1:activeTab==="no"?false:true},"anyMedication")}
+                    onClick={()=>{
+                        if(activeTab =="yes"){
+                            onNext({allergy_GLP_1:true},"stopProcess")
+                        }
+                        else{
+                            onNext({allergy_GLP_1:false},"anyMedication")
+                        }
+                    }}
                 >
                     Continue
                 </button>

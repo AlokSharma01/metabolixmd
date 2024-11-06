@@ -1,9 +1,16 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 export default function Document() {
   return (
     <Html lang="en">
-      <Head />
+      <Head>
+        {/* Use the next/script component to load the Google Maps API */}
+        <Script
+          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_MAP_APIKEY}&libraries=places`}
+          strategy="beforeInteractive" // Load before the page becomes interactive, but still asynchronously
+        />
+      </Head>
       <body className="antialiased">
         <Main />
         <NextScript />
