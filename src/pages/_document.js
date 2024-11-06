@@ -7,8 +7,13 @@ export default function Document() {
       <Head>
         {/* Use the next/script component to load the Google Maps API */}
         <Script
+          async
+          defer
           src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_MAP_APIKEY}&libraries=places`}
           strategy="beforeInteractive" // Load before the page becomes interactive, but still asynchronously
+          onError={(e) => {
+            console.error("Failed to load the Google Maps API", e);
+          }}
         />
       </Head>
       <body className="antialiased">
