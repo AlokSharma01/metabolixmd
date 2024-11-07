@@ -377,6 +377,12 @@ const WeightLossMedication = () => {
                     <li>Suicidal Behavior and Ideation: Monitor for depression or suicidal thoughts. Discontinue COMPOUNDED SEMAGLUTIDE/TIRZEPATIDE if symptoms develop.</li>
                     <li>A recent study suggested a possible connection between semaglutide/tirzepatide use and increased risk for a blinding eye disease called non-arteritic anterior ischemic optic neuropathy (NAION). There isn't enough data yet to suggest patients should be concerned or stop taking their medications. Further research is necessary to confirm the hypothesis. Patients should make an informed choice based on individual risk.</li>
                     <li>Side Effects: Common side effects (≥5% incidence) include nausea, diarrhea, vomiting, constipation, abdominal pain, headache, fatigue, dyspepsia, dizziness, abdominal distension, eructation, hypoglycemia (in type 2 diabetes patients), flatulence, gastroenteritis, gastroesophageal reflux disease, and nasopharyngitis.</li>
+                    <li>To report SUSPECTED ADVERSE REACTIONS, contact the FDA at 1-800-FDA-1088 or www.fda.gov/medwatch.</li>
+                    <li>Medication Interactions: COMPOUNDED SEMAGLUTIDE/TIRZEPATIDE delays gastric emptying. May impact absorption of concomitantly administered oral medications. Use with caution.</li>
+                    <li>Use in Specific Populations: Pregnancy - May cause fetal harm. When pregnancy is recognized, discontinue COMPOUNDED SEMAGLUTIDE/TIRZEPATIDE.</li>
+                    <li>Females and Males of Reproductive Potential: Discontinue COMPOUNDED SEMAGLUTIDE/TIRZEPATIDE at least 2 months before a planned pregnancy because of the long half-life of these medications.</li>
+                    <li>Due to the the delayed gastric emptying associated with the use of GLP-1, GLP-1/GIP agonist, discontinue these medications at least 2 weeks prior to any elective surgery.</li>
+                    
                 </ul>
             </section>
 

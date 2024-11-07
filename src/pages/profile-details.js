@@ -24,6 +24,17 @@ const ProfileDetails = () => {
       toast.error(e.message);
     }
   };
+  const getPresDetails = async () => {
+    try {
+      const res = await getMethod("/prescription/user");
+      console.log(res)
+      if (res) {
+        // setUserOrders(res.data);
+      }
+    } catch (e) {
+      toast.error(e.message);
+    }
+  };
   const handleLogout = () => {
     logOut()
     router.push("/login")
@@ -31,6 +42,7 @@ const ProfileDetails = () => {
 
   useEffect(() => {
     getOrderDetails();
+    // getPresDetails()
 
   }, []);
 

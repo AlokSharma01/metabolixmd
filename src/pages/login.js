@@ -65,7 +65,7 @@ const LoginForm = () => {
 
     setLoading(false);
 
-    if (res.status) {
+    if (res?.status) {
       // Successful login
       toast.success("Check your email!");
       setisForget(false)
