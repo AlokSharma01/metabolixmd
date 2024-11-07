@@ -3,13 +3,30 @@
 import PageNavigations from "@/components/admin modules/PageNavigations";
 
 
+import { getUser } from "@/services/Auth/cookies";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 export default function AdminLayout({ children }) {
+    const loggedinUserDetail = getUser()
+    const router = useRouter()
+
+    useEffect(() => {
+        if (loggedinUserDetail) {
+            if (loggedinUserDetail?.__t !== "Admin") {
+                router.push("/")
+            }
+        }
+        else {
+            router.push("/login")
+        }
+
+    }, [])
     return (
         <div className="flex h-screen max-h-screen overflow-hidden">
 
             <aside className="bg-white hidden shadow-xl h-full z-10 lg:flex flex-col ">
                 <div className="  pt-3 pb-3 px-5">
-                    <img src="/images/logo.png"  alt="Logo" className="w-[150px] md:w-[200px] " />
+                    <img src="/images/logo.png" alt="Logo" className="w-[150px] md:w-[200px] " />
                 </div>
                 <PageNavigations />
             </aside>
