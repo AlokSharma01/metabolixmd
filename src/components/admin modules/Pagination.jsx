@@ -1,38 +1,45 @@
 import React from "react";
 
-
 export default function Pagination({ currentPage, totalPages, onPageChange }) {
-  if (totalPages <= 1) {
-    return (
-      <div className="bg-primary-2 border border-primary-3 px-3 py-1 rounded">
-        <p className="text-body-2 text-primary-7"> Page 1 of 1</p>
-      </div>
-    );
-  }
+ 
+  if (totalPages <= 1) return null;
 
   const renderPageNumbers = () => {
     const pageNumbers = [];
 
+    // Previous Button (only shows if not on the first page)
     if (currentPage > 1) {
       pageNumbers.push(
         <button
           key="prev"
-          className=" hover:bg-primary-2 p-2 px-4 bg-primary text-white"
+          className="hover:bg-gray-200 p-2 px-4 bg-gray-300 text-black rounded-l"
           onClick={() => onPageChange(currentPage - 1)}
         >
-          {/* <Image src={arrowLeft} alt="Arrow Left" /> */}
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ><path d="m15 18-6-6 6-6"/></svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
         </button>
       );
     }
 
+    // First page
     pageNumbers.push(
       <button
-        key="page-1"
+        key={1}
         className={`p-2 px-4 border ${
           currentPage === 1
-            ? "bg-primary-2 text-primary-7"
-            : "hover:bg-primary-2"
+            ? "bg-blue-500 text-white font-semibold"
+            : "hover:bg-gray-200 text-black"
         }`}
         onClick={() => onPageChange(1)}
       >
@@ -40,14 +47,14 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
       </button>
     );
 
+    // Ellipsis if needed
     if (currentPage > 3) {
       pageNumbers.push(
-        <span key="ellipsis1" className="p-2 px-4 border">
-          &hellip;
-        </span>
+        <span key="ellipsis1" className="p-2 px-4">…</span>
       );
     }
 
+    // Range of pages around the current page
     const startPage = Math.max(2, currentPage - 1);
     const endPage = Math.min(totalPages - 1, currentPage + 1);
 
@@ -55,10 +62,10 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
       pageNumbers.push(
         <button
           key={i}
-          className={` p-2 px-4 border   ${
+          className={`p-2 px-4 border ${
             currentPage === i
-              ? " text-lg font-semibold bg-zinc-500 text-white"
-              : "hover:bg-primary-2"
+              ? "bg-blue-500 text-white font-semibold"
+              : "hover:bg-gray-200 text-black"
           }`}
           onClick={() => onPageChange(i)}
         >
@@ -67,21 +74,21 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
       );
     }
 
+    // Ellipsis if needed before the last page
     if (currentPage < totalPages - 2) {
       pageNumbers.push(
-        <span key="ellipsis2" className="p-2 px-4 ">
-          &hellip;
-        </span>
+        <span key="ellipsis2" className="p-2 px-4">…</span>
       );
     }
 
+    // Last page
     pageNumbers.push(
       <button
         key={totalPages}
         className={`p-2 px-4 border ${
           currentPage === totalPages
-            ? "bg-primary-2 text-primary-7"
-            : "hover:bg-primary-2"
+            ? "bg-blue-500 text-white font-semibold"
+            : "hover:bg-gray-200 text-black"
         }`}
         onClick={() => onPageChange(totalPages)}
       >
@@ -89,16 +96,27 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
       </button>
     );
 
-    // Next Button
+    // Next Button (only shows if not on the last page)
     if (currentPage < totalPages) {
       pageNumbers.push(
         <button
           key="next"
-          className=" hover:bg-primary-2 p-2 px-4 bg-primary text-white"
+          className="hover:bg-gray-200 p-2 px-4 bg-gray-300 text-black rounded-r"
           onClick={() => onPageChange(currentPage + 1)}
         >
-          {/* <Image src={arrowRight} alt="Arrow Right" /> */}
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ><path d="m9 18 6-6-6-6"/></svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
         </button>
       );
     }
@@ -107,7 +125,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
   };
 
   return (
-    <div className="pagination flex justify-center items-center bg-white">
+    <div className="pagination flex justify-center items-center space-x-1 bg-white p-2 rounded border">
       {renderPageNumbers()}
     </div>
   );

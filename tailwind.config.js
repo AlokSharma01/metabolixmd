@@ -20,9 +20,9 @@ module.exports = {
         // 'tt-hoves': ['"TT Hoves"', 'sans-serif'],
       },
       gridTemplateColumns: {
-        userTable: "80px 180px 90px 110px 90px 90px 80px",
-        orderTable: "190px 200px 150px 110px ",
-        presTable: "190px 200px 150px 110px 60px 60px",
+        userTable: "180px 250px 160px 100px ",
+        orderTable: "190px 200px 150px 110px 30px 100px",
+        presTable: "190px 200px 150px 110px 60px 100px",
       }
     },
   },
