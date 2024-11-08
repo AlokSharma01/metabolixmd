@@ -6,6 +6,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         {/* Use the next/script component to load the Google Maps API */}
+        <title>MetabolixMD</title>
         <Script
           async
           defer

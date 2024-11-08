@@ -73,13 +73,13 @@ const NavBar = () => {
             <div className="flex items-center gap-4">
               <Link href="/profile-details" className="flex items-center gap-2">
                 <span className="text-white capitalize size-7 text-xs rounded-full bg-orange-500 flex items-center justify-center ">
-                  {user.email[0]}
+                  {user?.email[0]}
                 </span>
                 {
                   user.name ?
                     user.name
                     :
-                    user.email.split('@')[0]
+                    user?.email.split('@')[0]
                 }
               </Link>
               

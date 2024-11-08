@@ -62,7 +62,7 @@ const UsersList = () => {
           <div className="bg-white">
 
             <div className="bg-[#F0F2F5] min-w-fit w-full">
-              <div className="items-center grid grid-cols-userTable justify-between p-4 bg-liteOrange text-lg">
+              <div className="items-center gap-3 grid grid-cols-userTable justify-between p-4 bg-liteOrange text-lg">
                 <span className="text-black font-medium font-sans text-sm">User Id</span>
                 <span className="text-black font-medium font-sans text-sm">Name</span>
                 <span className="text-black font-medium font-sans text-sm">Date joined</span>
@@ -76,12 +76,12 @@ const UsersList = () => {
                 userData.map((user) => {
 
                   return (
-                    <div key={user._id} className="grid grid-cols-userTable justify-between border-b border-[#E9E9EC] items-center p-4">
+                    <div key={user._id} className="grid gap-3 grid-cols-userTable justify-between border-b border-[#E9E9EC] items-center p-4">
                       <span className="text-userblack font-sans font-semibold text-sm">{user._id}</span>
                       <div className="flex flex-row items-center gap-2">
                         <div className="flex flex-col">
-                          <p className="text-sm font-sans font-medium">{user.name ? user.name : "NA"}</p>
-                          <p className="text-sm font-normal font-sans text-zinc-500">{user.email}</p>
+                          <p className="text-sm font-sans font-medium">{user.name? user?.name : "NA"}</p>
+                          <p className="text-sm font-normal font-sans text-zinc-500">{user?.email}</p>
                         </div>
                       </div>
                       <span className="text-userblack font-sans font-semibold text-sm">{new Date(user.createdAt).toLocaleString("en-US", { month: "short", day: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit", hour12: true })}</span>

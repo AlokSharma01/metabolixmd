@@ -6,7 +6,7 @@ import { postMethod } from '@/services/API/ApiMethod';
 import { useRouter } from 'next/router';
 import { ClipLoader } from 'react-spinners';
 
-const CheckOutForm = ({ onNext }) => {
+const ProfileCheckOutForm = ({ prescription }) => {
     const wrapperRef = useRef(null);
     const [address, setAddress] = useState('');
     const router = useRouter();
@@ -171,4 +171,4 @@ const CheckOutForm = ({ onNext }) => {
     );
 };
 
-export default CheckOutForm;
+export default ProfileCheckOutForm;

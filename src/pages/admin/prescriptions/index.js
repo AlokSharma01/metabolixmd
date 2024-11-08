@@ -81,11 +81,11 @@ const PrescriptionList = () => {
         <AdminNavBar title="Prescription Management" />
 
 
-        <section className='p-5 flex flex-col gap-5'>
+        <section className='p-5 flex flex-col gap-2'>
           {/* <div className='flex items-center justify-between gap-10'>
             <input type="search" placeholder='Search order by id' className='bg-white outline-none px-3 py-2 rounded-md' />
           </div> */}
-          <div className="tabs flex gap-4 mb-4">
+          <div className="tabs flex gap-4 ">
             {["all", "approved", "rejected", "pending"].map((tab) => (
               <button
                 key={tab}
@@ -100,7 +100,7 @@ const PrescriptionList = () => {
           <div className="bg-white">
 
             <div className="bg-[#F0F2F5] min-w-fit w-full">
-              <div className="items-center grid grid-cols-presTable justify-between p-4 bg-liteOrange text-lg">
+              <div className="items-center gap-3 grid grid-cols-presTable justify-between p-4 bg-liteOrange text-lg">
                 <span className="text-black font-medium font-sans text-sm">Id</span>
                 <span className="text-black font-medium font-sans text-sm">User Name</span>
                 <span className="text-black font-medium font-sans text-sm">Date Ordered</span>
@@ -115,12 +115,12 @@ const PrescriptionList = () => {
                 orderData.map((order) => {
                   return (
 
-                    <div key={order._id} className="grid grid-cols-presTable justify-between border-b border-[#E9E9EC] items-center p-4">
+                    <div key={order._id} className="grid gap-3 grid-cols-presTable justify-between border-b border-[#E9E9EC] items-center p-4">
                       <span className=" font-sans font-semibold text-sm">{order._id}</span>
                       <div className="flex flex-row items-center gap-2">
                         <div className="flex flex-col">
                           <p className="text-sm font-sans font-medium">{order.user.name ? order.user.name : "NA"}</p>
-                          <p className="text-sm font-normal font-sans text-zinc-500">{order.user.email}</p>
+                          <p className="text-sm font-normal font-sans text-zinc-500">{order.user?.email}</p>
                         </div>
                       </div>
                       <span className=" font-sans font-semibold text-sm">{new Date(order.createdAt).toLocaleString("en-US", { month: "short", day: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit", hour12: true })}</span>

@@ -6,9 +6,13 @@ import { toast } from "react-toastify";
 import { getUser, setUser } from "@/services/Auth/cookies";
 import useFirebaseAuth from "@/services/Auth/useFirebaseAuth";
 import { useRouter } from "next/router";
+import ProfileCheckOutForm from "@/components/profilecheckout";
 
 const ProfileDetails = () => {
   const [userOrders, setUserOrders] = useState([]);
+  const [userPres, setUserPres] = useState([])
+  const [selectedPres, setselectedPres] = useState(null)
+  const [isOpencheckout, setIsOpencheckout] = useState(false)
   let user = getUser()
   const router = useRouter()
   const { logOut } = useFirebaseAuth()
@@ -30,6 +34,7 @@ const ProfileDetails = () => {
       console.log(res)
       if (res) {
         // setUserOrders(res.data);
+        setUserPres(res.data.results)
       }
     } catch (e) {
       toast.error(e.message);
@@ -42,7 +47,7 @@ const ProfileDetails = () => {
 
   useEffect(() => {
     getOrderDetails();
-    // getPresDetails()
+    getPresDetails()
 
   }, []);
 
@@ -81,13 +86,10 @@ const ProfileDetails = () => {
                 <p className="font-semibold text-gray-600">
                   Status:{" "}
                   <span
-                  // className={`${
-                  //   order.status === "Delivered"
-                  //     ? "text-green-500"
-                  //     : order.status === "Processing"
-                  //     ? "text-yellow-500"
-                  //     : "text-blue-500"
-                  // }`}
+                    className={` capitalize ${order.status === "placed"
+                      ? "text-green-500"
+                      : "text-yellow-500"
+                      }`}
                   >
                     {order.status}
                   </span>
@@ -103,7 +105,54 @@ const ProfileDetails = () => {
             </li>
           ))}
         </ul>
+        <h3 className="text-xl font-semibold mb-2 mt-5">Prescriptions Details</h3>
+        <ul className="space-y-2">
+          {userPres.map((order) => (
+            <li key={order._id} className="p-4 bg-gray-100 rounded-lg">
+              <div className="mb-2">
+                <p className="font-semibold">Order ID: {order._id}</p>
+                <p className="font-semibold text-gray-600">
+                  Status:{" "}
+                  <span
+                    className={` capitalize ${order.status === "approved"
+                      ? "text-green-500"
+                      : order.status === "pending"
+                        ? "text-yellow-500"
+                        : "text-red-500"
+                      }`}
+                  >
+                    {order.status}
+                  </span>
+                </p>
+              </div>
+              {
+                order.status === "approved" &&
+                <div onClick={() => {
+                  setIsOpencheckout(true)
+                  setselectedPres(order)
+                }} className="bg-primary w-fit text-white rounded-full px-5 py-2 text-sm cursor-pointer">
+                  Checkout
+                </div>
+              }
+
+            </li>
+          ))}
+        </ul>
       </div>
+      {isOpencheckout && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-5 rounded-md">
+            <div onClick={() => {
+              setselectedPres(null)
+              setIsOpencheckout(false)
+            }} className="flex justify-end cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+            </div>
+            <ProfileCheckOutForm prescription={selectedPres} />
+
+          </div>
+        </div>
+      )}
       <Footer />
     </div>
   );
