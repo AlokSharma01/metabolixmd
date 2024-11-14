@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AdminLayout from '../layout';
 import AdminNavBar from '@/components/admin modules/Header';
 import Pagination from '@/components/admin modules/Pagination';
-import { getMethod } from '@/services/API/ApiMethod';
+import { getMethod, putMethod } from '@/services/API/ApiMethod';
 import { useRouter } from 'next/router';
 
 const OrdersList = () => {
@@ -66,14 +66,26 @@ const OrdersList = () => {
     setIsStatusPopupOpen(true);
   };
 
-  const confirmStatusChange = () => {
+  const confirmStatusChange = async () => {
     if (newStatus) {
       // Call the function to update status here
       console.log(`Changing status of order ${selectedOrder._id} to ${newStatus}`);
-      setIsStatusPopupOpen(false);
+
+      let payload = {
+        "_id": selectedOrder._id,
+        "status": newStatus
+      }
+
+      const res = await putMethod("/order/updateorder", payload);
+      if (res?.data) {
+        setSelectedOrder(null)
+        setIsStatusPopupOpen(false);
+        getOrderData(status, page, usersPerPage);
+      }
+
     }
   };
- 
+
   return (
     <AdminLayout>
       <div>
@@ -226,7 +238,7 @@ const OrdersList = () => {
               </select>
               <div className="flex justify-end gap-4">
                 <button
-                  onClick={() => {setIsStatusPopupOpen(false) }}
+                  onClick={() => { setIsStatusPopupOpen(false) }}
                   className="bg-gray-300 px-4 py-2 rounded-md"
                 >
                   Close
