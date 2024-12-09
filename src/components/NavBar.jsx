@@ -76,7 +76,7 @@ const NavBar = () => {
                   {user?.email[0]}
                 </span>
                 {
-                  user.name ?
+                  user?.name ?
                     user.name
                     :
                     user?.email.split('@')[0]

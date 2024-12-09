@@ -3,8 +3,9 @@
 import React, { useState } from 'react'
 import { ClipLoader } from 'react-spinners'
 
-const BeforeWrapUp = ({ onSubmit, loading }) => {
+const BeforeWrapUp = ({ onNext }) => {
     const [activeTab, setActiveTab] = useState("")
+    
 
     const handleTab = (e) => {
         setActiveTab(e.currentTarget.id)
@@ -30,11 +31,11 @@ const BeforeWrapUp = ({ onSubmit, loading }) => {
                     type="button"
                     className={`mt-6 hover:bg-primary/90  p-3 text-white w-full py-3text-white font-semibold rounded-full bg-primary hover:bg-primary`}
 
-                    onClick={onSubmit}
-                    disabled={loading}
+                    onClick={()=>onNext({},"uploadProfile")}
+
                 >
 
-                    {loading ? <ClipLoader size={24} color="white" /> : "Continue"}
+                   Continue
                 </button>
             </div>
         </div>

@@ -19,12 +19,16 @@ import LabTestForm from './froms/LabTestForm';
 import BeforeWrapUp from './froms/BeforeWrapUp';
 import CheckOutForm from './froms/CheckOutForm';
 import SuccessPropt from './froms/SuccessPropt';
-import { patchMethod } from '@/services/API/ApiMethod';
+import { patchMethod, patchWithFileMethod } from '@/services/API/ApiMethod';
+import LicensedProvider from './froms/LicensedProvider';
+import UploadProfile from './froms/UploadProfile';
+import { toast } from 'react-toastify';
 
 const MultiStepForm = () => {
   const [activeForm, setActiveForm] = useState("prescriptionQuestion");
   const [isClient, setIsClient] = useState(false);
   const [loading, setLoading] = useState(false)
+  const [img, setImg] = useState("")
   const [formData, setFormData] = useState({
     accomplish_with_body_program: "",
     height: { feet: 0, inch: 0 },
@@ -78,11 +82,21 @@ const MultiStepForm = () => {
       detail: formData
     }
     setLoading(true)
-    const res = await patchMethod("/users/updateDetails", payload)
+    console.log(payload)
+    const formData2 = new FormData();
+    formData2.append("profilePic", img);
+   
+   try{
+    const res1 = await patchMethod("/users/updateDetails", payload)
+    const res = await patchWithFileMethod("/users/updateDetails", formData2)
     setLoading(false)
-    if (res) {
+    if (res && res1) {
       handleNextForm("checkout", {})
     }
+   }
+   catch(err){
+    toast(err.message)
+   }
 
   };
 
@@ -108,7 +122,10 @@ const MultiStepForm = () => {
     "anyMedication",
     "ethnicity",
     "labTest",
-    "beforeWrapUp"
+    "beforeWrapUp",
+    "uploadProfile",
+    "licesedProvider",
+    "checkout"
   ];
   const currentStep = formOrder.indexOf(activeForm) + 1;
   const totalSteps = formOrder.length;
@@ -188,7 +205,13 @@ const MultiStepForm = () => {
         <LabTestForm onNext={(data, next) => handleNextForm(next, data)} />
       )}
       {activeForm === "beforeWrapUp" && (
-        <BeforeWrapUp onSubmit={handleSubmit} loading={loading} onNext={(data, next) => handleNextForm(next, data)} />
+        <BeforeWrapUp onNext={(data, next) => handleNextForm(next, data)} />
+      )}
+      {activeForm === "uploadProfile" && (
+        <UploadProfile onSubmit={handleSubmit} img={img} setImg={setImg} loading={loading} onNext={(data, next) => handleNextForm(next, data)}/>
+      )}
+      {activeForm === "licesedProvider" && (
+        <LicensedProvider onNext={(data, next) => handleNextForm(next, data)} />
       )}
       {activeForm === "checkout" && (
         <CheckOutForm userdata={formData} onNext={(data, next) => handleNextForm(next, data)} />
@@ -206,6 +229,7 @@ const MultiStepForm = () => {
       {activeForm === "stopProcess" && (
         <SuccessPropt type="4" />
       )}
+
     </div>
   );
 };

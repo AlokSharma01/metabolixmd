@@ -50,7 +50,7 @@ const CheckOutForm = ({ onNext }) => {
         };
 
         const payload = {
-            orderItems: [{ product: "670c155fda7d6e34119c8e8e", quantity: 1 }],
+            orderItems: [],
             deliveryAddress
         };
 
@@ -58,8 +58,11 @@ const CheckOutForm = ({ onNext }) => {
             setLoading(true);
             let res = await postMethod("/order", payload);
             setLoading(false);
-            if (res) window.open(res?.data?.url);
+            // if (res) window.open(res?.data?.url);
             toast.success(res.message);
+            if(res){
+                onNext({},"success2")
+            }
         } catch (err) {
             toast.error(err.message);
         }
@@ -151,10 +154,10 @@ const CheckOutForm = ({ onNext }) => {
                             <label>Postal Code</label>
                             <input
                                 placeholder="462038"
-                                {...register('postalCode', { required: true, pattern: /^[0-9]{6}$/ })}
+                                {...register('postalCode', { required: true})}
                                 className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             />
-                            {errors.postalCode && <p className="text-red-500 text-xs">Postal code must be 6 digits</p>}
+                            {errors.postalCode && <p className="text-red-500 text-xs">enter a valid postal code</p>}
                         </div>
                     </div>
 

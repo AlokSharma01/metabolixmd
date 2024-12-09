@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from "react";
 import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
-import { getMethod } from "@/services/API/ApiMethod";
+import { getMethod, postMethod } from "@/services/API/ApiMethod";
 import { toast } from "react-toastify";
 import { getUser, setUser } from "@/services/Auth/cookies";
 import useFirebaseAuth from "@/services/Auth/useFirebaseAuth";
 import { useRouter } from "next/router";
 import ProfileCheckOutForm from "@/components/profilecheckout";
+import Link from "next/link";
+import { ClipLoader } from "react-spinners";
 
 const ProfileDetails = () => {
   const [userOrders, setUserOrders] = useState([]);
   const [userPres, setUserPres] = useState([])
   const [selectedPres, setselectedPres] = useState(null)
   const [isOpencheckout, setIsOpencheckout] = useState(false)
+  const [isclient, setisclient] = useState(false)
+  const [loading, setLoading] = useState(false)
   let user = getUser()
   const router = useRouter()
   const { logOut } = useFirebaseAuth()
@@ -20,7 +24,6 @@ const ProfileDetails = () => {
   const getOrderDetails = async () => {
     try {
       const res = await getMethod("/order/user");
-      console.log(res)
       if (res) {
         setUserOrders(res.data);
       }
@@ -48,8 +51,28 @@ const ProfileDetails = () => {
   useEffect(() => {
     getOrderDetails();
     getPresDetails()
+    setisclient(true)
 
   }, []);
+
+  const onSubmit = async (id) => {
+
+
+    try {
+      setLoading(true);
+      let res = await postMethod("/order/checkout/" + id);
+      setLoading(false);
+      if (res?.data?.url) window.open(res?.data?.url);
+      toast.success(res.message);
+    } catch (err) {
+      toast.error(err.message);
+    }
+  };
+
+
+  if (!isclient) {
+    return <></>
+  }
 
   return (
     <div className="flex flex-col min-h-screen mt-20">
@@ -79,22 +102,55 @@ const ProfileDetails = () => {
 
         <h3 className="text-xl font-semibold mb-2">Order Details</h3>
         <ul className="space-y-2">
-          {userOrders.map((order) => (
+          {userOrders.toReversed().map((order) => (
             <li key={order._id} className="p-4 bg-gray-100 rounded-lg">
               <div className="mb-2">
                 <p className="font-semibold">Order ID: {order._id}</p>
                 <p className="font-semibold text-gray-600">
                   Status:{" "}
                   <span
-                    className={` capitalize ${order.status === "placed"
+                    className={` capitalize ${order.status === "placed" || order.status === "scheduleMeet"
                       ? "text-green-500"
                       : "text-yellow-500"
                       }`}
                   >
-                    {order.status}
+                    {order.status === "scheduleMeet" ? "Meet Scheduled" : order.status}
+
                   </span>
+
                 </p>
               </div>
+              {order?.meetLink &&
+                <div className="border rounded-xl p-2 w-fit">
+                  <Link href={order?.meetLink} target='_blank' className='text-blue-600 font-semibold'>Join</Link>
+                  <p className='text-xs'>Sch. Date: {new Date(order?.meetTime).toLocaleString()}</p>
+                </div>
+              }
+              {
+                order?.orderItems.length > 0 &&
+                <div className="border rounded-xl p-2 ">
+                  {
+                    order?.orderItems?.[0]?.productImage &&
+                    <div style={{ backgroundImage: `url(${order?.orderItems?.[0].productImage})` }} className="bg-cover bg-center bg-no-repeat h-[100px] w-[100px] rounded-lg">
+
+                    </div>
+                  }
+                  <div className="flex flex-wrap items-center justify-between gap-3 mt-2">
+                    <p className='text-primary font-bold'>{order?.orderItems?.[0].productName}</p>
+                    <p className='text-zinc-500 font-bold'>${order?.orderItems?.[0].totalPrice}</p>
+                  </div>
+                  <div onClick={() => {
+                    onSubmit(order._id)
+                  }} className="bg-primary min-w-[150px] text-center w-fit text-white rounded-full px-5 py-2 text-sm cursor-pointer mt-2">
+                    {
+                      loading ?
+                        <ClipLoader size={12} color="white" />
+                        :
+                        "Checkout"
+                    }
+                  </div>
+                </div>
+              }
               <div className="text-gray-600">
                 <p>
                   <span className="font-semibold">Address:</span> {order?.deliveryAddress?.street},{" "}

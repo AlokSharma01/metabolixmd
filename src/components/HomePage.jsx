@@ -20,11 +20,11 @@ const WeightLossMedication = () => {
 
             <section className='flex flex-col-reverse lg:flex-row   min-h-[600px] gap-10 sm:border-b'>
                 <div className='flex-1 flex text-center md:text-start flex-col justify-center    px-2 md:px-10'>
-                    <h1 className='text-3xl     font-medium text-wrap'>
+                    <h1 className='text-4xl    font-medium text-wrap'>
                         {/* Get Access to prescription<br />
                         <b className='text-orange-500 text-wrap'>Weight Loss </b>
                         Medication Online */}
-                        Unlock Your Weight Loss Potential with
+                        Unlock your metabolic health and <br/> weight loss potential with 
                     </h1>
                     <img src="/images/orange-metabolix.png" className='max-w-[150px] md:max-w-[170px] mx-auto md:mx-0 mt-2' />
                     <p className='mt-3 text-sm  text-zinc-500'>

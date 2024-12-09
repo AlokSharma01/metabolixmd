@@ -21,8 +21,8 @@ module.exports = {
       },
       gridTemplateColumns: {
         userTable: "180px 250px 160px 100px ",
-        orderTable: "190px 200px 150px 110px 30px 200px",
-        presTable: "190px 200px 150px 110px 60px 100px",
+        orderTable: "190px 200px 150px 130px 30px 200px 100px 100px",
+        presTable: "190px 200px 150px 130px 60px 100px 100px 100px",
       }
     },
   },
