@@ -71,10 +71,13 @@ const MultiStepForm = () => {
       "anyMedication",
       "ethnicity",
       "labTest",
-      "beforeWrapUp"
+      "beforeWrapUp",
+      "uploadProfile",
+      "licesedProvider",
+      "checkout"
     ];
     const currentIndex = formOrder.indexOf(currentForm);
-    return formOrder[currentIndex + 1] || "beforeWrapUp";
+    return formOrder[currentIndex + 1] || "checkout";
   };
 
   const handleSubmit = async () => {
@@ -91,7 +94,7 @@ const MultiStepForm = () => {
     const res = await patchWithFileMethod("/users/updateDetails", formData2)
     setLoading(false)
     if (res && res1) {
-      handleNextForm("checkout", {})
+      handleNextForm("licesedProvider", {})
     }
    }
    catch(err){
@@ -229,7 +232,7 @@ const MultiStepForm = () => {
       {activeForm === "stopProcess" && (
         <SuccessPropt type="4" />
       )}
-
+      
     </div>
   );
 };
