@@ -40,7 +40,7 @@ const UploadProfile = ({ onSubmit, loading,img, setImg }) => {
                     <input disabled={loading} type="file" accept="image/*" ref={fileInputRef} onChange={(e) => handleFile(e)} hidden />
                 </div>
                 <p className=' mt-5 '>
-                    Kindly provide your clear picture to meet telehealth guiedlines and ensure secure identity verification at MetabolixMD.
+                    Kindly provide your clear picture to meet telehealth guidelines and ensure secure identity verification at MetabolixMD.
                 </p>
 
                 {/* <div onClick={handleTab} id="yes" className={`bg-white cursor-pointer border rounded-xl p-3 text-lg font-semibold mt-3 ${activeTab === "yes" ? "border-primary border-2" : ""}`}>

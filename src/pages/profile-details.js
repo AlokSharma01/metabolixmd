@@ -139,16 +139,20 @@ const ProfileDetails = () => {
                     <p className='text-primary font-bold'>{order?.orderItems?.[0].productName}</p>
                     <p className='text-zinc-500 font-bold'>${order?.orderItems?.[0].totalPrice}</p>
                   </div>
-                  <div onClick={() => {
-                    onSubmit(order._id)
-                  }} className="bg-primary min-w-[150px] text-center w-fit text-white rounded-full px-5 py-2 text-sm cursor-pointer mt-2">
-                    {
-                      loading ?
-                        <ClipLoader size={12} color="white" />
-                        :
-                        "Checkout"
-                    }
-                  </div>
+                  {
+                    order.status === "pending" &&
+
+                    <div onClick={() => {
+                      onSubmit(order._id)
+                    }} className="bg-primary min-w-[150px] text-center w-fit text-white rounded-full px-5 py-2 text-sm cursor-pointer mt-2">
+                      {
+                        loading ?
+                          <ClipLoader size={12} color="white" />
+                          :
+                          "Checkout"
+                      }
+                    </div>
+                  }
                 </div>
               }
               <div className="text-gray-600">
@@ -181,7 +185,7 @@ const ProfileDetails = () => {
                   </span>
                 </p>
               </div>
-              {
+              {/* {
                 order.status === "approved" &&
                 <div onClick={() => {
                   setIsOpencheckout(true)
@@ -189,7 +193,7 @@ const ProfileDetails = () => {
                 }} className="bg-primary w-fit text-white rounded-full px-5 py-2 text-sm cursor-pointer">
                   Checkout
                 </div>
-              }
+              } */}
 
             </li>
           ))}

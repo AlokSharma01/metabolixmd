@@ -40,7 +40,7 @@ const NavBar = () => {
       <div className='p-5 z-50 shadow-lg top-0 left-0 bg-white w-full fixed flex items-center justify-between gap-10'>
         {/* Logo */}
         <Link href="/">
-          <Image src="/images/logo.png" width={200} height={50} alt="Logo" className="w-[150px] md:w-[200px] " />
+          <Image src="/images/logo.png" width={200} height={50} quality={100} alt="Logo" className="w-[150px] md:w-[200px] " />
         </Link>
 
         {/* Hamburger Menu for Mobile */}
