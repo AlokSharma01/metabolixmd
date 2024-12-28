@@ -13,7 +13,6 @@ const AnyDisease2Form = ({onNext}) => {
     "Metabolic syndrome",
     "Obstructive sleep apnea",
     "Osteoarthritis",
-    "Tinea infections (skin folds)",
     "No, I have not been diagnosed with any of these conditions",
   ];
 

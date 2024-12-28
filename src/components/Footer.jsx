@@ -13,8 +13,8 @@ const Footer = () => {
 
                     <div className=" mt-6 mx-2">
                         <div className="flex items-center  gap-2">
-                            <p className="text-white f-500">Follow us</p>
-                            <Link href="https://www.facebook.com">
+                            <p className="text-white f-700"><b>Follow us</b></p>
+                            <Link href="https://www.facebook.com" target='_blank'>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="24"
@@ -43,7 +43,7 @@ const Footer = () => {
                                 </svg>
                             </Link>
 
-                            <Link href="https://www.linkedin.com">
+                            {/* <Link target='_blank' href="https://www.linkedin.com">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="24"
@@ -68,8 +68,8 @@ const Footer = () => {
                                         </clipPath>
                                     </defs>
                                 </svg>
-                            </Link>
-                            <Link href="https://www.instagram.com">
+                            </Link> */}
+                            <Link target='_blank' href="https://www.instagram.com/metabolixmd?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="24"
@@ -106,8 +106,12 @@ const Footer = () => {
                         </div>
                     </div>
                     <p className='mt-1 mx-2 '>
-                        Email: consultant@metabolixmd.com
+                       <b> Email:</b> consultant@metabolixmd.com
                     </p>
+                    <p className='mt-1 mx-2 '>
+                        <b>Address:</b> 988 Topeka Ave, Lubbock, Texas 79424 
+                    </p>
+                    
                     <p className='mt-52 font-medium mx-2'>
                         Powered by MetabolixMD, 2024
                     </p>
