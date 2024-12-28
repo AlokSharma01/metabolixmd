@@ -31,7 +31,7 @@ const GoalSelectionForm = ({ onNext }) => {
     <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto">
       <div className="w-full md:w-[500px]">
         <h2 className="text-2xl  mb-6 text-primary">
-          What do you want to accomplish with the our Body Program?
+          What do you want to accomplish with the our weight loss program?
         </h2>
         <p className="my-5 font-semibold text-zinc-500">I Want to...</p>
         <form>

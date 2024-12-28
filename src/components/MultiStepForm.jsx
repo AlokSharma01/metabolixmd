@@ -70,7 +70,6 @@ const MultiStepForm = () => {
       "glp1",
       "anyMedication",
       "ethnicity",
-      "labTest",
       "beforeWrapUp",
       "uploadProfile",
       "licesedProvider",
@@ -124,7 +123,6 @@ const MultiStepForm = () => {
     "glp1",
     "anyMedication",
     "ethnicity",
-    "labTest",
     "beforeWrapUp",
     "uploadProfile",
     "licesedProvider",
@@ -204,9 +202,9 @@ const MultiStepForm = () => {
       {activeForm === "ethnicity" && (
         <EthnicityForm onNext={(data, next) => handleNextForm(next, data)} />
       )}
-      {activeForm === "labTest" && (
+      {/* {activeForm === "labTest" && (
         <LabTestForm onNext={(data, next) => handleNextForm(next, data)} />
-      )}
+      )} */}
       {activeForm === "beforeWrapUp" && (
         <BeforeWrapUp onNext={(data, next) => handleNextForm(next, data)} />
       )}

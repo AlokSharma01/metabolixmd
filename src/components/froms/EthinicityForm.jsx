@@ -55,13 +55,14 @@ const EthnicityForm = ({onNext}) => {
                 : "bg-primary hover:bg-primary"
             }`}
             disabled={isButtonDisabled}
-            onClick={()=>onNext({describe_yourself:selectedEthnicities},"labTest")}
+            onClick={()=>onNext({describe_yourself:selectedEthnicities},"beforeWrapUp")}
           >
             Next
           </button>
         </form>
       </div>
     </div>
+     
   );
 };
 

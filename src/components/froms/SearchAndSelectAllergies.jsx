@@ -40,15 +40,15 @@ const SearchAndSelectAllergies = ({ onNext }) => {
         <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto">
             <div className="w-full md:w-[500px]">
                 <h2 className="text-2xl  mb-6 text-primary">
-                    Search and select all allergies you have
+                Please list all your drug or food allergies.
                 </h2>
-                <p className="my-5 font-semibold text-zinc-500">
+                {/* <p className="my-5 font-semibold text-zinc-500">
                     Include allergies to prescription or over-the-counter medicine, herbs, vitamins, supplements, food, dyes or anything else.
-                </p>
+                </p> */}
 
-                <div className='text-sm bg-zinc-200 rounded-lg p-3'>
+                {/* <div className='text-sm bg-zinc-200 rounded-lg p-3'>
                     Our Clinicians use this information in determining a safe and effective treatment.
-                </div>
+                </div> */}
                 <input
                     className='p-3 bg-white border outline-none mt-5 rounded-xl w-full'
                     type="search"

@@ -17,7 +17,7 @@
           <p className="mb-4">
             A metabolic lab test will check for underlying health conditions to see if you are a good candidate for GLP-1 treatment.
           </p>
-          <h3 className="text-2xl  mb-6 text-primary">What is covered in the metabolic lab test?</h3>
+          {/* <h3 className="text-2xl  mb-6 text-primary">What is covered in the metabolic lab test?</h3> */}
           <ul className="list-disc ml-5 mb-4">
             <li>A lipid profile and A1c, thyroid, and kidney function testing</li>
             <li>Detection for conditions such as high cholesterol, prediabetes, hypothyroidism</li>

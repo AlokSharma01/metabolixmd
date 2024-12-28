@@ -28,7 +28,7 @@ const GastrointestinalCondtions = () => {
     <div className="max-w-fit mx-auto">
       <div className="w-full md:w-[500px]">
         <h2 className="text-2xl font-semibold mb-6">
-          Do you currently have, or have you ever been diagnosed with, any of these gastrointestinal conditions or procedures?
+          Do you currently have, or have you ever been diagnosed with any of these gastrointestinal conditions or procedures?
         </h2>
         <p className="my-5 font-semibold text-zinc-500">Select all that apply</p>
         <form>

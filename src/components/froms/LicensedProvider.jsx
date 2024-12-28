@@ -7,8 +7,8 @@ const LicensedProvider = ({onNext}) => {
 
                 <h1 className='text-primary font-semibold text-3xl'>Thank you for reaching out to us.</h1>
                 <p className='mt-5 text-lg font-normal'>
-                    You&apos;re in good hands <br />
-                    Before you&apos;re prescribed, a licensed provider will assess your health history to ensure your medication kit is a good fit for you.
+                    You are in good hands <br />
+                    A licensed provider will assess your health history and will reach out to you with your weight loss treatment plan.
                 </p>
               <div className='flex flex-wrap mt-5 justify-between gap-3'>
                 <div style={{backgroundImage:`url(/images/dr1.png)`}} className='w-[150px] h-[150px] bg-cover bg-center bg-no-repeat bg-orange-400  rounded-lg overflow-hidden'></div>

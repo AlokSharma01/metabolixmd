@@ -121,7 +121,7 @@ const nextYear = currentYear + 1;
                     Semaglutide, Tirzepatide
                   </span>
                   <br />
-                  Certain meds are available for pickup/delivery within 1-2 days if prescribed.
+                  If prescribed, medications will be delivered directly to you within a week.
                 </p>
 
                 <button

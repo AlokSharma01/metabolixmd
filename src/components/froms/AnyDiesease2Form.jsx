@@ -55,7 +55,7 @@ const AnyDisease2Form = ({onNext}) => {
     <div className="w-full p-5 md:p-0 md:max-w-fit mx-auto">
       <div className="w-full md:w-[500px]">
         <h2 className="text-2xl  mb-6 text-primary">
-          Do you currently have, or have you ever been diagnosed with, any of these additional following conditions?
+          Do you currently have, or have you ever been diagnosed with any of these additional following conditions?
         </h2>
         <p className="my-5 font-semibold text-zinc-500">Select all that apply</p>
         <form>
