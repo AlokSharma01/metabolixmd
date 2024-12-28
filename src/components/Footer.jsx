@@ -109,7 +109,7 @@ const Footer = () => {
                        <b> Email:</b> consultant@metabolixmd.com
                     </p>
                     <p className='mt-1 mx-2 '>
-                        <b>Address:</b> 988 Topeka Ave, Lubbock, Texas 79424 
+                        <b>Address:</b> 9808 Topeka Ave, Lubbock, Texas 79424 
                     </p>
                     
                     <p className='mt-52 font-medium mx-2'>
