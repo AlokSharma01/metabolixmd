@@ -185,7 +185,9 @@ const WeightLossMedication = () => {
                         pounds?
                     </h2>
                     <p className='mt-10 max-w-48 text-lg pl-5'>
-                        We have received your information and our team is reviewing it. We will get back to you shortly with the next steps.
+                        We&apos;ve got you covered!
+                        Lose weight
+                        with <b className='text-orange-400'>GLP-1s</b>.
                     </p>
 
                     <div className='flex items-center mt-20'>
