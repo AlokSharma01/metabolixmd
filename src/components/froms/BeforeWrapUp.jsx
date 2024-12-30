@@ -3,7 +3,7 @@ import { ClipLoader } from 'react-spinners';
 import { toast } from 'react-toastify';
 
 const BeforeWrapUp = ({ onNext }) => {
-    const [activeTab, setActiveTab] = useState('');
+    const [activeTab, setActiveTab] = useState('no');
     const [text, setText] = useState('');
 
     const handleTab = (e) => {
