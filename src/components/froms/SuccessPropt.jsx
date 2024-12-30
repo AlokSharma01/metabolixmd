@@ -75,7 +75,7 @@ const SuccessPropt = ({ type }) => {
                     }
                     <p className='mt-5 text-lg font-normal'>
 
-                        We have received your submission, and our team is reviewing it. We’ll get back to you shortly with the next steps.
+                        We have received your submission, and our team is reviewing it. We will get back to you shortly with the next steps.
 
                     </p>
                     <p className='mt-5 text-lg font-normal'>

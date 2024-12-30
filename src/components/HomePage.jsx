@@ -249,7 +249,7 @@ const WeightLossMedication = () => {
                 <div className='w-[320px]'>
                     <h4 className='text-primary text-2xl font-bold'>Access to licensed providers</h4>
                     <p className='mt-2'>
-                        Ongoing care comes from an experienced Care and vetted providers specializing in weight loss—at no extra cost.
+                        Ongoing care comes from an experienced care and vetted providers specializing in weight loss—at no extra cost.
                     </p>
                 </div>
                 <div className='w-[320px]'>
