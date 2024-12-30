@@ -12,7 +12,7 @@ const BeforeWrapUp = ({ onNext }) => {
     };
 
     const handleContinue = () => {
-        if (activeTab === 'no' && text.trim() === '') {
+        if (activeTab === 'yes' && text.trim() === '') {
             toast('Please add details before continuing.');
             return;
         }
@@ -48,12 +48,12 @@ const BeforeWrapUp = ({ onNext }) => {
                 >
                     No
                 </div>
-                {activeTab === 'no' && (
+                {activeTab === 'yes' && (
                     <textarea
                         value={text}
                         onChange={(e) => setText(e.target.value)}
                         className="w-full mt-3 p-3 border rounded-lg resize-none"
-                        placeholder="Add your details here..."
+                        placeholder=""
                     />
                 )}
                 <button
