@@ -53,7 +53,7 @@ const FaqList = () => {
     },
     {
       question: "Can I use GLP-1 or GLP-1/GIP agonists if I don’t have diabetes?",
-      answer: "These medications can be prescribed off-label for weight loss in people without diabetes, but it’s important to consult a healthcare provider to determine if they are appropriate for you.",
+      answer: "These medications can be prescribed off-label for weight loss in people without diabetes, but it is important to consult a healthcare provider to determine if they are appropriate for you.",
     },
     {
       question: "What are the common side effects of GLP-1 and GLP-1/GIP agonists?",

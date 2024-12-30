@@ -230,7 +230,7 @@ const MultiStepForm = () => {
       {activeForm === "stopProcess" && (
         <SuccessPropt type="4" />
       )}
-      
+     
     </div>
   );
 };

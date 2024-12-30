@@ -185,7 +185,7 @@ const WeightLossMedication = () => {
                         pounds?
                     </h2>
                     <p className='mt-10 max-w-48 text-lg pl-5'>
-                        We&apos;ve got you covered!
+                        We have got you covered!
                         Lose weight
                         with <b className='text-orange-400'>GLP-1s</b>.
                     </p>
@@ -249,7 +249,7 @@ const WeightLossMedication = () => {
                 <div className='w-[320px]'>
                     <h4 className='text-primary text-2xl font-bold'>Access to licensed providers</h4>
                     <p className='mt-2'>
-                        Ongoing care comes from an experienced Care team and vetted providers specializing in weight loss—at no extra cost.
+                        Ongoing care comes from an experienced Care and vetted providers specializing in weight loss—at no extra cost.
                     </p>
                 </div>
                 <div className='w-[320px]'>

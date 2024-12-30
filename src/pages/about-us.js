@@ -113,7 +113,7 @@ const expertDetails = [
                     Dr. Raj’s unique combination of personal experience, medical expertise, and enthusiasm for fitness makes him an invaluable asset to the MetabolixMD team. He understands firsthand the physical and emotional challenges of weight management, which allows him to offer empathetic, personalized care to his patients. Dr. Raj is committed to empowering individuals to overcome obstacles, reach their goals, and embrace healthier, more fulfilling lives.
                 </p>
                 <p className='mt-3'>
-                    In his free time, Dr. Raj enjoys cooking Indian cuisine, exploring new flavors, and sharing meals with family and friends. When he isn’t in the kitchen, you’ll often find him on the golf course, practicing his swing, or simply enjoying the outdoors. His well-rounded lifestyle reflects the same balance he strives to help his patients achieve—health, happiness, and personal fulfillment.
+                    In his free time, Dr. Raj enjoys cooking Indian cuisine, exploring new flavors, and sharing meals with family and friends. When he isn’t in the kitchen, you will often find him on the golf course, practicing his swing, or simply enjoying the outdoors. His well-rounded lifestyle reflects the same balance he strives to help his patients achieve—health, happiness, and personal fulfillment.
                 </p>
             </div>
         )
