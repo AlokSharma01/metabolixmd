@@ -25,7 +25,7 @@ import UploadProfile from './froms/UploadProfile';
 import { toast } from 'react-toastify';
 
 const MultiStepForm = () => {
-  const [activeForm, setActiveForm] = useState("prescriptionQuestion");
+  const [activeForm, setActiveForm] = useState("goalSelection");
   const [isClient, setIsClient] = useState(false);
   const [loading, setLoading] = useState(false)
   const [img, setImg] = useState("")
@@ -55,7 +55,7 @@ const MultiStepForm = () => {
 
   const getNextFormKey = (currentForm) => {
     const formOrder = [
-      "prescriptionQuestion",
+      // "prescriptionQuestion",
       "goalSelection",
       "userInfo",
       "weightCalculation",
@@ -108,7 +108,7 @@ const MultiStepForm = () => {
 
   // Calculate progress as a percentage
   const formOrder = [
-    "prescriptionQuestion",
+    // "prescriptionQuestion",
     "goalSelection",
     "userInfo",
     "weightCalculation",
@@ -154,9 +154,9 @@ const MultiStepForm = () => {
         </div>
       }
 
-      {activeForm === "prescriptionQuestion" && (
+      {/* {activeForm === "prescriptionQuestion" && (
         <PrescriptionQuestion onNext={(data, next) => handleNextForm(next, data)} />
-      )}
+      )} */}
       {activeForm === "uploadPrescription" && (
         <PrescriptionUpload onNext={(data, next) => handleNextForm(next, data)} />
       )}

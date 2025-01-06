@@ -229,7 +229,13 @@ const OrdersList = () => {
                       {
                         order?.meetLink ?
                           <div >
-                            <Link href={order?.meetLink} target='_blank' className='text-blue-600 font-semibold'>Join</Link>
+                            <Link
+                              href={order?.meetLink.startsWith('http') ? order.meetLink : `https://${order.meetLink}`}
+                              target='_blank'
+                              className='text-blue-600 font-semibold'
+                            >
+                              Join
+                            </Link>
                             <p className='text-xs'>Sch. Date: {new Date(order?.meetTime).toLocaleString()}</p>
                           </div>
                           :
@@ -237,9 +243,9 @@ const OrdersList = () => {
                             Schedule
                           </div>
                       }
-                      
+
                       {
-                        order?.orderItems.length>0 ?
+                        order?.orderItems.length > 0 ?
                           <div >
                             <p className='text-xs'>{order?.orderItems?.[0].productName}</p>
                           </div>
