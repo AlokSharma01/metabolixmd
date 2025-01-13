@@ -102,7 +102,11 @@ const ProfileDetails = () => {
 
         <h3 className="text-xl font-semibold mb-2">Order Details</h3>
         <ul className="space-y-2">
-          {userOrders.toReversed().map((order) => (
+          {
+            userOrders?.length<=0 &&
+            <p className="text-zinc-400">No Order History</p>
+          }
+          {userOrders?.toReversed()?.map((order) => (
             <li key={order._id} className="p-4 bg-gray-100 rounded-lg">
               <div className="mb-2">
                 <p className="font-semibold">Order ID: {order._id}</p>
@@ -165,9 +169,9 @@ const ProfileDetails = () => {
             </li>
           ))}
         </ul>
-        <h3 className="text-xl font-semibold mb-2 mt-5">Prescriptions Details</h3>
+        {/* <h3 className="text-xl font-semibold mb-2 mt-5">Prescriptions Details</h3>
         <ul className="space-y-2">
-          {userPres.map((order) => (
+          {userPres?.map((order) => (
             <li key={order._id} className="p-4 bg-gray-100 rounded-lg">
               <div className="mb-2">
                 <p className="font-semibold">Order ID: {order._id}</p>
@@ -185,19 +189,11 @@ const ProfileDetails = () => {
                   </span>
                 </p>
               </div>
-              {/* {
-                order.status === "approved" &&
-                <div onClick={() => {
-                  setIsOpencheckout(true)
-                  setselectedPres(order)
-                }} className="bg-primary w-fit text-white rounded-full px-5 py-2 text-sm cursor-pointer">
-                  Checkout
-                </div>
-              } */}
+              
 
             </li>
           ))}
-        </ul>
+        </ul> */}
       </div>
       {isOpencheckout && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">

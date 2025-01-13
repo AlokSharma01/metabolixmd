@@ -10,9 +10,28 @@ import Footer from './Footer'
 
 
 import ScrollProgressBar from './ProgressBar'
+import { getMethod } from '@/services/API/ApiMethod'
+import { toast } from 'react-toastify'
 
 const WeightLossMedication = () => {
     let token = getAuthToken()
+    const [userOrders, setUserOrders] = useState([]);
+
+    const getOrderDetails = async () => {
+        try {
+            const res = await getMethod("/order/user");
+            if (res) {
+                setUserOrders(res.data);
+            }
+        } catch (e) {
+            toast.error(e.message);
+        }
+    };
+
+    useEffect(() => {
+        getOrderDetails();
+    }, []);
+
 
     return (
         <div className='font-tt-hoves mt-20' >
@@ -34,10 +53,17 @@ const WeightLossMedication = () => {
                     </p><p className='mt-3 text-sm  text-zinc-500'>Schedule a consultation and see if you qualify for our program.
                         We partner only with top-notch 503A and 503B pharmacies to ensure seamless delivery of our premium compounded medicines, directly to your door.</p>
                     {
-                        token ?
-                            <Link href="/get-started" className='bg-primary hidden hover:bg-primary/90   h-[40px] md:h-fit w-fit mx-auto md:mx-0 md:flex items-center justify-center p-4 px-10 md:w-[300px] text-white  text-lg rounded-full mt-6'>
-                                GET STARTED
-                            </Link>
+                        (token) ?
+                            (
+                                userOrders.length > 0 ?
+                                    <Link href="/profile-details" className='bg-primary hidden hover:bg-primary/90   h-[40px] md:h-fit w-fit mx-auto md:mx-0 md:flex items-center justify-center p-4 px-10 md:w-[300px] text-white  text-lg rounded-full mt-6'>
+                                        GET STARTED
+                                    </Link>
+                                    :
+                                    <Link href="/get-started" className='bg-primary hidden hover:bg-primary/90   h-[40px] md:h-fit w-fit mx-auto md:mx-0 md:flex items-center justify-center p-4 px-10 md:w-[300px] text-white  text-lg rounded-full mt-6'>
+                                        GET STARTED
+                                    </Link>
+                            )
                             :
                             <Link href="/login" className='bg-primary hidden hover:bg-primary/90   h-[40px] md:h-fit w-fit mx-auto md:mx-0 md:flex items-center justify-center p-4 px-10 md:w-[300px] text-white  text-lg rounded-full mt-6'>
                                 GET STARTED
@@ -66,9 +92,25 @@ const WeightLossMedication = () => {
                         for personalized care.
                     </h2>
                     <div className='flex-1 flex justify-center md:justify-end mb-5'>
-                        <Link href="/get-started" className='bg-primary hover:bg-primary/90   flex items-center justify-center p-4 px-20 md:px-8 max-h-[80px] w-fit md:w-[300px] md:h-[100px]  text-sm md:text-lg  text-white  ms:text-lg rounded-xl mt-6 '>
-                            Get Started
-                        </Link>
+
+                        {
+                            (token) ?
+                                (
+                                    userOrders.length > 0 ?
+                                        <Link href="/profile-details" className='bg-primary hover:bg-primary/90   flex items-center justify-center p-4 px-20 md:px-8 max-h-[80px] w-fit md:w-[300px] md:h-[100px]  text-sm md:text-lg  text-white  ms:text-lg rounded-xl mt-6 '>
+                                            GET STARTED
+                                        </Link>
+                                        :
+                                        <Link href="/get-started" className='bg-primary hover:bg-primary/90   flex items-center justify-center p-4 px-20 md:px-8 max-h-[80px] w-fit md:w-[300px] md:h-[100px]  text-sm md:text-lg  text-white  ms:text-lg rounded-xl mt-6 '>
+                                            GET STARTED
+                                        </Link>
+                                )
+                                :
+                                <Link href="/login" className='bg-primary hover:bg-primary/90   flex items-center justify-center p-4 px-20 md:px-8 max-h-[80px] w-fit md:w-[300px] md:h-[100px]  text-sm md:text-lg  text-white  ms:text-lg rounded-xl mt-6 '>
+                                    GET STARTED
+                                </Link>
+                        }
+
                     </div>
                 </div>
                 <div className='mt-5 flex gap-10  overflow-x-scroll'>
@@ -92,9 +134,24 @@ const WeightLossMedication = () => {
                                     <div></div>
                                     <div className='flex items-center bg-brown-400 gap-5  drop-shadow-2xl backdrop-filter bg-clip-padding backdrop-blur-md bg-opacity-100 px-5 py-3  rounded-3xl '>
                                         <p className='text-sm md:text-lg text-white '>See If <b className='text-primary'>GLP-1s</b> are right for you </p>
-                                        <Link href="/get-started" className='bg-white rounded-full size-12 min-w-12 md:size-14 md:min-w-14 flex items-center justify-center'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
-                                        </Link>
+
+                                        {
+                                            (token) ?
+                                                (
+                                                    userOrders.length > 0 ?
+                                                        <Link href="/profile-details" className='bg-white rounded-full size-12 min-w-12 md:size-14 md:min-w-14 flex items-center justify-center'>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                                                        </Link>
+                                                        :
+                                                        <Link href="/get-started" className='bg-white rounded-full size-12 min-w-12 md:size-14 md:min-w-14 flex items-center justify-center'>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                                                        </Link>
+                                                )
+                                                :
+                                                <Link href="/login" className='bg-white rounded-full size-12 min-w-12 md:size-14 md:min-w-14 flex items-center justify-center'>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                                                </Link>
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -125,9 +182,23 @@ const WeightLossMedication = () => {
                                     <div></div>
                                     <div className='flex items-center bg-brown-400 gap-5  drop-shadow-2xl backdrop-filter bg-clip-padding backdrop-blur-md bg-opacity-100 px-5 py-3  rounded-3xl '>
                                         <p className='text-sm md:text-lg text-white '>See If <b className='text-primary'>GLP-1s</b> are right for you </p>
-                                        <Link href="/get-started" className='bg-white rounded-full size-12 min-w-12 md:size-14 md:min-w-14 flex items-center justify-center'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
-                                        </Link>
+                                        {
+                                            (token) ?
+                                                (
+                                                    userOrders.length > 0 ?
+                                                        <Link href="/profile-details" className='bg-white rounded-full size-12 min-w-12 md:size-14 md:min-w-14 flex items-center justify-center'>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                                                        </Link>
+                                                        :
+                                                        <Link href="/get-started" className='bg-white rounded-full size-12 min-w-12 md:size-14 md:min-w-14 flex items-center justify-center'>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                                                        </Link>
+                                                )
+                                                :
+                                                <Link href="/login" className='bg-white rounded-full size-12 min-w-12 md:size-14 md:min-w-14 flex items-center justify-center'>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                                                </Link>
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -158,9 +229,23 @@ const WeightLossMedication = () => {
                                     <div></div>
                                     <div className='flex items-center bg-brown-400 gap-5  drop-shadow-2xl backdrop-filter bg-clip-padding backdrop-blur-md bg-opacity-100 px-5 py-3  rounded-3xl '>
                                         <p className='text-sm md:text-lg text-white '>See If <b className='text-primary'>GLP-1s</b> are right for you </p>
-                                        <Link href="/get-started" className='bg-white rounded-full size-12 min-w-12 md:size-14 md:min-w-14 flex items-center justify-center'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
-                                        </Link>
+                                        {
+                                            (token) ?
+                                                (
+                                                    userOrders.length > 0 ?
+                                                        <Link href="/profile-details" className='bg-white rounded-full size-12 min-w-12 md:size-14 md:min-w-14 flex items-center justify-center'>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                                                        </Link>
+                                                        :
+                                                        <Link href="/get-started" className='bg-white rounded-full size-12 min-w-12 md:size-14 md:min-w-14 flex items-center justify-center'>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                                                        </Link>
+                                                )
+                                                :
+                                                <Link href="/login" className='bg-white rounded-full size-12 min-w-12 md:size-14 md:min-w-14 flex items-center justify-center'>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#365d56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                                                </Link>
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -176,7 +261,12 @@ const WeightLossMedication = () => {
                 <p className='mt-5 text-zinc-400'>
                     Semaglutide and Tirzepatide facilitate significant weight loss by reducing appetite and slowing gastric emptying. These medications also reduce the risk of cardiovascular events, such as heart attacks and strokes. With a low risk of hypoglycemia, they act primarily in response to elevated blood sugar levels. Additionally, they may help reduce liver fat and improve liver function, offering potential benefits.
                 </p>
-
+                <p className='mt-3 text-zinc-400'>
+                    We partner with Casa Pharma RX and Grand Ave Pharmacy, Both Casa Pharma and GAP are legitscript certified 503-a facilities.
+                </p>
+                <p className='mt-3 text-zinc-400'>
+                    We use Grand Ave pharmacy for Texas and Casa pharma Rx for other states.
+                </p>
             </section>
             <section style={{ backgroundImage: "url(/images/20.png)" }} className='h-screen   bg-clip-padding backdrop-blur-md  flex flex-col justify-center   mt-10 bg-cover bg-no-repeat bg-center bg-opacity-50 '>
                 <div className='md:mx-20  '>
@@ -221,9 +311,24 @@ const WeightLossMedication = () => {
                     <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-center md:text-start mt-10'>
                         Frequently asked questions
                     </h2>
-                    <Link href="/get-started" className='bg-primary hover:bg-primary/90  mx-auto md:mx-0 flex items-center justify-center md:justify-start p-4 px-20 max-h-[80px] w-fit text-sm md:text-base  text-white  ms:text-lg rounded-xl mt-6 '>
-                        Get Started
-                    </Link>
+                    {
+                        (token) ?
+                            (
+                                userOrders.length > 0 ?
+                                    <Link href="/profile-details" className='bg-primary hover:bg-primary/90  mx-auto md:mx-0 flex items-center justify-center md:justify-start p-4 px-20 max-h-[80px] w-fit text-sm md:text-base  text-white  ms:text-lg rounded-xl mt-6 '>
+                                        GET STARTED
+                                    </Link>
+                                    :
+                                    <Link href="/get-started" className='bg-primary hover:bg-primary/90  mx-auto md:mx-0 flex items-center justify-center md:justify-start p-4 px-20 max-h-[80px] w-fit text-sm md:text-base  text-white  ms:text-lg rounded-xl mt-6'>
+                                        GET STARTED
+                                    </Link>
+                            )
+                            :
+                            <Link href="/login" className='bg-primary hover:bg-primary/90  mx-auto md:mx-0 flex items-center justify-center md:justify-start p-4 px-20 max-h-[80px] w-fit text-sm md:text-base  text-white  ms:text-lg rounded-xl mt-6 '>
+                                GET STARTED
+                            </Link>
+                    }
+
                 </div>
                 <div className='flex-1 mt-5 md mx-3'>
                     <FaqList />

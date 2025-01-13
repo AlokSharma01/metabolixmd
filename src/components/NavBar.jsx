@@ -58,6 +58,7 @@ const NavBar = () => {
           <Link href="/" className={`cursor-pointer    tracking-widest   text-sm hover:font-bold uppercase ${router.pathname == "/" ? "font-bold text-primary text-lg" : ''}`}>Home</Link>
           <Link href="about-us" className={`cursor-pointer text-sm tracking-widest   hover:font-bold uppercase ${router.pathname == "/about-us" ? "font-bold text-primary text-lg" : ''}`}>About</Link>
           <Link href="#bottom-footer" className={`cursor-pointer text-sm tracking-widest   hover:font-bold uppercase `}>Contact Us</Link>
+          <Link href="/privacy-policy" className={`cursor-pointer text-sm tracking-widest   hover:font-bold uppercase `}>Privacy Policy</Link>
           {
             user?.__t =="Admin" && <Link href="/admin/users" className={`cursor-pointer text-sm tracking-widest hidden lg:block   hover:font-bold uppercase `}>Admin</Link>
           }
