@@ -261,12 +261,7 @@ const WeightLossMedication = () => {
                 <p className='mt-5 text-zinc-400'>
                     Semaglutide and Tirzepatide facilitate significant weight loss by reducing appetite and slowing gastric emptying. These medications also reduce the risk of cardiovascular events, such as heart attacks and strokes. With a low risk of hypoglycemia, they act primarily in response to elevated blood sugar levels. Additionally, they may help reduce liver fat and improve liver function, offering potential benefits.
                 </p>
-                <p className='mt-3 text-zinc-400'>
-                    We partner with Casa Pharma RX and Grand Ave Pharmacy, Both Casa Pharma and GAP are legitscript certified 503-a facilities.
-                </p>
-                <p className='mt-3 text-zinc-400'>
-                    We use Grand Ave pharmacy for Texas and Casa pharma Rx for other states.
-                </p>
+                
             </section>
             <section style={{ backgroundImage: "url(/images/20.png)" }} className='h-screen   bg-clip-padding backdrop-blur-md  flex flex-col justify-center   mt-10 bg-cover bg-no-repeat bg-center bg-opacity-50 '>
                 <div className='md:mx-20  '>
