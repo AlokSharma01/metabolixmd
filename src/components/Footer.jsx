@@ -7,7 +7,7 @@ const Footer = () => {
         <div className='mt-auto' >
             <FloatingButton />
             <section id="bottom-footer" className=' bg-black p-5 py-20 flex items-center '>
-                <div className='flex w-full items-center gap-10'>
+                <div className='flex w-full flex-col   gap-10'>
                     <div className=' text-white'>
                         <img src="/images/logo-white.png" className='w-96' />
 
@@ -120,13 +120,19 @@ const Footer = () => {
                             </Link>
                         </p>
                         <p className='mt-1 mx-2 '>
+                            <Link href="/refund-policy" className='  font-semibold'>
+                               Refund Policy
+                            </Link>
+                        </p>
+                        <p className='mt-1 mx-2 '>
                             <b> Email:</b> consultant@metabolixmd.com
                         </p>
 
-                        <p className="text-sm text-gray-500">&copy; {new Date().getFullYear()} MetabolixMD. All rights reserved.</p>
+                       
                     </div>
-
+                    <p className="text-sm text-gray-500 mt-auto">&copy; {new Date().getFullYear()} MetabolixMD. All rights reserved.</p>
                 </div>
+                
             </section>
         </div>
     )
