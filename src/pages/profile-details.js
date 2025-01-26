@@ -20,6 +20,7 @@ const ProfileDetails = () => {
   let user = getUser()
   const router = useRouter()
   const { logOut } = useFirebaseAuth()
+  const loggedinUserDetail =getUser()
 
   const getOrderDetails = async () => {
     try {
@@ -68,7 +69,17 @@ const ProfileDetails = () => {
       toast.error(err.message);
     }
   };
+  
+  
+  
 
+  useEffect(() => {
+      if (!loggedinUserDetail) {
+        router.push("/login")
+      }
+    
+  }, [])
+  
 
   if (!isclient) {
     return <></>

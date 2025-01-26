@@ -10,10 +10,10 @@ const Footer = () => {
                 <div className='flex w-full items-center gap-10'>
                     <div className=' text-white'>
                         <img src="/images/logo-white.png" className='w-96' />
-                        
+
                         <div className="mt-6 mx-2">
-                        
-                           
+
+
 
                             <div className="flex  items-center  gap-2">
 
@@ -107,23 +107,23 @@ const Footer = () => {
                                         </defs>
                                     </svg>
                                 </Link>
+                                <Link className='bg-white rounded-full w-6 h-6 text-2xl flex items-center justify-center  text-black' target='_blank' href="https://x.com/metabolixmd?s=11">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                                </Link>
 
-<p className='mx-5'>||</p>
-                                <Link href="/privacy-policy"  className='  font-semibold'>
-                                Privacy Policy
-                            </Link>
+
                             </div>
                         </div>
                         <p className='mt-1 mx-2 '>
-                            <b> Email:</b> consultant@metabolixmd.com
+                            <Link href="/privacy-policy" className='  font-semibold'>
+                                Privacy Policy
+                            </Link>
                         </p>
                         <p className='mt-1 mx-2 '>
-                            <b>Address:</b> 9808 Topeka Ave, Lubbock, Texas 79424
+                            <b> Email:</b> consultant@metabolixmd.com
                         </p>
-                        
-                        <p className='mt-52 font-medium mx-2'>
-                            Powered by MetabolixMD, 2024
-                        </p>
+
+                        <p className="text-sm text-gray-500">&copy; {new Date().getFullYear()} MetabolixMD. All rights reserved.</p>
                     </div>
 
                 </div>
