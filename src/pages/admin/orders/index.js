@@ -220,11 +220,15 @@ const OrdersList = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 6h10" /><path d="M6 12h9" /><path d="M11 18h7" /></svg>
                       </span>
 
-                      <div className='break-words text-xs'>
-                        {order?.deliveryAddress?.street},{" "}
-                        {order?.deliveryAddress?.city}, {order?.deliveryAddress?.state},{" "}
-                        {order?.deliveryAddress?.country}, {order?.deliveryAddress?.postalCode}
+                      <div className="break-words text-xs">
+                        {order?.deliveryAddress?.address && `${order.deliveryAddress.address}, `}
+                        {order?.deliveryAddress?.street && `${order.deliveryAddress.street}, `}
+                        {order?.deliveryAddress?.city && `${order.deliveryAddress.city}, `}
+                        {order?.deliveryAddress?.state && `${order.deliveryAddress.state}, `}
+                        {order?.deliveryAddress?.country && `${order.deliveryAddress.country}, `}
+                        {order?.deliveryAddress?.postalCode && order.deliveryAddress.postalCode}
                       </div>
+
 
                       {
                         order?.meetLink ?

@@ -70,14 +70,16 @@ const ProfileCheckOutForm = ({ prescription }) => {
             <div className="w-full md:w-[500px]">
                 <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
                     <h1 className='text-2xl mb-6 text-primary'>Please fill out your shipping details</h1>
-                    
+
                     <div>
                         <label>Address</label>
                         <PlacesAutocomplete
                             value={address}
-                            onChange={setAddress}
+                            onChange={(value) => {
+                                setAddress(value);
+                                setValue('address', value); // Update the form value when typing
+                            }}
                             onSelect={handleSelect}
-                            // searchOptions={{ componentRestrictions: { country: "usa" } }}
                         >
                             {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                                 <div className="relative">
@@ -85,7 +87,8 @@ const ProfileCheckOutForm = ({ prescription }) => {
                                         {...getInputProps({
                                             placeholder: 'Enter your address',
                                             className: 'shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
-                                            name: 'address'
+                                            name: 'address',
+                                            onBlur: () => setValue('address', address), // Update the form value on blur
                                         })}
                                     />
                                     <div className={`bg-white z-10 rounded-lg ${suggestions.length > 0 && "border-2 border-zinc-300"} absolute`}>
@@ -103,6 +106,7 @@ const ProfileCheckOutForm = ({ prescription }) => {
                                 </div>
                             )}
                         </PlacesAutocomplete>
+
                         {errors.address && <p className="text-red-500 text-xs">Address is required</p>}
                     </div>
 
