@@ -106,7 +106,7 @@ const ProfileCheckOutForm = ({ prescription }) => {
                         {errors.address && <p className="text-red-500 text-xs">Address is required</p>}
                     </div>
 
-                    {/* <div>
+                    <div>
                         <label>Street</label>
                         <input
                             placeholder="Street"
@@ -114,7 +114,7 @@ const ProfileCheckOutForm = ({ prescription }) => {
                             className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         />
                         {errors.street && <p className="text-red-500 text-xs">Street is required</p>}
-                    </div> */}
+                    </div>
 
                     <div className="flex gap-2">
                         <div>

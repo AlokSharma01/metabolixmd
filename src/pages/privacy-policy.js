@@ -107,7 +107,7 @@ const PrivacyPolicy = () => {
                     <address className="not-italic">
                         <strong>Customer Support:</strong><br />
                         📧 Email: consultant@metabolixmd.com<br />
-                        📞 Phone: +1-800-555-1234<br />
+                        {/* 📞 Phone: +1-800-555-1234<br /> */}
                         📍 Address: 9808 Topeka Ave, Lubbock, Texas 79424<br />
                     </address>
                 </section>

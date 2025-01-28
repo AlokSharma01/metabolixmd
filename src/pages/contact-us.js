@@ -18,7 +18,7 @@ const ContactUs = () => {
                         <li>1-812-5MBLXMD</li>
                         <li>1-518-6MBLXMD</li>
                         <li><strong>Email:</strong> <a href="mailto:consultant@metabolixmd.com" className="text-blue-600 hover:underline">consultant@metabolixmd.com</a></li>
-                        <li><strong>Hours of Operation:</strong> 10 AM to 7 PM EST daily</li>
+                        <li><strong>Hours of Operation:</strong> 10 AM to 7 PM CST daily</li>
                     </ul>
                 </section>
 
